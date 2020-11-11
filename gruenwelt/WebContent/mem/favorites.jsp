@@ -25,7 +25,7 @@
 </div>
 
 <!-- Navbar -->
-<jsp:include page="inc/top.jsp"></jsp:include>
+<jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
 
 <div class="container" style="margin-top:30px">
@@ -55,7 +55,7 @@
     </div>
     <div class="col-sm-8">
   
-        <h2>Meetings</h2>
+        <h2>Saved</h2>
       <h5>Title description, Dec 7, 2017</h5>
   
   <div class="col-md-12">
@@ -339,7 +339,7 @@
   </div>
 </div>
 
-<jsp:include page="inc/bottom.jsp"></jsp:include>
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
 
 </body>
 </html>

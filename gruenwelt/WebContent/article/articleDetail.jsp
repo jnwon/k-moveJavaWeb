@@ -15,6 +15,9 @@
     height: 200px;
     background: #aaa;
   }
+  
+  #writeButton { text-align: right;
+
   </style>
 </head>
 <body>
@@ -25,7 +28,7 @@
 </div>
 
 <!-- Navbar -->
-<jsp:include page="inc/top.jsp"></jsp:include>
+<jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
 
 <div class="container" style="margin-top:30px">
@@ -38,23 +41,27 @@
   <div class="form-group">
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="User info">
+      <input type="text" class="form-control" placeholder="User info" readonly="readonly">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Last name">
+      <input type="text" class="form-control" placeholder="Last name" readonly="readonly">
     </div>
   </div>
   </div>
   
     <div class="form-group">
     <label for="exampleFormControlInput1">Subject</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject">
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" readonly="readonly">
   </div>
   
+      <div class="form-group">
+    <label for="exampleFormControlInput1">attached file</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" readonly="readonly">
+  </div>
  
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Content</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" readonly="readonly"></textarea>
     
   </div>
   
@@ -85,11 +92,45 @@
     <div class="invalid-feedback">Example invalid custom select feedback</div>
   </div>
 -->
-  <div class="custom-file mb-3">
-    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Comments</label>   <button type="button" class="btn btn-secondary btn-sm" style="text-align: right;">comments</button>
+      
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
+
+
+
+<ul class="list-unstyled">
+  <li class="media">
+    <img src="img/comments.png" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+  <br>
+  
+  <li class="media my-4">
+    <img src="img/comments.png" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+  <br>
+  
+  <li class="media">
+    <img src="img/comments.png" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+</ul>
+
+<br>
+
   
 <!--
   <div class="mb-3">
@@ -137,11 +178,15 @@
  
    <div class="form-group row">
     <div class="col-sm-1">
-      <button type="submit" class="btn btn-primary">Register</button>
+      <button type="submit" class="btn btn-primary">Modify</button>
     </div>
     
         <div class="col-sm-1">
-      <button type="submit" class="btn btn-primary">List</button>
+      <button type="submit" class="btn btn-primary"><a href="articleDelete.html">Delete</a></button>
+    </div>
+    
+        <div class="col-sm-1">
+      <button type="submit" class="btn btn-primary"><a href="article.html">List</a></button>
     </div>
     
   </div>
@@ -154,7 +199,7 @@
   </div>
 </div>
 
-<jsp:include page="inc/bottom.jsp"></jsp:include>
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
 
 </body>
 </html>

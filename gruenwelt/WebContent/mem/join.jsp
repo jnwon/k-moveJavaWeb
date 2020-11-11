@@ -25,7 +25,7 @@
 </div>
 
 <!-- Navbar -->
-<jsp:include page="inc/top.jsp"></jsp:include>
+<jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
 
 <div class="container" style="margin-top:30px">
@@ -136,7 +136,7 @@
   </div>
 </div>
 
-<jsp:include page="inc/bottom.jsp"></jsp:include>
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
 
 </body>
 </html>
