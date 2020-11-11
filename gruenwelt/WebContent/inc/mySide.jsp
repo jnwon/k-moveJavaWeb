@@ -1,6 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
+   <!-- account side start -->
+    <div class="col-sm-4">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg"><a href="../mem/myhome.jsp">Fake Image</a></div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <h3>Some Links</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <ul class="nav nav-pills flex-column">
+ <li class="nav-item">
+          <a class="nav-link active" href="../mem/myAccount.jsp">My Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../mem/favorites.jsp">Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../mem/meetup.jsp">Meetups</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../mem/contact.jsp">Contact</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>   
+    <!-- account side end -->
+    

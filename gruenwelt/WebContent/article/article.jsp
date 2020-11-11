@@ -32,7 +32,7 @@
       <h5>Title description, Dec 7, 2017      
       </h5>
 
-<section id="writeButton"> <a href="articleForm.html"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
+<section id="writeButton"> <a href="articleForm.jsp"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
 
     
 		<table class="table">
@@ -48,7 +48,7 @@
 		  
 		    <tr>
 		      <th scope="row">1</th>
-		      <td><a href="articleDetail.html">Mark</a></td>
+		      <td><a href="articleDetail.jsp">Mark</a></td>
 		      <td>Otto</td>
 		      <td>@mdo</td>
 		    </tr>

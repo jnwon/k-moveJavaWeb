@@ -3,14 +3,14 @@
   
  
 <div class="jumbotron text-center" style="margin-bottom:0">
-   <h1><a href="index.html">Umwelt</a></h1>
+   <h1><a href="../main/index.jsp">Umwelt</a></h1>
   <p>Herzlich willkommen zu unsere Website!</p> 
 </div> 
     
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-light navbar-white">
     <div class="container">
-      <a href="index.html" class="navbar-brand">
+      <a href="../main/index.jsp" class="navbar-brand">
         <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
@@ -21,20 +21,20 @@
         </li>
 
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="article.html" class="nav-link">Article</a>
+          <a href="../article/article.jsp" class="nav-link">Article</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="community.html" class="nav-link">Community</a>
+          <a href="../event/community.jsp" class="nav-link">Community</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Help
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="faq.html">FAQ</a>
-            <a class="dropdown-item" href="support.html">Support</a>
+            <a class="dropdown-item" href="../admin/faq.jsp">FAQ</a>
+            <a class="dropdown-item" href="../admin/support.jsp">Support</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="contact.html">Contact</a>
+            <a class="dropdown-item" href="../mem/contact.jsp">Contact</a>
           </div>
         </li>
       </ul>
@@ -53,7 +53,7 @@
       <ul class="navbar-nav ml-auto">
       <!-- Login and Logout -->
             
-          <a class="nav-link" href="login.html">login</a> | <a class="nav-link" href="join.html">join</a>
+          <a class="nav-link" href="../mem/login.jsp">login</a> | <a class="nav-link" href="../mem/join.jsp">join</a>
 
         <!-- Messages Dropdown Menu -->
  		<li class="nav-item dropdown">
@@ -115,26 +115,26 @@
         </li>
         <!-- Notifications Dropdown Menu -->
  		<li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="myhome.html">My Info
+          <a class="nav-link" data-toggle="dropdown" href="../mem/myhome.jsp">My Info
             <i class="far fa-bell"></i>
             <span class="badge badge-warning navbar-badge">15</span> 
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header">Setting</span>
             <div class="dropdown-divider"></div>
-            <a href="myAccount.html" class="dropdown-item">
+            <a href="../mem/myAccount.jsp" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> Account
             </a>
             <div class="dropdown-divider"></div>
-            <a href="favorites.html" class="dropdown-item">
+            <a href="../mem/favorites.jsp" class="dropdown-item">
               <i class="fas fa-users mr-2"></i> Saved
             </a>
             <div class="dropdown-divider"></div>
-            <a href="meetup.html" class="dropdown-item">
+            <a href="../mem/meetup.jsp" class="dropdown-item">
               <i class="fas fa-file mr-2"></i> My activities
             </a>
             <div class="dropdown-divider"></div>
-            <a href="contact.html" class="dropdown-item dropdown-footer">My Q&A</a>
+            <a href="../mem/contact.jsp" class="dropdown-item dropdown-footer">My Q&A</a>
           </div>
         </li>
         <li class="nav-item">

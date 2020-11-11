@@ -117,7 +117,7 @@
 
 <ul class="list-unstyled">
   <li class="media">
-    <img src="img/comments.png" class="mr-3" alt="...">
+    <img src="../img/comments.png" class="mr-3" alt="...">
     <div class="media-body">
       <h5 class="mt-0 mb-1">List-based media object</h5>
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -126,7 +126,7 @@
   <br>
   
   <li class="media my-4">
-    <img src="img/comments.png" class="mr-3" alt="...">
+    <img src="../img/comments.png" class="mr-3" alt="...">
     <div class="media-body">
       <h5 class="mt-0 mb-1">List-based media object</h5>
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -135,7 +135,7 @@
   <br>
   
   <li class="media">
-    <img src="img/comments.png" class="mr-3" alt="...">
+    <img src="../img/comments.png" class="mr-3" alt="...">
     <div class="media-body">
       <h5 class="mt-0 mb-1">List-based media object</h5>
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -198,11 +198,11 @@
     </div>
     
         <div class="col-sm-1">
-      <button type="submit" class="btn btn-primary"><a href="articleDelete.html">Delete</a></button>
+      <button type="submit" class="btn btn-primary"><a href="articleDelete.jsp">Delete</a></button>
     </div>
     
         <div class="col-sm-1">
-      <button type="submit" class="btn btn-primary"><a href="article.html">List</a></button>
+      <button type="submit" class="btn btn-primary"><a href="article.jsp">List</a></button>
     </div>
     
   </div>
