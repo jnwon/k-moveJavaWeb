@@ -136,9 +136,7 @@
   </div>
 </div>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
+<jsp:include page="inc/bottom.jsp"></jsp:include>
 
 </body>
 </html>
