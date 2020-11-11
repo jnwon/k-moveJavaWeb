@@ -14,7 +14,7 @@
   .fakeimg { 
     height: 200px;
     background: #aaa;
-  }
+  } 
 @media screen and (min-width: 45em), print and (min-width: 45em)
 .row>.col {
     float: left;
