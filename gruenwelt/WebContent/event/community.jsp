@@ -28,6 +28,9 @@
     <div class="col-sm-12">
       <h2>COMMUNITIES</h2>
       <h5>Title description, Dec 7, 2017</h5>
+      
+      <section id="writeButton"> <a href="eventForm.jsp"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
+      
 <table class="table">
   <thead>
     <tr>
@@ -40,7 +43,7 @@
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
+      <td><a href="eventDetail.jsp">Mark</a></td>
       <td>Otto</td>
       <td>@mdo</td>
     </tr>
