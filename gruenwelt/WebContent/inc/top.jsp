@@ -3,14 +3,14 @@
   
  
 <div class="jumbotron text-center" style="margin-bottom:0">
-   <h1><a href="../main/index.jsp">Umwelt</a></h1>
+   <h1><a href="../main/main.jsp">Umwelt</a></h1>
   <p>Herzlich willkommen zu unsere Website!</p> 
 </div> 
     
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-light navbar-white">
     <div class="container">
-      <a href="../main/index.jsp" class="navbar-brand">
+      <a href="../main/main.jsp" class="navbar-brand">
         <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
