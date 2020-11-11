@@ -15,14 +15,10 @@
     height: 200px;
     background: #aaa;
   }
+  
   </style>
 </head>
 <body>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-   <h1><a href="index.html">Umwelt</a></h1>
-  <p>Herzlich willkommen zu unsere Website!</p> 
-</div>
 
 <!-- Navbar -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
@@ -38,10 +34,21 @@
   <div class="form-group">
   <div class="row">
     <div class="col">
+      <input type="text" class="form-control" placeholder="name of publishing company">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="date">
+    </div>
+  </div>
+  </div>
+  
+    <div class="form-group">
+  <div class="row">
+    <div class="col">
       <input type="text" class="form-control" placeholder="User info">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Last name">
+      <input type="text" class="form-control" placeholder="thumbnail">
     </div>
   </div>
   </div>
@@ -85,11 +92,12 @@
     <div class="invalid-feedback">Example invalid custom select feedback</div>
   </div>
 -->
-  <div class="custom-file mb-3">
-    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">Link</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="link">
   </div>
+  
   
 <!--
   <div class="mb-3">

@@ -22,11 +22,6 @@
 </head>
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-   <h1><a href="index.html">Umwelt</a></h1>
-  <p>Herzlich willkommen zu unsere Website!</p> 
-</div>
-
 <!-- Navbar -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
@@ -37,25 +32,34 @@
       <h2>ARTICLES</h2>
       <h5>Title description, Dec 7, 2017</h5>
 
+<!-- boardForm start   -->
 <form>
+
   <div class="form-group">
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="User info" readonly="readonly">
+      <input type="text" class="form-control" placeholder="name of publishing company" readonly="readonly">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Last name" readonly="readonly">
+      <input type="text" class="form-control" placeholder="date" readonly="readonly">
     </div>
   </div>
   </div>
   
     <div class="form-group">
-    <label for="exampleFormControlInput1">Subject</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" readonly="readonly">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="User info" readonly="readonly">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="thumbnail" readonly="readonly">
+    </div>
+  </div>
   </div>
   
-      <div class="form-group">
-    <label for="exampleFormControlInput1">attached file</label>
+  
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Subject</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" readonly="readonly">
   </div>
  
@@ -93,11 +97,21 @@
   </div>
 -->
 
+
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">Link</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="link" readonly="readonly">
+  </div>
+<!-- boardForm end -->
+  
+<!-- comments start -->
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Comments</label>   <button type="button" class="btn btn-secondary btn-sm" style="text-align: right;">comments</button>
-      
+    <label for="exampleFormControlTextarea1">Comments</label>   
+    <button type="button" class="btn btn-secondary btn-sm" style="text-align: right;">comments</button>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
+
 
 
 
@@ -130,7 +144,7 @@
 </ul>
 
 <br>
-
+ <!-- comments end -->
   
 <!--
   <div class="mb-3">
@@ -175,7 +189,9 @@
     Example invalid input group feedback
   </div>
  -->
+
  
+ <!-- buttons -->
    <div class="form-group row">
     <div class="col-sm-1">
       <button type="submit" class="btn btn-primary">Modify</button>
@@ -192,7 +208,6 @@
   </div>
   
 </form>
-
 
 
     </div>

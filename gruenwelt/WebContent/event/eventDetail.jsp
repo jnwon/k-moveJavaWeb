@@ -15,6 +15,7 @@
     height: 200px;
     background: #aaa;
   }
+  
   </style>
 </head>
 <body>
@@ -26,14 +27,25 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-      <h2>ARTICLES</h2>
+      <h2>EVENT</h2>
       <h5>Title description, Dec 7, 2017</h5>
 
 <form>
-  <div class="form-group">
+    <div class="form-group">
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="name of publishing company" readonly="readonly">
+      <input type="text" class="form-control" placeholder="User info" readonly="readonly">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="hits number" readonly="readonly">
+    </div>
+  </div>
+  </div>
+  
+    <div class="form-group">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="max mem countt & current joined mem" readonly="readonly">
     </div>
     <div class="col">
       <input type="text" class="form-control" placeholder="date" readonly="readonly">
@@ -41,26 +53,26 @@
   </div>
   </div>
   
-    <div class="form-group">
+      <div class="form-group">
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="User info" readonly="readonly">
+      <input type="text" class="form-control" placeholder="Opne to public or not" readonly="readonly">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="thumbnail" readonly="readonly">
+      <input type="text" class="form-control" placeholder="password" readonly="readonly">
     </div>
   </div>
   </div>
   
     <div class="form-group">
     <label for="exampleFormControlInput1">Subject</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject">
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" readonly="readonly">
   </div>
   
  
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Content</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" readonly="readonly"></textarea>
     
   </div>
   
@@ -91,12 +103,66 @@
     <div class="invalid-feedback">Example invalid custom select feedback</div>
   </div>
 -->
-<div class="form-group">
-    <label for="exampleFormControlInput1">Link</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="link">
+  
+  <div class="custom-file mb-3">
+    <input type="file" class="custom-file-input" id="validatedCustomFile" required readonly="readonly">
+    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
   </div>
   
   
+      <div class="form-group">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Meeting date" readonly="readonly">
+    </div>
+    <div class="col">
+      <input type="button" class="form-control" value="❤" readonly="readonly">
+    </div>
+  </div>
+  </div>
+  
+<!-- comments start -->
+  
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Comments</label>   
+    <button type="button" class="btn btn-secondary btn-sm" style="text-align: right;">comments</button>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+
+
+<ul class="list-unstyled">
+  <li class="media">
+    <img src="../img/comments.png" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+  <br>
+  
+  <li class="media my-4">
+    <img src="../img/comments.png" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+  <br>
+  
+  <li class="media">
+    <img src="../img/comments.png" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+</ul>
+
+<br>
+ <!-- comments end -->
 <!--
   <div class="mb-3">
     <div class="input-group is-invalid">

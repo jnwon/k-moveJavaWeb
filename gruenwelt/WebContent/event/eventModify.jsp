@@ -15,6 +15,7 @@
     height: 200px;
     background: #aaa;
   }
+  
   </style>
 </head>
 <body>
@@ -26,17 +27,17 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-      <h2>ARTICLES</h2>
+      <h2>EVENT</h2>
       <h5>Title description, Dec 7, 2017</h5>
 
 <form>
-  <div class="form-group">
+    <div class="form-group">
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="name of publishing company" readonly="readonly">
+      <input type="text" class="form-control" placeholder="User info" readonly="readonly">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="date" readonly="readonly">
+      <input type="text" class="form-control" placeholder="hits number" readonly="readonly">
     </div>
   </div>
   </div>
@@ -44,10 +45,21 @@
     <div class="form-group">
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="User info" readonly="readonly">
+      <input type="text" class="form-control" placeholder="max mem countt & current joined mem">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="thumbnail" readonly="readonly">
+      <input type="text" class="form-control" placeholder="date" readonly="readonly">
+    </div>
+  </div>
+  </div>
+  
+      <div class="form-group">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Opne to public or not">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="password">
     </div>
   </div>
   </div>
@@ -91,11 +103,25 @@
     <div class="invalid-feedback">Example invalid custom select feedback</div>
   </div>
 -->
-<div class="form-group">
-    <label for="exampleFormControlInput1">Link</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="link">
+
+  
+      <div class="form-group">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Meeting date">
+    </div>
+    <div class="col">
+      <input type="button" class="form-control" value="❤" readonly="readonly">
+    </div>
+  </div>
   </div>
   
+  
+  <div class="custom-file mb-3">
+    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
+  </div>
   
 <!--
   <div class="mb-3">

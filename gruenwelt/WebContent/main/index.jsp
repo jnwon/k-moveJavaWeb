@@ -54,11 +54,6 @@ float: left;
 </head>
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-   <h1><a href="index.html">Umwelt</a></h1>
-  <p>Herzlich willkommen zu unsere Website!</p> 
-</div>
-
 <!-- Navbar -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
