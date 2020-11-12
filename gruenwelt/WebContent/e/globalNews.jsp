@@ -40,8 +40,8 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-		<p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+  
+</div><br>
+        <section id="writeButton"> <a href="../article/article.jsp"><button type="submit" class="btn btn-primary">more...</button></a> </section><br>
 
 <!-- emilia end -->

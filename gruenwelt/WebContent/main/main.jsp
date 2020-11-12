@@ -15,18 +15,24 @@
     height: 200px;
     background: #aaa;
   }
+  
+/* 기사 나란히 정렬 */
 @media screen and (min-width: 45em), print and (min-width: 45em)
 .row>.col {
     float: left;
 }
+
+/* 기사 나란히 정렬 */
 @media screen and (min-width: 45em), print and (min-width: 45em)
 .cols-3.row>.col {
     width: 33.33334%;
 }
 
+/* 기사 정렬부분 */
 .col {
     padding: 0 1em;
 }
+/* 기사 정렬부분 */
 .article3 {
     padding-left: 3ch;
     width: 275px;
@@ -36,19 +42,21 @@ float: left;
 }
 
 
-
+/* 페이지 크기다를때 정렬바뀌는부 */
 @media screen and (min-width: 40em), print and (min-width: 40em)
 .cols-3>.col:first-child {
     width: 100%;
 }
 
-
+/* 페이지 크기다를때 정렬바뀌는부 */
 @media screen and (min-width: 40em), print and (min-width: 40em)
 .cols-3>.col {
     float: left;
     width: 50%;
 }
 
+/* 버튼 오른쪽정렬 */
+  #writeButton { text-align: right; }
 
   </style>
 </head>
@@ -59,23 +67,20 @@ float: left;
   <!-- /.navbar -->
 
 <!-- global news [emilia] start -->
-
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-      <h2>INTERNATIONAL</h2>
+      <h2>INTERNATIONAL ENVIRONMENT NEWS</h2>
 		<jsp:include page="../e/globalNews.jsp"></jsp:include>
 <br>
 <!-- global news [emilia] end -->
 
 <!-- 광고3개시작 -->
-
 		<!-- eea [Finn] start -->
 		<div class="row row-b cols-3">          
 		<div class="col">      
 			<div class="panel-pane pane-epa-core-html-pane">
 				<jsp:include page="../f/eea.jsp"></jsp:include>
-
 			</div>
      	 </div>              
 		<!-- eea [Finn] end -->
@@ -93,7 +98,6 @@ float: left;
 			<div class="col">      
 				<div class="panel-pane pane-epa-core-html-pane">
 					<jsp:include page="../b/unep.jsp"></jsp:include>
-
 				</div>
 				</div>          
 			</div>
@@ -154,13 +158,12 @@ float: left;
 <br>
 </div>
 <!-- 이벤트끝 -->
-<!-- 맵시작 -->
 
+<!-- 맵시작 -->
 <div class="last col-sm-6">
 	<!-- korea climate map [stefan] start -->
 	<jsp:include page="../s/koreaClimateMap.jsp"></jsp:include>
 	<!-- korea climate map [stefan] end -->
-
  </div>
  
     </div>
