@@ -109,7 +109,7 @@ float: left;
 		<div class="col">      
 			<div class="panel-pane pane-epa-core-html-pane">
 			  <div class="pane-content">
-			    <h2>Individuals and<br> Families</h2>
+			    <h2>European Environment <br> Agency</h2>
 				<div class="figure image mode-full" style="width:275px"><a href="/radon/radon-resources-individuals-and-families"><span class="figure image file file-image file-image-jpeg view-mode-full" style="width:275px;"><img alt="Radon Resources for Individuals and Families" height="150" width="275" class="media-element file-full" src="../img/radon1.jpg"></span></a></div>
 					<ul class="article3">
 						<li><a href="/radon/health-risk-radon">Health Risk of Radon</a></li>
@@ -124,7 +124,7 @@ float: left;
 	      <div class="col">      
 			<div class="panel-pane pane-epa-core-html-pane">
 			  <div class="pane-content">
-			    <h2>Home Buyers and Sellers</h2>
+			    <h2>US Environmental <br> Protection Agency</h2>
 				<div class="figure image mode-full" style="width:280px"><a href="/radon/radon-resources-home-buyers-and-sellers"><img alt="Radon Resources for Home Buyers and Sellers" src="../img/radon2.jpg?itok=c2yuBYsm"></a></div>
 					<ul class="article3">
 						<li><a href="/radon/how-protect-your-family-radon-when-buying-newly-built-home">Radon Protection: Buying a Home</a></li>
@@ -139,7 +139,7 @@ float: left;
 			<div class="col">      
 				<div class="panel-pane pane-epa-core-html-pane">
 				  <div class="pane-content">
-				    <h2>Builders and Contractors</h2>
+				    <h2>UN environment <br> programme</h2>
 					<div class="figure image mode-full" style="width:275px"><a href="/radon/radon-resources-builders-and-contractors"><span class="figure image file file-image file-image-jpeg view-mode-full" style="width:280px;"><img alt="Radon Resources for Builders and Contractors" title="Radon - Builders and Contractors" height="153" width="280" class="media-element file-full" src="../img/rodon3.jpg"></span></a></div>
 						<ul class="article3">
 							<li><a href="/radon/radon-resistant-construction-basics-and-techniques">Radon-Resistant Construction Basics and Techniques</a></li>

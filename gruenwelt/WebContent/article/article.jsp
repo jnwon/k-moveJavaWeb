@@ -35,7 +35,7 @@
 <section id="writeButton"> <a href="articleForm.jsp"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
 
     
-		<table class="table">
+		<table class="table" >
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
