@@ -58,100 +58,46 @@ float: left;
 <jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
 
+<!-- global news [emilia] start -->
+
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
       <h2>INTERNATIONAL</h2>
-		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../img/fakeimage.png" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../img/fakeimage.png" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../img/fakeimage.png" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-		<p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+		<jsp:include page="../e/globalNews.jsp"></jsp:include>
 <br>
+<!-- global news [emilia] end -->
 
 <!-- 광고3개시작 -->
+
+		<!-- eea [Finn] start -->
 		<div class="row row-b cols-3">          
 		<div class="col">      
 			<div class="panel-pane pane-epa-core-html-pane">
-			  <div class="pane-content">
-			    <h2>European Environment <br> Agency</h2>
-				<div class="figure image mode-full" style="width:275px"><a href="/radon/radon-resources-individuals-and-families"><span class="figure image file file-image file-image-jpeg view-mode-full" style="width:275px;"><img alt="Radon Resources for Individuals and Families" height="150" width="275" class="media-element file-full" src="../img/radon1.jpg"></span></a></div>
-					<ul class="article3">
-						<li><a href="/radon/health-risk-radon">Health Risk of Radon</a></li>
-						<li><a href="/radon/citizens-guide-radon-guide-protecting-yourself-and-your-family-radon">Citizen's Guide to Radon</a></li>
-						<li><a href="/radon/find-radon-test-kit-or-measurement-and-mitigation-professional">Find a Radon Test Kit or Measurement and Mitigation Professional</a></li>
-						<li><a href="https://archive.epa.gov/water/archive/web/html/index-9.html">Radon in Drinking Water</a></li>
-					</ul>  
-				</div>
+				<jsp:include page="../f/eea.jsp"></jsp:include>
+
 			</div>
      	 </div>              
+		<!-- eea [Finn] end -->
 
+		<!-- usepa [Dambi] start -->
 	      <div class="col">      
 			<div class="panel-pane pane-epa-core-html-pane">
-			  <div class="pane-content">
-			    <h2>US Environmental <br> Protection Agency</h2>
-				<div class="figure image mode-full" style="width:280px"><a href="/radon/radon-resources-home-buyers-and-sellers"><img alt="Radon Resources for Home Buyers and Sellers" src="../img/radon2.jpg?itok=c2yuBYsm"></a></div>
-					<ul class="article3">
-						<li><a href="/radon/how-protect-your-family-radon-when-buying-newly-built-home">Radon Protection: Buying a Home</a></li>
-						<li><a href="/radon/building-new-home-have-you-considered-radon">Radon Protection: Building a Home</a></li>
-						<li><a href="/radon/radon-resistant-new-construction-home-buyers">Radon-Resistant New Construction</a></li>
-						<li><a href="/radon/radon-and-real-estate-resources">Radon and Real Estate Resources</a></li>
-					</ul>  
-				</div>
+				<jsp:include page="../d/usepa.jsp"></jsp:include>
+
 				</div>
 		 	 </div>              
+		<!-- usepa [Dambi] end -->
       
+      	<!-- unep [Benedict] start -->
 			<div class="col">      
 				<div class="panel-pane pane-epa-core-html-pane">
-				  <div class="pane-content">
-				    <h2>UN environment <br> programme</h2>
-					<div class="figure image mode-full" style="width:275px"><a href="/radon/radon-resources-builders-and-contractors"><span class="figure image file file-image file-image-jpeg view-mode-full" style="width:280px;"><img alt="Radon Resources for Builders and Contractors" title="Radon - Builders and Contractors" height="153" width="280" class="media-element file-full" src="../img/rodon3.jpg"></span></a></div>
-						<ul class="article3">
-							<li><a href="/radon/radon-resistant-construction-basics-and-techniques">Radon-Resistant Construction Basics and Techniques</a></li>
-							<li><a href="/radon/builder-and-contractor-resources-radon-resistant-new-construction-rrnc">Resources for Builders and Contractors</a></li>
-							<li><a href="/radon/radon-standards-practice">Radon Standards of Practice</a></li>
-							<li><a href="/radon/radon-standards-practice">Radon Standards of Practice</a></li>
-						</ul>  
-					</div>
+					<jsp:include page="../b/unep.jsp"></jsp:include>
+
 				</div>
 				</div>          
 			</div>
-
+      	<!-- unep [Benedict] end -->
 <!-- 광고3개끝 -->
 
 <!-- 이벤트시작 -->
@@ -211,10 +157,10 @@ float: left;
 <!-- 맵시작 -->
 
 <div class="last col-sm-6">
-<h2>MAP</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class=""><img src="../img/map.png" hight=""></div>
-<br>
+	<!-- korea climate map [stefan] start -->
+	<jsp:include page="../s/koreaClimateMap.jsp"></jsp:include>
+	<!-- korea climate map [stefan] end -->
+
  </div>
  
     </div>
