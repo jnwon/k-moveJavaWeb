@@ -58,6 +58,10 @@ float: left;
 /* 버튼 오른쪽정렬 */
   #writeButton { text-align: right; }
 
+/*footer */
+.text-center {
+    text-align: center!important;
+}
   </style>
 </head>
 <body>
@@ -76,12 +80,13 @@ float: left;
 <!-- global news [emilia] end -->
 
 <!-- 광고3개시작 -->
+	<div>
 		<!-- eea [Finn] start -->
 		<div class="row row-b cols-3">          
-		<div class="col">      
-			<div class="panel-pane pane-epa-core-html-pane">
-				<jsp:include page="../f/eea.jsp"></jsp:include>
-			</div>
+			<div class="col">      
+				<div class="panel-pane pane-epa-core-html-pane">
+					<jsp:include page="../f/eea.jsp"></jsp:include>
+				</div>
      	 </div>              
 		<!-- eea [Finn] end -->
 
@@ -90,8 +95,8 @@ float: left;
 			<div class="panel-pane pane-epa-core-html-pane">
 				<jsp:include page="../d/usepa.jsp"></jsp:include>
 
-				</div>
-		 	 </div>              
+			</div>
+	 	 </div>              
 		<!-- usepa [Dambi] end -->
       
       	<!-- unep [Benedict] start -->
@@ -99,11 +104,12 @@ float: left;
 				<div class="panel-pane pane-epa-core-html-pane">
 					<jsp:include page="../b/unep.jsp"></jsp:include>
 				</div>
-				</div>          
-			</div>
+			</div>          
+		</div>
       	<!-- unep [Benedict] end -->
+	</div>      	
 <!-- 광고3개끝 -->
-
+<br>
 <!-- 이벤트시작 -->
  <div class="last col-sm-6">
       <h2>EVENTS</h2>
@@ -170,7 +176,7 @@ float: left;
   </div>
 </div>
 <!-- 맵끝 -->
-
+<br>
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 
 </body>

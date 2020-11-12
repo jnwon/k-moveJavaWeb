@@ -1,21 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
-<!-- 
+
 <style>
+a {
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
+    background-color: transparent;
+}
+
 #mainPic {
     width: 100%;
     height: 300px;
-    background: url(../img/1.jsp) center no-repeat;
+    background: url(../img/1.jpg) center no-repeat;
     background-size: cover;
     /* margin: 0; */
 }
+
+#mainFont{
+    color: #e9ecef;
+    text-decoration: none;
+    background-color: transparent;
+    
+    }
+    
+
 </style>
--->
+
 
 <div class="jumbotron text-center" style="margin-bottom:0" id="mainPic">
-   <h1><a href="../main/main.jsp">Gruen Welt</a></h1>
-  <p>Herzlich willkommen zu unsere Website!</p> 
+   <h1><a href="../main/main.jsp" id="mainFont">GRUENT WELT</a></h1>
+  <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 
     
 <!-- Navbar -->
@@ -24,7 +39,7 @@
       <a href="../main/main.jsp" class="navbar-brand">
         <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">GRUENTWELT</span>
       </a>
       <!-- Left navbar links -->
       <ul class="navbar-nav">

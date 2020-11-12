@@ -26,7 +26,7 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-      <h2>LOGIN</h2>
+      <h2>JOIN</h2>
       <h5>Title description, Dec 7, 2017</h5>
 
 <form>
