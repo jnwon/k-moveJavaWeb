@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- 
+		Resource 태그 내의 속성 설명
+		name="jdbc/MySQL"   =>  DBCP 설정 시 가져올 이름 지정
+		auth="container"
+		type="javax.sql.DataSource"
+		username="root"     =>  DB 접속 계정
+		password="1234"     =>  DB 접속 패스워드
+		driverClassName="com.mysql.jdbc.Driver"   =>  DB 접속 드라이버
+		factory="org.apache.commons.dbcp2.BasicDataSourceFactory"   
+		    => DataSourceFactory 클래스 위치(Tomcat 에 내장된 dbcp API 파일과 별도로 다운받은 파일은 위치 다름)
+		       (Tomcat 내장 API 의 경우 org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory 지정)
+		url="jdbc:mysql://localhost:3306/jsp_model2"  =>  DB 접속 URL(마지막에 테이블명)
+		maxActive="500"  =>  동시 생성할 Connection 객체 수
+	 -->
+	<Resource
+		name="jdbc/MySQL" 
+		auth="container"
+		type="javax.sql.DataSource"
+		username="root"
+		password="1234"
+		driverClassName="com.mysql.jdbc.Driver"
+		factory="org.apache.commons.dbcp2.BasicDataSourceFactory"
+		url="jdbc:mysql://localhost:3306/pro17"
+		maxActive="500"
+	/>
+</Context>
+
+
+
+
+
