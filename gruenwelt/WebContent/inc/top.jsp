@@ -1,9 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
- 
-<div class="jumbotron text-center" style="margin-bottom:0">
-   <h1><a href="../main/main.jsp">Umwelt</a></h1>
+<!-- 
+<style>
+#mainPic {
+    width: 100%;
+    height: 300px;
+    background: url(../img/1.jsp) center no-repeat;
+    background-size: cover;
+    /* margin: 0; */
+}
+</style>
+-->
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic">
+   <h1><a href="../main/main.jsp">Gruen Welt</a></h1>
   <p>Herzlich willkommen zu unsere Website!</p> 
 </div> 
     
