@@ -4,7 +4,7 @@
     <div class="col-sm-4">
       <h2>About Me</h2>
       <h5>Photo of me:</h5>
-      <div class="fakeimg"><a href="../mem/myhome.jsp">Fake Image</a></div>
+      <div class="fakeimg"><a href="../mem/myhome.jsp"><img alt="" src="../img/user4.jpg" height="200" width="350">Fake Image</a></div>
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
       <h3>Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>

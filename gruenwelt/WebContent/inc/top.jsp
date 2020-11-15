@@ -1,10 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
- 
-<div class="jumbotron text-center" style="margin-bottom:0">
-   <h1><a href="../main/main.jsp">Umwelt</a></h1>
-  <p>Herzlich willkommen zu unsere Website!</p> 
+
+<style>
+a {
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#mainPic {
+    width: 100%;
+    height: 300px;
+    background: url(../img/1.jpg) center no-repeat;
+    background-size: cover;
+    /* margin: 0; */
+}
+
+#mainFont{
+    color: #e9ecef;
+    text-decoration: none;
+    background-color: transparent;
+    
+    }
+    
+
+</style>
+
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic">
+   <h1><a href="../main/main.jsp" id="mainFont">GRUENT WELT</a></h1>
+  <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 
     
 <!-- Navbar -->
@@ -13,7 +39,7 @@
       <a href="../main/main.jsp" class="navbar-brand">
         <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">GRUENTWELT</span>
       </a>
       <!-- Left navbar links -->
       <ul class="navbar-nav">
@@ -65,7 +91,7 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <img src="../img/user1.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Brad Diesel
@@ -81,7 +107,7 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <img src="../img/user8.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     John Pierce
@@ -97,7 +123,7 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <img src="../img/user4.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Nora Silvester
