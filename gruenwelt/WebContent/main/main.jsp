@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Umwalt</title>
+  <title>Gruen Welt</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -58,7 +58,10 @@ float: left;
 
 /* 버튼 오른쪽정렬 */
   #writeButton { text-align: right; }
-
+/*footer */
+.text-center {
+    text-align: center!important;
+}
   </style>
 </head>
 <body>

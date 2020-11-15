@@ -7,7 +7,7 @@
 <script type="text/javascript" language="javascript">
 
 	var rootAddress = "<%=rootAddress%>";
-	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
+	var url = "http://" + rootAddress + "/gruenwelt/EventListForMainController";
  
     $(document).ready(function(){
     	
