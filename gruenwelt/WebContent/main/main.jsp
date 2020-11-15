@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Gruen Welt</title>
+  <title>Umwalt</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -58,10 +59,6 @@ float: left;
 /* 버튼 오른쪽정렬 */
   #writeButton { text-align: right; }
 
-/*footer */
-.text-center {
-    text-align: center!important;
-}
   </style>
 </head>
 <body>
@@ -80,13 +77,12 @@ float: left;
 <!-- global news [emilia] end -->
 
 <!-- 광고3개시작 -->
-	<div>
 		<!-- eea [Finn] start -->
 		<div class="row row-b cols-3">          
-			<div class="col">      
-				<div class="panel-pane pane-epa-core-html-pane">
-					<jsp:include page="../f/eea.jsp"></jsp:include>
-				</div>
+		<div class="col">      
+			<div class="panel-pane pane-epa-core-html-pane">
+				<jsp:include page="../f/eea.jsp"></jsp:include>
+			</div>
      	 </div>              
 		<!-- eea [Finn] end -->
 
@@ -95,8 +91,8 @@ float: left;
 			<div class="panel-pane pane-epa-core-html-pane">
 				<jsp:include page="../d/usepa.jsp"></jsp:include>
 
-			</div>
-	 	 </div>              
+				</div>
+		 	 </div>              
 		<!-- usepa [Dambi] end -->
       
       	<!-- unep [Benedict] start -->
@@ -104,64 +100,14 @@ float: left;
 				<div class="panel-pane pane-epa-core-html-pane">
 					<jsp:include page="../b/unep.jsp"></jsp:include>
 				</div>
-			</div>          
-		</div>
+				</div>          
+			</div>
       	<!-- unep [Benedict] end -->
-	</div>      	
 <!-- 광고3개끝 -->
-<br>
+
 <!-- 이벤트시작 -->
  <div class="last col-sm-6">
-      <h2>EVENTS</h2>
-            <h5>Title description, Dec 7, 2017</h5>
-<div>		
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  			<div class="carousel-inner">
-   				<div class="carousel-item active">
-   					<img src="../img/fakeimage.png" class="d-block w-100" alt="...">
-    			</div>
-
- 			 </div>
-
-		</div>
-</div>
-<br>
-<div>		
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  			<div class="carousel-inner">
-   				<div class="carousel-item active">
-   					<img src="../img/fakeimage.png" class="d-block w-100" alt="...">
-    			</div>
-
- 			 </div>
-
-		</div>
-</div>
-<br>
-<div>		
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  			<div class="carousel-inner">
-   				<div class="carousel-item active">
-   					<img src="../img/fakeimage.png" class="d-block w-100" alt="...">
-    			</div>
-
- 			 </div>
-
-		</div>
-</div>
-<br>
-<div>		
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  			<div class="carousel-inner">
-   				<div class="carousel-item active">
-   					<img src="../img/fakeimage.png" class="d-block w-100" alt="...">
-    			</div>
-
- 			 </div>
-
-		</div>
-</div>
-<br>
+	<jsp:include page="../event/mainPageWerbung.jsp"></jsp:include>      
 </div>
 <!-- 이벤트끝 -->
 
@@ -176,7 +122,7 @@ float: left;
   </div>
 </div>
 <!-- 맵끝 -->
-<br>
+
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 
 </body>
