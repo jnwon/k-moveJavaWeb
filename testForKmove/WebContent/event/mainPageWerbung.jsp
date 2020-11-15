@@ -56,7 +56,7 @@
 				  		html += '<div class="card-body">';
 				  			html += '<div class="row">';
 				  				html += '<div class="col-sm-6">';
-			   						html += '<h4 class="card-title">'+ data[i].title +'</h4>';
+			   						html += '<a href="javascript:void(0)" class="stretched-link"><h4 class="card-title">'+ data[i].title +'</h4></a>';
 			   					html += '</div>';
 			   					html += '<div class="col-sm-3">';
 			   						html += '<p class="card-text">'+ data[i].writer +'</p>';
