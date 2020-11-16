@@ -8,7 +8,7 @@
 <script type="text/javascript" language="javascript">
 
 	var rootAddress = "<%=rootAddress%>";
-	var url = "http://" + rootAddress + "/testForKmove/EEA";
+	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
  
     $(document).ready(function(){
     /*	
@@ -50,12 +50,12 @@ float: left;
 </style>    
   
 <!-- emilia start -->
-<div> <!-- 버튼 나란히 하기 --><!-- style="border: 1px solid #212529;" --> 
+<div class="row"> <!-- 버튼 나란히 하기 --><!-- style="border: 1px solid #212529;" --> 
   <div class="col-sm-11 last">
   	<h2>INTERNATIONAL ENVIRONMENT NEWS</h2>
   </div>
    <div class="col-sm-1 last">
-    <section id="writeButton"> <a href="../article/article.jsp"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
+    <section id="writeButton"><a href="../article/article.jsp"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
   </div>
 </div> <!-- 버튼 나란히 하기 -->
 

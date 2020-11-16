@@ -14,7 +14,7 @@ color: #6c757d;
 		<div class="container">
 			<div class="row row-pb-md">
 				<div class="col-md-4 fh5co-widget body">
-					<h3>A Little About Stamina.</h3>
+					<h3>A Little About Gruentwelt.</h3>
 					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
 					<p><a class="btn btn-primary" href="../mem/join.jsp">Become A Member</a></p>
 				</div>
@@ -54,7 +54,7 @@ color: #6c757d;
 			<div class="row copyright">
 				<div class="col-md-12 text-center body">
 					<p>
-						<small class="block">&copy; 2017 | All Rights Reserved.</small> 
+						<small class="block">&copy; 2020 | All Rights Reserved.</small> 
 						<small class="block">Powered by  siteName.com</small>
 					</p>
 				</div>
