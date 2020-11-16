@@ -163,10 +163,7 @@ a {
             <a href="../mem/contact.jsp" class="dropdown-item dropdown-footer">My Q&A</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-              class="fas fa-th-large"></i></a>
-        </li>
+        
       </ul>
     </div>
   </nav>

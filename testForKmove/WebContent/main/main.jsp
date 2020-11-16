@@ -74,7 +74,6 @@ float: left;
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-      <h2>INTERNATIONAL UMWELT NACHRISCHT</h2>
 		<jsp:include page="../e/globalNews.jsp"></jsp:include>
 <br>
 <!-- global news [emilia] end -->
