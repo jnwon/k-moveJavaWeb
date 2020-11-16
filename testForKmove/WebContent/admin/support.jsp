@@ -15,6 +15,9 @@
     height: 200px;
     background: #aaa;
   }
+  .last {
+float: left;
+}
   </style>
 </head>
 <body>
@@ -26,8 +29,14 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
+    <div> <!-- 버튼 나란히 하기 --><!-- style="border: 1px solid #212529;" --> 
+	  <div class="col-sm-11 last">
       <h2>Q & A</h2>
-      <h5>Title description, Dec 7, 2017</h5>
+      </div>
+	  <div class="col-sm-1 last">
+	  		<section id="writeButton"> <a href="#"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
+	</div>
+	</div> <!-- 버튼 나란히 하기 -->
 <table class="table">
   <thead>
     <tr>

@@ -21,7 +21,7 @@
             success : function(data){
                 console.log(data);
                           
-                var length = data.length > 4 ? 4 : data.length;
+                var length = data.length > 3 ? 3 : data.length;
                 for(i=0; i<length; i++){
                     var datetime = data[i].publishedDate.split(" ");
                     var date = datetime[0].split("-");

@@ -25,7 +25,7 @@
         });
     */
     	$.ajax({
-        	type : "GET", //전송방식을 지정한다 (POST,GET)
+        	type : "GET", //전송방식을 지정한다 (POST,GET)  
         	url : "https://newsapi.org/v2/everything?q=bitcoin&apiKey=7f7ce0c864644f5bb96923e8e0272104",//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
         	dataType : "json",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
         	error : function(){
@@ -38,10 +38,27 @@
 
     });
 </script>
-    
+<style>
+.btn-outline-info {
+    color: #17a2b8;
+    border-color: #17a2b8;
+}
+.last {
+float: left;
+}
+
+</style>    
   
 <!-- emilia start -->
-  
+<div> <!-- 버튼 나란히 하기 --><!-- style="border: 1px solid #212529;" --> 
+  <div class="col-sm-11 last">
+  	<h2>INTERNATIONAL ENVIRONMENT NEWS</h2>
+  </div>
+   <div class="col-sm-1 last">
+    <section id="writeButton"> <a href="../article/article.jsp"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
+  </div>
+</div> <!-- 버튼 나란히 하기 -->
+
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -81,6 +98,5 @@
   </a>
   
 </div><br>
-        <section id="writeButton"> <a href="../article/article.jsp"><button type="submit" class="btn btn-primary">more...</button></a> </section><br>
 
 <!-- emilia end -->

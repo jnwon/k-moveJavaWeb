@@ -67,11 +67,12 @@
       $('#listTable').DataTable();
     } );
   </script>
-  
-  
-  
   <!-- End of DataTable Initialising -->
-  
+<style>
+.last {
+float: left;
+}
+</style>
 </head>
 <body>
 
@@ -82,13 +83,15 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-      <h2>ARTICLES</h2>
-      <h5>Title description, Dec 7, 2017      
-      </h5>
-
-<section id="writeButton"> <a href="articleForm.jsp"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
-
-    
+    <div> <!-- 버튼 나란히 하기 --><!-- style="border: 1px solid #212529;" --> 
+	  <div class="col-sm-11 last">
+      	<h2>ARTICLES</h2>
+      </div>
+	  <div class="col-sm-1 last">
+		<section id="writeButton"> <a href="articleForm.jsp"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
+	</div>
+	</div> <!-- 버튼 나란히 하기 -->
+	
 		<table class="table" id="listTable">
 		  <thead>
 		    <tr>
