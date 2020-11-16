@@ -105,7 +105,7 @@
   
 <!-- Event Werbung start -->
   
-<div class="row">
+<div class="row" id="event">
 	<div class="col-sm-8">
 		<h2>EVENTS</h2>
 	</div>
