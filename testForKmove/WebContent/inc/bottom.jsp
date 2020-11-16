@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="../css/footer.css">
+<style>
+
+.body{
+color: #6c757d;
+}
+
+</style>
 <br>
 <footer id="fh5co-footer" class="fh5co-bg" role="contentinfo">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row row-pb-md">
-				<div class="col-md-4 fh5co-widget">
+				<div class="col-md-4 fh5co-widget body">
 					<h3>A Little About Stamina.</h3>
 					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
 					<p><a class="btn btn-primary" href="../mem/join.jsp">Become A Member</a></p>
 				</div>
 				<div class="row col-md-8">
-					<h3>Classes</h3>
 					<div class="coll col-md-4 col-sm-4 col-xs-6">
 						<ul class="fh5co-footer-links">
 							<li><a href="#">Cardio</a></li>
@@ -46,7 +52,7 @@
 			</div>
 
 			<div class="row copyright">
-				<div class="col-md-12 text-center">
+				<div class="col-md-12 text-center body">
 					<p>
 						<small class="block">&copy; 2017 | All Rights Reserved.</small> 
 						<small class="block">Powered by  siteName.com</small>
