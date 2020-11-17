@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>    
+
 <style>
 .btn-outline-info {
     color: #17a2b8;
@@ -8,10 +11,11 @@
 }
 .last {
 float: left;
-}
-
+} 
 </style> 
 <script type="text/javascript" language="javascript">
+
+	var rootAddress = "<%=rootAddress%>";	
  
     $(document).ready(function(){
     /*	
@@ -30,12 +34,20 @@ float: left;
     	var keyword = 'global warming';
     	var newsApi = 'https://newsapi.org/v2/everything?q="'+ keyword +'"&apiKey=7f7ce0c864644f5bb96923e8e0272104';
     
+    	$('#linkToArticleController').attr("href", "http://" + rootAddress + "/testForKmove/ArticleBoardController");
     	ajaxExecute();
     	
     	$("#newsSearch").click(function(){
-    		  keyword = $('#searchInput').text();
+    		  keyword = $('#searchInput').val();
     		  console.log(keyword);
+    		  newsApi = 'https://newsapi.org/v2/everything?q="'+ keyword +'"&apiKey=7f7ce0c864644f5bb96923e8e0272104';
+    		  $('#newsIndicators').empty();
+    		  $("#newsList").empty();
     		  ajaxExecute();
+    		  var newUrl = "http://" + rootAddress + "/testForKmove/ArticleBoardController";
+    		  newUrl += '?keyword="' + keyword + '"';
+    		  console.log(newUrl);
+    		  $('#linkToArticleController').attr("href", newUrl);
     	});
     	
     	
@@ -65,14 +77,21 @@ float: left;
                        	else{
                        		html = '<div class="carousel-item">';	
                        	}
-    			  			html += '<a href ="'+ articles[i].url +'" target=”_blank” ><img src="'+ articles[i].urlToImage +'" class="d-block w-100" alt="..."></a>';
+    			  			html += '<a href ="'+ articles[i].url +'" target=”_blank” ><img src="'+ articles[i].urlToImage +'" class="d-block w-100" alt="..." style="height: 400px; width: 100%; background: url('+ articles[i].url +') center no-repeat; background-size: cover;"></a>';
     			  				html += '<div class="carousel-caption d-none d-md-block">';
     		   						html += '<h5>'+ articles[i].title +'</h5>';
     		   						html += '<p>'+ articles[i].source.name + ' | ' + articles[i].author + '|' + articles[i].publishedAt + '</p>';
     	   						html += '</div>';
     					html += '</div>';
     					        		
-            		console.log(html);
+            		//console.log(html);
+    					if(i == 0){
+    						$('#newsIndicators').append('<li data-target="#carouselExampleCaptions" data-slide-to="' + i + '" class="active"></li>');
+                        }
+                       	else{
+                       		$('#newsIndicators').append('<li data-target="#carouselExampleCaptions" data-slide-to="' + i + '"></li>');	
+                       	}
+            		
                     $("#newsList").append(html);	
     	            }
         	    }  
@@ -90,15 +109,15 @@ float: left;
   	<h2>INTERNATIONAL ENVIRONMENT NEWS</h2>
   </div>
    <div class="col-sm-1 last">
-    <section id="writeButton"><a href="../article/article.jsp"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
+    <section id="writeButton"><a href="../article/article.jsp" id="linkToArticleController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
   </div>
 </div> <!-- 버튼 나란히 하기 -->
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+  <ol class="carousel-indicators" id="newsIndicators">
+    <!-- <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li> -->
   </ol>
 
   <div class="carousel-inner" id="newsList">
