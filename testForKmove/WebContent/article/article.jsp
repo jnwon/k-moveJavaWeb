@@ -26,7 +26,9 @@
     $(document).ready(function(){
     
 		var keyword = 'global warming'; //API 기본 키워 지정한
-		keyword = $('#searchInput').attr("placeholder");
+		placeholder = $('#searchInput').attr("placeholder");
+		if(placeholder != 'Search')
+			keyword = placeholder;	//placeholder에 기본값('Search')이외의 다른 값이 들어있을경우: 검색창에 입력한 키워드가 넘어온 것이므로 keyword 최신화
 		console.log(keyword);
 		var newsApi = 'https://newsapi.org/v2/everything?q="'+ keyword +'"&apiKey=7f7ce0c864644f5bb96923e8e0272104'; //키워드뽑아서 기사가져올수있게할수있는 URL
 		//$('#linkToArticleController').attr("href", "http://" + rootAddress + "/testForKmove/ArticleBoardController"); //ArticleBoardController로 키워드와 함께 보낼수있도록하기위한 주소지

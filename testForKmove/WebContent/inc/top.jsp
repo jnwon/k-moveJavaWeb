@@ -67,7 +67,14 @@ a {
       <!-- SEARCH FORM -->
       <div class="form-inline ml-3">
         <div class="input-group input-group-sm">
+        <c:choose>
+        <c:when test="${key != null }">
           <input class="form-control form-control-navbar" type="search" id="searchInput" placeholder=${key } aria-label="Search">
+        </c:when>
+        <c:otherwise>
+          <input class="form-control form-control-navbar" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+        </c:otherwise>
+        </c:choose>
           <div class="input-group-append">
             <button class="btn btn-navbar" type="submit" id="newsSearch">
               <i class="fas fa-search"></i>

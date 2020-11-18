@@ -45,7 +45,8 @@ public class ArticleBoardController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		
-		//List<MemberVO> membersList = memberDAO.listMembers();
+		String keyword = request.getParameter("keyword");
+		request.setAttribute("key", keyword);
 		RequestDispatcher dispatch = request.getRequestDispatcher("/article/article.jsp");
 		dispatch.forward(request, response);
 	}
