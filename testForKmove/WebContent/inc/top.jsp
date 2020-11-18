@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>   
 <style>
 a {
     color: rgba(0,0,0,.5);
@@ -29,7 +32,7 @@ a {
 
 
 <div class="jumbotron text-center" style="margin-bottom:0" id="mainPic">
-   <h1><a href="main.um" id="mainFont">GRUENT WELT</a></h1>
+   <h1><a href="main.um" id="mainFont">GRÜNWELT</a></h1>
   <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 
     
@@ -39,7 +42,7 @@ a {
       <a href="main.um" class="navbar-brand">
         <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">GRUENTWELT</span>
+        <span class="brand-text font-weight-light">GRÜNWELT</span>
       </a>
       <!-- Left navbar links -->
       <ul class="navbar-nav">
@@ -59,15 +62,12 @@ a {
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="../admin/faq.jsp">FAQ</a>
             <a class="dropdown-item" href="../admin/support.jsp">Support</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../mem/contact.jsp">Contact</a>
-          </div>
         </li>
       </ul>
       <!-- SEARCH FORM -->
       <div class="form-inline ml-3">
         <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+          <input class="form-control form-control-navbar" type="search" id="searchInput" placeholder=${key } aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-navbar" type="submit" id="newsSearch">
               <i class="fas fa-search"></i>
