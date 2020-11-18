@@ -67,14 +67,14 @@ float: left;
 <body>
 
 <!-- Navbar -->
-<jsp:include page="../inc/top.jsp"></jsp:include>
+<jsp:include page="/inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
 
 <!-- global news [emilia] start -->
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-		<jsp:include page="../e/globalNews.jsp"></jsp:include>
+		<jsp:include page="/e/globalNews.jsp"></jsp:include>
 <br>
 <!-- global news [emilia] end -->
 
@@ -83,7 +83,7 @@ float: left;
 		<div class="row row-b cols-3">          
 		<div class="col">      
 			<div class="panel-pane pane-epa-core-html-pane">
-				<jsp:include page="../f/eea.jsp"></jsp:include>
+				<jsp:include page="/f/eea.jsp"></jsp:include>
 			</div>
      	 </div>              
 		<!-- eea [Finn] end -->
@@ -91,7 +91,7 @@ float: left;
 		<!-- usepa [Dambi] start -->
 	      <div class="col">      
 			<div class="panel-pane pane-epa-core-html-pane">
-				<jsp:include page="../d/usepa.jsp"></jsp:include>
+				<jsp:include page="/d/usepa.jsp"></jsp:include>
 
 				</div>
 		 	 </div>              
@@ -100,7 +100,7 @@ float: left;
       	<!-- unep [Benedict] start -->
 			<div class="col">      
 				<div class="panel-pane pane-epa-core-html-pane">
-					<jsp:include page="../b/unep.jsp"></jsp:include>
+					<jsp:include page="/b/unep.jsp"></jsp:include>
 				</div>
 				</div>          
 			</div>
@@ -109,14 +109,14 @@ float: left;
 
 <!-- 이벤트시작 -->
  <div class="last col-sm-6">
-	<jsp:include page="../event/mainPageWerbung.jsp"></jsp:include>      
+	<jsp:include page="/event/mainPageWerbung.jsp"></jsp:include>      
 </div>
 <!-- 이벤트끝 -->
 
 <!-- 맵시작 -->
 <div class="last col-sm-6">
 	<!-- korea climate map [stefan] start -->
-	<jsp:include page="../s/koreaClimateMap.jsp"></jsp:include>
+	<jsp:include page="/s/koreaClimateMap.jsp"></jsp:include>
 	<!-- korea climate map [stefan] end -->
  </div>
  

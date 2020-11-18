@@ -29,14 +29,14 @@ a {
 
 
 <div class="jumbotron text-center" style="margin-bottom:0" id="mainPic">
-   <h1><a href="../main/main.jsp" id="mainFont">GRUENT WELT</a></h1>
+   <h1><a href="main.um" id="mainFont">GRUENT WELT</a></h1>
   <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 
     
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-light navbar-white">
     <div class="container">
-      <a href="../main/main.jsp" class="navbar-brand">
+      <a href="main.um" class="navbar-brand">
         <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">GRUENTWELT</span>
@@ -47,7 +47,7 @@ a {
         </li>
 
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="../article/article.jsp" class="nav-link">Article</a>
+          <a href="testForKmove/ArticleBoardController" class="nav-link">Article</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="../event/community.jsp" class="nav-link">Community</a>
