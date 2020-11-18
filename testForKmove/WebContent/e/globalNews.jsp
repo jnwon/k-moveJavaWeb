@@ -95,7 +95,7 @@ float: left;
     			  			html += '<div style="height: 400px;"><a href ="'+ articles[i].url +'" target=”_blank” ><img src="'+ articles[i].urlToImage +'" class="d-block w-100" alt="..." style="background: url('+ articles[i].url +') center no-repeat; background-size: cover; width: 100%;"></a></div>';
     			  				html += '<div class="carousel-caption d-none d-md-block">'; 
     		   						html += '<h5>'+ articles[i].title +'</h5>'; //기사 제목가져오기
-    		   						html += '<p>'+ articles[i].source.name + ' | ' + articles[i].author + '|' + articles[i].publishedAt + '</p>'; //기사 이름,글쓴이,날짜가져오기
+    		   						html += '<p>'+ articles[i].source.name + ' | ' + articles[i].author + ' | ' + articles[i].publishedAt + '</p>'; //기사 이름,글쓴이,날짜가져오기
     	   						html += '</div>';
     					html += '</div>';
     					        		
