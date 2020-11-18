@@ -1,4 +1,4 @@
-package event;
+package event.controller;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -32,7 +32,7 @@ public class EventDAO {
 		try {
 			conn = dataFactory.getConnection();
 			String query = "SELECT e.title, m.name, e.publishedDate, e.isOpened, e.password, e.numOfMaxMembers, e.numOfJoiningMembers, e.numOfComment, e.numOfViews, e.numOfLikes from events as e join Members as m where e.writer = m.no order by publishedDate DESC";
-			System.out.println(query);
+			//System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {

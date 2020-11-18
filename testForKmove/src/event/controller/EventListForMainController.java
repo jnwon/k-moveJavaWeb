@@ -1,4 +1,4 @@
-package event;
+package event.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import event.EventVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+
+import event.controller.EventVO;
 
 /**
  * Servlet implementation class MemberController

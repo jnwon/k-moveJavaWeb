@@ -10,11 +10,29 @@
             zoom: 10
         });
     }
+
+    $(document).ready(function(){
+    	$('.nav-item').click(function(){
+    		$('a.active').attr('class', 'nav-link');
+    		$(this).children().attr('class', 'nav-link active');
+		});
+    });
 </script>
 <!-- stefan start -->
-  
-<h2>MAP DATA</h2><br>
-      <div id="map" style="height: 500px;"></div>
+
+<h2>MAP DATA</h2>
+<ul class="nav nav-tabs">
+	<li class="nav-item">
+		<a class="nav-link active" href="javascript:void(0)">Air Pollution</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="javascript:void(0)">E-vehicle charge centers</a>
+	<li>
+	<li class="nav-item">
+		<a class="nav-link" href="javascript:void(0)">Green companies</a>
+	</li>
+</ul>
+<div id="map" style="height: 500px;"></div>
 <br>
 
 <!-- stefan end -->

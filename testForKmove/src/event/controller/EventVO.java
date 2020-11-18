@@ -1,4 +1,4 @@
-package event;
+package event.controller;
 
 import java.sql.Date;
 

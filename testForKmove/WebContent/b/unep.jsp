@@ -24,7 +24,7 @@
 
                 var str = ""; 
 				for(var i = 0; i < data.length; i++) {
-               		str += "<a href = \"" + data[i].link + "\"><li><b>" + data[i].title + "</b></li></a>";
+               		str += "<a href = \"" + data[i].link + "\" target=\"_blank\"><li><b>" + data[i].title + "</b></li></a>";
 				}
 				
                 $("#resultUnepList").append(str);

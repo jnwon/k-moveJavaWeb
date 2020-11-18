@@ -42,6 +42,7 @@ float: left;
     		  keyword = $('#searchInput').val(); //키워드에 검색한 input에 적은 값 넣기 
     		  console.log(keyword); // 키워드 출력해보기
     		  newsApi = 'https://newsapi.org/v2/everything?q="'+ keyword +'"&apiKey=7f7ce0c864644f5bb96923e8e0272104'; //뉴스 API 주소 가져오기
+    		  console.log(newsAPI);
     		  $('#newsIndicators').empty(); // 창 다른거볼수있게 창 넘어가는 수 초기화 (검색시 조회되는 글의 수가 1개면 1개남고 2개면 2개만 보일수있도록하기위함)
     		  $("#newsList").empty(); //검색하면 메인페이지에서 글 수가 바뀌는데 이전에 초기기본으로 지정해준 글 3개를 비워주어야함 
     		  ajaxExecute(); // ajaxExecute() 실행시키기 
