@@ -31,7 +31,7 @@
 				
                 $("#result_list").append(str);
                 
-            }
+            } 
         });
     });
 </script>

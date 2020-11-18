@@ -12,7 +12,7 @@ public class UnepVO {
 	
 	public String getTilte()
 	{
-		return title;
+		return title; 
 	}
 
 	public void setTitle(String title)
