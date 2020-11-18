@@ -64,7 +64,7 @@
 				   				html += '<div class="col-sm-2">';
 				   					html += '<p class="card-text">'+ date[2] + '. ' + month +'</p>';
 			   					html += '</div>';
-			   					if(data[i].isOpened == 0){
+			   					if(data[i].isLocked){
 			   						html += '<div class="col-sm-1">';
 			   							html += '<i class="text-warning fas fa-lock"></i>';
 			   						html += '</div>';
