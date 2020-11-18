@@ -85,14 +85,6 @@
 	      	    	    ]
 	      	    	});
 	            	
-	        		$('#listTable_next').bind("click", function(){
-	        			console.log("next page clicked");
-	        		});
-	        		
-	        		$('#listTable_previous').bind("click", function(){
-	        			console.log("prev page clicked");
-	        		});
-	                
 	            	tr = $('#newsAllList').children();
 	            	tr.each(function(i){
 	            		title = tr.eq(i).children().eq(0).html();
