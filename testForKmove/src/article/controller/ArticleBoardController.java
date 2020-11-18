@@ -43,7 +43,8 @@ public class ArticleBoardController extends HttpServlet {
 	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
+		response.setContentType("application/json");
+		
 		//List<MemberVO> membersList = memberDAO.listMembers();
 		RequestDispatcher dispatch = request.getRequestDispatcher("/article/article.jsp");
 		dispatch.forward(request, response);

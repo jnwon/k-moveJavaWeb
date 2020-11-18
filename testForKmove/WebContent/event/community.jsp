@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +34,75 @@ float: left;
     } );
   </script>
   <!-- End of DataTable Initialising -->
+  <script type="text/javascript" language="javascript">
+
+	var rootAddress = "<%=rootAddress%>";
+	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
+ 
+    $(document).ready(function(){
+    	
+        $.ajax({
+            type : "GET", //전송방식을 지정한다 (POST,GET)
+            url : url,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
+            dataType : "json",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
+            error : function(){
+                console.log("connection down!!!!");
+            },
+            success : function(data){
+                console.log(data);
+                          
+                //var length = data.length > 3 ? 3 : data.length;
+                for(i=0; i < data.length; i++){
+                    var datetime = data[i].publishedDate.split(" ");
+                    var date = datetime[0].split("-");
+                    var month = "";
+                    switch(Number(date[1])){
+                    	case 1: month = 'Jan';
+                    		break;
+                    	case 2: month = 'Feb';
+                			break;
+                    	case 3: month = 'Mar';
+            				break;
+                    	case 4: month = 'Apr';
+            				break;
+                    	case 5: month = 'May';
+        					break;
+                    	case 6: month = 'Jun';
+        					break;
+                    	case 7: month = 'Jul';
+        					break;
+                    	case 8: month = 'Aug';
+        					break;
+                    	case 9: month = 'Sep';
+        					break;
+                    	case 10: month = 'Oct';
+        					break;
+                    	case 11: month = 'Nov';
+        					break;
+                    	case 12: month = 'Dec';
+        					break;
+                    }                	
+                    
+                  
+    				html = '<tr>';
+				  		html += '<th scope="row">1</th>';
+			  			html += '<td><a href="eventDetail.jsp">'+ data[i].title +'</a></td>';
+			  			if(data[i].isLocked){
+	   						html += '<td> ᛄ </td>';
+	   					} else {
+	   						html += '<td></td>';
+	   					}
+	  					html += '<td>'+ data[i].writer +'</td>';
+   						html += '<td>'+ date[2] + '. ' + month +'</td>';
+   					html += '</tr>';
+	        		
+	                $("#eventAllList").append(html);	
+                }
+            }  
+        });
+
+    });
+</script>
   
 </head>
 <body>
@@ -55,29 +128,19 @@ float: left;
     <tr>
       <th scope="col">#</th>
       <th scope="col">Title</th>
-      <th scope="col">date</th>
-      <th scope="col">Joined</th>
+	  <th scope="col">Locked</th>
+      <th scope="col">Organizer</th>
+      <th scope="col">Date</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
+  <tbody id="eventAllList">
+    <!-- <tr>
       <th scope="row">1</th>
       <td><a href="eventDetail.jsp">Environment meeting</a></td>
       <td>2020.11.12</td>
       <td>2/10</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Environment meeting</td>
-      <td>2020.11.12</td>
-      <td>2/10</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Environment meeting</td>
-      <td>2020.11.12</td>
-      <td>2/10</td>
-    </tr>
+    </tr> -->
+    
   </tbody>
 </table>
     </div>
