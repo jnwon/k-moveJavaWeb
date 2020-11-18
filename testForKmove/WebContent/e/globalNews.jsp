@@ -124,7 +124,7 @@ float: left;
   	<h2>INTERNATIONAL ENVIRONMENT NEWS</h2>
   </div>
    <div class="col-sm-1 last">
-    <section id="writeButton"><a href="testForKmove/ArticleBoardController?keyword" id="linkToArticleController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
+    <section id="writeButton"><a href="" id="linkToArticleController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
   </div>
 </div> <!-- 버튼 나란히 하기 -->
 
