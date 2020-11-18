@@ -14,7 +14,7 @@ color: #6c757d;
 		<div class="container">
 			<div class="row row-pb-md">
 				<div class="col-md-4 fh5co-widget body">
-					<h3>A Little About Gruentwelt.</h3>
+					<h3>A Little About Grünwelt.</h3>
 					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
 					<p><a class="btn btn-primary" href="../mem/join.jsp">Become A Member</a></p>
 				</div>

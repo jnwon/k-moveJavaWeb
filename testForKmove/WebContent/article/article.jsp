@@ -77,13 +77,39 @@
 	            	}
 	            	$('#listTable').DataTable({
 	      	    	  data: articles,
+	      	    	  "aaSorting": [],
 	      	    	    columns: [
 	      	    	        { data: 'title' },
 	      	    	        { data: 'source.name' },
 	      	    	        { "width": "15%", data: 'publishedAt' }
 	      	    	    ]
-	      	    	});	
+	      	    	});
+	            	
+	        		$('#listTable_next').bind("click", function(){
+	        			console.log("next page clicked");
+	        		});
+	        		
+	        		$('#listTable_previous').bind("click", function(){
+	        			console.log("prev page clicked");
+	        		});
 	                
+	            	tr = $('#newsAllList').children();
+	            	tr.each(function(i){
+	            		title = tr.eq(i).children().eq(0).html();
+	            		//console.log(articles[i].url);
+	            		tr.eq(i).children().eq(0).html('<a href ="'+articles[i].url+'" target="_blank">'+title+'</a>');
+	            	});
+	            	
+	        		$('#listTable_next').trigger("click");
+	        		
+	        		tr = $('#newsAllList').children();
+	            	tr.each(function(i){
+	            		title = tr.eq(i).children().eq(0).html();
+	            		//console.log(articles[i].url);
+	            		tr.eq(i).children().eq(0).html('<a href ="'+articles[i+10].url+'" target="_blank">'+title+'</a>');
+	            	});
+	            	
+	            	$('#listTable_previous').trigger("click");
 	    	    }  
 	    	});	
 		}

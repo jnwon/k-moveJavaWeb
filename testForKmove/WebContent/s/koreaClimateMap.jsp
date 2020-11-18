@@ -14,7 +14,7 @@
 <!-- stefan start -->
   
 <h2>MAP DATA</h2><br>
-      <div id="map"></div>
+      <div id="map" style="height: 500px;"></div>
 <br>
 
 <!-- stefan end -->
