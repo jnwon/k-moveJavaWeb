@@ -1,4 +1,4 @@
-package unep.controller;
+package faq.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,15 +9,15 @@ import javax.servlet.http.*;
 
 import com.google.gson.Gson;
 
-@WebServlet("/UnepController")
-public class UnepController extends HttpServlet {
-	
+@WebServlet("/FAQController")
+public class FAQController extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
-	UnepDAO unepDAO;
+	FAQDAO faqDAO;
 	
-	public void init() throws ServletException
+	public void init() throws ServletException 
 	{
-		unepDAO = new UnepDAO();
+		faqDAO = new FAQDAO();
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -34,10 +34,10 @@ public class UnepController extends HttpServlet {
 	{
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
-		List<UnepVO> linksList = unepDAO.listTitles();
-		request.setAttribute("linksList", linksList);
-
-		String gson = new Gson().toJson(linksList);
+		List<FAQVO> faqsList = faqDAO.listFaq();
+		request.setAttribute("faqsList", faqsList);
+		
+		String gson = new Gson().toJson(faqsList);
 	    response.getWriter().write(gson);
 	}
 	

@@ -1,5 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>
+
+<script type="text/javascript" language="javascript">
+
+	var rootAddress = "<%=rootAddress%>";
+	var faqUrl = "http://" + rootAddress + "/testForKmove/FAQController";
+	
+	$(document).ready(function(){
+    	
+        $.ajax({
+            type : "GET", //전송방식을 지정한다 (POST,GET)
+            url : faqUrl,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
+            dataType : "json",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
+            error : function(){
+                console.log("connection down!!!!");
+            },
+            success : function(data){
+            	console.log(data)
+            	
+            	var str = "";
+            	str += "<table class=\"table\">";
+            	str += "<thead>";
+            	str += "<tr>";
+            	str += "<th scope=\"col\">#</th>";
+            	str += "<th scope=\"col\">First</th>";
+            	str += "<th scope=\"col\">Last</th>";
+            	str += "<th scope=\"col\">Handle</th>";
+            	str += "</tr>";
+            	str += "</thead>";
+            	str += "<tbody>";
+				for(var i = 0; i < data.length; i++) {
+					str += "<tr>";
+						str += "<th scope=\"row\">" + data[i].no +"</th>";
+						str += "<td>" + data[i].first + "</td>";
+						str += "<td>" + data[i].last + "</td>" ;
+						str += "<td>" + data[i].handle + "</td>";
+					str += "</tr>";
+				}
+				str += "</tbody>";
+				
+                $("#resultFaqList").html(str);
+
+            }
+        });
+    });
+</script>
+
+<div class="resultFaqList"></div>
+
+<%-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,37 +91,9 @@ float: left;
 	  		<section id="writeButton"> <a href="#"><button type="submit" class="btn btn-primary">Post</button></a> </section><br>
 	</div>
 	</div> <!-- 버튼 나란히 하기 -->
-	  
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+	
+  	<div id="resultFaqList"></div>
+
     </div>
   </div>
 </div>
@@ -77,3 +102,4 @@ float: left;
 
 </body>
 </html>
+--%>
