@@ -29,7 +29,7 @@
           <a href="/testForKmove/ArticleBoardController" class="nav-link">Article</a> <!-- 가상주소에는 /를 붙여야 이동함 -->
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/testForKmove/EventListForMainController" class="nav-link">Community</a>
+          <a href="/testForKmove/EventListController" class="nav-link">Community</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
