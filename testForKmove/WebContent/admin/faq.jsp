@@ -70,8 +70,6 @@ float: left;
         });
     });
 </script>
-</head>
-<body>
 
 <!-- Navbar -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
@@ -99,3 +97,4 @@ float: left;
 
 </body>
 </html>
+

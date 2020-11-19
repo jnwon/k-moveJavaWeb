@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2um8xr8ytg&callback=initMap"></script>
+<script type="text/javascript" src="/testForKmove/s/greenCompanies.json"></script>
 <script type="text/javascript">
-    var map = null;
+	var map = null;
 
     function initMap() {
         map = new naver.maps.Map('map', {
@@ -12,16 +13,18 @@
     }
 
     $(document).ready(function(){
-    	$('.nav-item').click(function(){
-    		$('a.active').attr('class', 'nav-link');
+    	$('#navTab .nav-item').click(function(){
+    		$('#navTab a.active').attr('class', 'nav-link');
     		$(this).children().attr('class', 'nav-link active');
 		});
+    	
+    	console.log(jsonData);
     });
 </script>
 <!-- stefan start -->
 
 <h2>MAP DATA</h2>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" id="navTab">
 	<li class="nav-item">
 		<a class="nav-link active" href="javascript:void(0)">Air Pollution</a>
 	</li>

@@ -110,7 +110,7 @@
 		<h2>EVENTS</h2>
 	</div>
 	<div class="col-sm-4">
-		<section id="writeButton"> <a href="../event/community.jsp"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
+		<section id="writeButton"> <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
 	</div>
 </div>
 <div id="eventList">

@@ -49,7 +49,8 @@ public class UnepDAO {
 				String continent = rs.getString("continent");
 				String title = rs.getString("title");
 				String link = rs.getString("link");
-				UnepVO unepVO = new UnepVO(continent, title, link);
+				Date date = rs.getDate("date");
+				UnepVO unepVO = new UnepVO(continent, title, link, date);
 				linksList.add(unepVO);
 			}
 			rs.close();

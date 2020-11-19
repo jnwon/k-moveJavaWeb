@@ -7,11 +7,12 @@ public class UnepVO {
 	private String continent, title, link;
 	private Date date;
 	
-	public UnepVO(String continent, String title, String link)
+	public UnepVO(String continent, String title, String link, Date date)
 	{
 		this.continent = continent;
 		this.title = title;
 		this.link = link;
+		this.date = date;
 	}
 	
 	public String getContinent()

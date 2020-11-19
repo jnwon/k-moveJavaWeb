@@ -5,33 +5,9 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>   
-<style>
-a {
-    color: rgba(0,0,0,.5);
-    text-decoration: none;
-    background-color: transparent;
-}
+<link rel="stylesheet" href="css/top.css">
 
-#mainPic {
-    width: 100%;
-    height: 300px;
-    background: url(../img/1.jpg) center no-repeat;
-    background-size: cover;
-    /* margin: 0; */
-}
-
-#mainFont{
-    color: #e9ecef;
-    text-decoration: none;
-    background-color: transparent;
-    
-    }
-    
-
-</style>
-
-
-<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic">
+<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="off">	<!-- NewsAPI 이용하려면 on으로 -->
    <h1><a href="main.um" id="mainFont">GRÜNWELT</a></h1>
   <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 
@@ -40,8 +16,8 @@ a {
   <nav class="main-header navbar navbar-expand navbar-light navbar-white">
     <div class="container">
       <a href="main.um" class="navbar-brand">
-        <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-             style="opacity: .8">
+        <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8"> <!-- 이미지는 /빼고 새로지정해줘야 가상주소에서 작동함 -->
         <span class="brand-text font-weight-light">GRÜNWELT</span>
       </a>
       <!-- Left navbar links -->
@@ -50,10 +26,10 @@ a {
         </li>
 
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="testForKmove/ArticleBoardController" class="nav-link">Article</a>
+          <a href="/testForKmove/ArticleBoardController" class="nav-link">Article</a> <!-- 가상주소에는 /를 붙여야 이동함 -->
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="../event/community.jsp" class="nav-link">Community</a>
+          <a href="/testForKmove/EventListController" class="nav-link">Community</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,10 +42,10 @@ a {
       </ul>
       <!-- SEARCH FORM -->
       <div class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-        <c:choose>
-        <c:when test="${key != null }">
-          <input class="form-control form-control-navbar" type="search" id="searchInput" placeholder=${key } aria-label="Search">
+        <div class="input-group input-group-sm"> <!-- 70:검색창부분에서 placeholder에  --><!-- 71:key값이 아무것도 없을때 --><!-- 72:placeholder에서 메인에서 검색한 key값 가져와서 article에 적용되어 more클릭시 나머지도 보여줄수있도록하기 -->
+        <c:choose> 
+        <c:when test="${key != null }"> 
+          <input class="form-control form-control-navbar" type="search" id="searchInput" placeholder=${key } aria-label="Search"> 
         </c:when>
         <c:otherwise>
           <input class="form-control form-control-navbar" type="search" id="searchInput" placeholder="Search" aria-label="Search">
@@ -98,7 +74,7 @@ a {
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="../img/user1.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <img src="img/user1.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Brad Diesel
@@ -114,7 +90,7 @@ a {
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="../img/user8.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <img src="img/user8.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     John Pierce
@@ -130,7 +106,7 @@ a {
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="../img/user4.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <img src="img/user4.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Nora Silvester

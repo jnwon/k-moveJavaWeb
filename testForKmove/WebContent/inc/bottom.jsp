@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="css/footer.css">
 <style>
-
 .body{
 color: #6c757d;
 }
-
 </style>
 <br>
 <footer id="fh5co-footer" class="fh5co-bg" role="contentinfo">
@@ -14,7 +12,7 @@ color: #6c757d;
 		<div class="container">
 			<div class="row row-pb-md">
 				<div class="col-md-4 fh5co-widget body">
-					<h3>A Little About Grünwelt.</h3>
+					<h3>A Little About GRÜNWELT.</h3>
 					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
 					<p><a class="btn btn-primary" href="../mem/join.jsp">Become A Member</a></p>
 				</div>
