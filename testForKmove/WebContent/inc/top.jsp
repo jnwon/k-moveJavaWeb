@@ -37,7 +37,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="../admin/faq.jsp">FAQ</a>
-            <a class="dropdown-item" href="../admin/support.jsp">Support</a>
+            <a class="dropdown-item" href="../admin/support.jsp">Support</a></div>
         </li>
       </ul>
       <!-- SEARCH FORM -->

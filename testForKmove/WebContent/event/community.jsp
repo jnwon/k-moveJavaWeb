@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- Include this file to obtain server's root address wherever using ajax!! --%>
-<%@ include file="../rootAddress.jsp" %>
-<%-----------------------------------------------------------------------------%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>       <!-- DataTable CDN -->
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>
   
   <style>
   .fakeimg {
@@ -25,22 +24,26 @@
   .last {
 float: left;
 }
+#eventListTable {
+    width: 100%;
+}
   </style>
   
     <!-- DataTable Initialising -->
-  <script type="text/javascript">
-    $(document).ready( function () {
-      $('#listTable').DataTable();
-    } );
-  </script>
+<!--   <script type="text/javascript">
+	$(document).ready( function () {
+	      $('#listTable').DataTable();
+	    } );
+  </script> -->
   <!-- End of DataTable Initialising -->
   <script type="text/javascript" language="javascript">
-
+  	
 	var rootAddress = "<%=rootAddress%>";
 	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
- 
+  	
     $(document).ready(function(){
-    	
+    	var eventArticles;
+		
         $.ajax({
             type : "GET", //전송방식을 지정한다 (POST,GET)
             url : url,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
@@ -49,58 +52,37 @@ float: left;
                 console.log("connection down!!!!");
             },
             success : function(data){
+
                 console.log(data);
-                          
+                console.log(eventArticles);                          
                 //var length = data.length > 3 ? 3 : data.length;
-                for(i=0; i < data.length; i++){
-                    var datetime = data[i].publishedDate.split(" ");
-                    var date = datetime[0].split("-");
-                    var month = "";
-                    switch(Number(date[1])){
-                    	case 1: month = 'Jan';
-                    		break;
-                    	case 2: month = 'Feb';
-                			break;
-                    	case 3: month = 'Mar';
-            				break;
-                    	case 4: month = 'Apr';
-            				break;
-                    	case 5: month = 'May';
-        					break;
-                    	case 6: month = 'Jun';
-        					break;
-                    	case 7: month = 'Jul';
-        					break;
-                    	case 8: month = 'Aug';
-        					break;
-                    	case 9: month = 'Sep';
-        					break;
-                    	case 10: month = 'Oct';
-        					break;
-                    	case 11: month = 'Nov';
-        					break;
-                    	case 12: month = 'Dec';
-        					break;
-                    }                	
-                    
-                  
-    				html = '<tr>';
-				  		html += '<th scope="row">1</th>';
-			  			html += '<td><a href="eventDetail.jsp">'+ data[i].title +'</a></td>';
-			  			if(data[i].isLocked){
-	   						html += '<td> ᛄ </td>';
-	   					} else {
-	   						html += '<td></td>';
-	   					}
-	  					html += '<td>'+ data[i].writer +'</td>';
-   						html += '<td>'+ date[2] + '. ' + month +'</td>';
-   					html += '</tr>';
-	        		
-	                $("#eventAllList").append(html);	
-                }
+            	$('#eventListTable').DataTable({ // 데이터 테이블 지정한것 (CSS를 저절로 ? 생성해서 실제 HTML은 이곳에서 확인할수는 없다)
+	      	    	  data: eventArticles, //API에서 가져온 자료를 데이터 테이블가져온것에 각각의 자리에 해당 자료를 넣어주기 위한 작업
+	      	    	  "aaSorting": [], //datatable 기본 정렬옵션 해
+	      	    	  columns: [ 
+	      	    	        { data: 'title' }, //title부분지정
+	      	    	        { data: 'isLocked' }, //title부분지정
+	      	    	        { data: 'writer' }, //출처가져오기
+	      	    	        { "width": "15%", data: 'publishedDate' } //시간가져오기 (시간표시부분의 간격이 좁아서 시간이 잘려서 길이 조절을 위한 스타일조절해준것추가)
+	      	    	    ]
+	      	    	});
+                 
+   				/* html = '<tr>';
+			  		html += '<th scope="row">1</th>';
+		  			html += '<td><a href="eventDetail.jsp">'+ data[i].title +'</a></td>';
+		  			if(data[i].isLocked){
+   						html += '<td> ᛄ </td>';
+   					} else {
+   						html += '<td></td>';
+   					}
+  					html += '<td>'+ data[i].writer +'</td>';
+  						html += '<td>'+ date[2] + '. ' + month +'</td>';
+  					html += '</tr>'; */
+        		
+                //$("#eventAllList").append(html);	
             }  
         });
-
+    	
     });
 </script>
   
@@ -123,7 +105,7 @@ float: left;
 	</div>
 	</div> <!-- 버튼 나란히 하기 -->
     <!-- <table class="table">  -->  
-<table class="table" id="listTable">    <!-- Datatable id mapping -->
+<table class="table" id="eventListTable" style="width: 100%;">    <!-- Datatable id mapping -->
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -133,7 +115,7 @@ float: left;
       <th scope="col">Date</th>
     </tr>
   </thead>
-  <tbody id="eventAllList">
+  <tbody id="">
     <!-- <tr>
       <th scope="row">1</th>
       <td><a href="eventDetail.jsp">Environment meeting</a></td>
