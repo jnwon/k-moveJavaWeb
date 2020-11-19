@@ -68,50 +68,53 @@ float: left;
     	
     	
     	function ajaxExecute(){
-    		$.ajax({
-            	type : "GET", //전송방식을 지정한다 (POST,GET)  
-            	url : newsApi,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
-            	dataType : "json",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
-            	error : function(){
-                	console.log("connection down!!!!");
-            	},
-            	success : function(data){
-                	console.log(data);
-                	var articles = data.articles;
-                	var length = articles.length > 3 ? 3 : articles.length; //총보여줄 페이지 수
-                    for(i=0; i<length; i++){
-                        
-                    	/* if(i == 0){
-    			  		html = '<a href ="'+ articles[i].url +'" target=”_blank” ><div class="carousel-item active">';
-                    	}
-                    	else{
-                    		html = '<a href ="'+ articles[i].url +'" target=”_blank” ><div class="carousel-item">';	
-                    	} */
-                    	if(i == 0){ //처음 시작해줘야하는거같은데 ..active를 통해서 처음시작해주기위해 첫 값 0일때는 active실행시키기
-        			  		html = '<div class="carousel-item active">';
-                        }
-                       	else{ //0이아닌 그다음 값은 active없이 실행시킬수있게하기 (이렇게 active를 지정해줘야 그림이 함께 로드됨)
-                       		html = '<div class="carousel-item">';	
-                       	}	// 아티클의 주소와 그림주소 불러오기 (스타일: 그림클릭시 기사 새창뜨게하기, 크기 400조절하기, 원본사진 상하좌우비율 변경않게하기)
-    			  			html += '<div style="height: 400px;"><a href ="'+ articles[i].url +'" target=”_blank” ><img src="'+ articles[i].urlToImage +'" class="d-block w-100" alt="..." style="background: url('+ articles[i].url +') center no-repeat; background-size: cover; width: 100%;"></a></div>';
-    			  				html += '<div class="carousel-caption d-none d-md-block">'; 
-    		   						html += '<h5>'+ articles[i].title +'</h5>'; //기사 제목가져오기
-    		   						html += '<p>'+ articles[i].source.name + ' | ' + articles[i].author + ' | ' + articles[i].publishedAt + '</p>'; //기사 이름,글쓴이,날짜가져오기
-    	   						html += '</div>';
-    					html += '</div>';
-    					        		
-            		//console.log(html);
-    					if(i == 0){ //뉴스 페이지쪽수 총 3페이지인데 처음시작시 class="active" 주어야함으로 if문생성하여  0일때 활성시키고 아닐때 비활성시키게하기
-    						$('#newsIndicators').append('<li data-target="#carouselExampleCaptions" data-slide-to="' + i + '" class="active"></li>');
-                        }
-                       	else{
-                       		$('#newsIndicators').append('<li data-target="#carouselExampleCaptions" data-slide-to="' + i + '"></li>');	
-                       	}
-            		
-                    $("#newsList").append(html); //HTML문으로 출력하기	
-    	            }
-        	    }  
-        	});	
+    		console.log('NewsAPI : ' + $('#mainPic').attr('newsApi'));
+    		if($('#mainPic').attr('newsApi') == 'on'){
+	    		$.ajax({
+	            	type : "GET", //전송방식을 지정한다 (POST,GET)  
+	            	url : newsApi,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
+	            	dataType : "json",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
+	            	error : function(){
+	                	console.log("connection down!!!!");
+	            	},
+	            	success : function(data){
+	                	console.log(data);
+	                	var articles = data.articles;
+	                	var length = articles.length > 3 ? 3 : articles.length; //총보여줄 페이지 수
+	                    for(i=0; i<length; i++){
+	                        
+	                    	/* if(i == 0){
+	    			  		html = '<a href ="'+ articles[i].url +'" target=”_blank” ><div class="carousel-item active">';
+	                    	}
+	                    	else{
+	                    		html = '<a href ="'+ articles[i].url +'" target=”_blank” ><div class="carousel-item">';	
+	                    	} */
+	                    	if(i == 0){ //처음 시작해줘야하는거같은데 ..active를 통해서 처음시작해주기위해 첫 값 0일때는 active실행시키기
+	        			  		html = '<div class="carousel-item active">';
+	                        }
+	                       	else{ //0이아닌 그다음 값은 active없이 실행시킬수있게하기 (이렇게 active를 지정해줘야 그림이 함께 로드됨)
+	                       		html = '<div class="carousel-item">';	
+	                       	}	// 아티클의 주소와 그림주소 불러오기 (스타일: 그림클릭시 기사 새창뜨게하기, 크기 400조절하기, 원본사진 상하좌우비율 변경않게하기)
+	    			  			html += '<div style="height: 400px;"><a href ="'+ articles[i].url +'" target=”_blank” ><img src="'+ articles[i].urlToImage +'" class="d-block w-100" alt="..." style="background: url('+ articles[i].url +') center no-repeat; background-size: cover; width: 100%;"></a></div>';
+	    			  				html += '<div class="carousel-caption d-none d-md-block">'; 
+	    		   						html += '<h5>'+ articles[i].title +'</h5>'; //기사 제목가져오기
+	    		   						html += '<p>'+ articles[i].source.name + ' | ' + articles[i].author + ' | ' + articles[i].publishedAt + '</p>'; //기사 이름,글쓴이,날짜가져오기
+	    	   						html += '</div>';
+	    					html += '</div>';
+	    					        		
+	            		//console.log(html);
+	    					if(i == 0){ //뉴스 페이지쪽수 총 3페이지인데 처음시작시 class="active" 주어야함으로 if문생성하여  0일때 활성시키고 아닐때 비활성시키게하기
+	    						$('#newsIndicators').append('<li data-target="#carouselExampleCaptions" data-slide-to="' + i + '" class="active"></li>');
+	                        }
+	                       	else{
+	                       		$('#newsIndicators').append('<li data-target="#carouselExampleCaptions" data-slide-to="' + i + '"></li>');	
+	                       	}
+	            		
+	                    $("#newsList").append(html); //HTML문으로 출력하기	
+	    	            }
+	        	    }  
+	        	});
+    		}
     	}
     	
 
