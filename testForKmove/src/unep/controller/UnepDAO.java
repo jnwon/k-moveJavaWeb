@@ -49,7 +49,7 @@ public class UnepDAO {
 				String continent = rs.getString("continent");
 				String title = rs.getString("title");
 				String link = rs.getString("link");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				UnepVO unepVO = new UnepVO(continent, title, link, date);
 				linksList.add(unepVO);
 			}
@@ -74,14 +74,14 @@ public class UnepDAO {
 			String continent = u.getContinent();
 			String title = u.getTilte();
 			String link = u.getLink();
-			Date date = u.getDate();
+			String date = u.getDate();
 			String query = "insert into articleUnep(continent, title, email, date)" + " values(?, ?, ?, ?)";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, continent);
 			pstmt.setString(2, title);
 			pstmt.setString(3, link);
-			pstmt.setDate(4, date);
+			pstmt.setString(4, date);
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();

@@ -23,29 +23,36 @@
             	console.log(data)
 
                 var str = "";
-            	
-            	//if (data[i].date )
-            	
+	
             	for(var i = 0; i < data.length; i++) {
-            		if (data[i].continent == "africa") {
-                    	str += "<li><b>Africa</b></li>"
-                   		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>" + data[i].date;
-            		}
+            		//for (var j = 0; j < data.length; j++) {
+                    	
+            			var date1 = new Date(data[i].date);
+                    	//var date2 = new Date(data[j].date);
+                    	
+                    	//if (date1.valueOf() > date2.valueOf()) {
+                    		if (data[i].continent == "africa") {
+                    			str += "<li><b>Africa</b></li>"
+                   				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            				}
             			
-            		else if (data[i].continent == "asia") {
-                   		str += "<li><b>Asia</b></li>"
-                   		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            		}
+            				else if (data[i].continent == "asia") {
+                   				str += "<li><b>Asia</b></li>"
+                   				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            				}
             			
-            		else if (data[i].continent == "europe") {
-                   		str += "<li><b>Europe</b></li>"
-                   		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            		}
+            				else if (data[i].continent == "europe") {
+                   				str += "<li><b>Europe</b></li>"
+                   				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            				}
             			
-            		else if (data[i].continent == "america") {
-                     	str += "<li><b>America</b></li>"
-                    	str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            		}
+            				else if (data[i].continent == "america") {
+                     			str += "<li><b>America</b></li>"
+                    			str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            				}
+                    	//}
+            		
+            		//}
             	}
 				
                 $("#resultUnepList").append(str);
