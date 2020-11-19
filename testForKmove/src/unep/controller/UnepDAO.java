@@ -1,6 +1,7 @@
 package unep.controller;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,15 +40,16 @@ public class UnepDAO {
 		try
 		{
 			conn = dataFactory.getConnection();
-			String query = "select * from articles where source = 'UNEP'";
+			String query = "select * from articleUnep";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next())
 			{
+				String continent = rs.getString("continent");
 				String title = rs.getString("title");
 				String link = rs.getString("link");
-				UnepVO unepVO = new UnepVO(title, link);
+				UnepVO unepVO = new UnepVO(continent, title, link);
 				linksList.add(unepVO);
 			}
 			rs.close();
@@ -61,5 +63,32 @@ public class UnepDAO {
 		}
 		
 		return linksList;
+	}
+	
+	public void addUnep(UnepVO u)
+	{
+		try
+		{
+			conn = dataFactory.getConnection();
+			String continent = u.getContinent();
+			String title = u.getTilte();
+			String link = u.getLink();
+			Date date = u.getDate();
+			String query = "insert into articleUnep(continent, title, email, date)" + " values(?, ?, ?, ?)";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, continent);
+			pstmt.setString(2, title);
+			pstmt.setString(3, link);
+			pstmt.setDate(4, date);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		}
+		
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

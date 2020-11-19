@@ -22,9 +22,24 @@
             success : function(data){
             	console.log(data)
 
-                var str = ""; 
+                var str = "";
+            	switch (data[0]) {
+            		case "africa":
+            			str += "<li><b>Africa</b></li>"
+            			break;
+            		case "asia":
+            			str += "<li><b>Asia</b></li>"
+                		break;
+            		case "europe":
+            			str += "<li><b>Europe</b></li>"
+                		break;
+            		case "america":
+            			str += "<li><b>America</b></li>"
+                		break;
+            	}	
+            	
 				for(var i = 0; i < data.length; i++) {
-               		str += "<a href = \"" + data[i].link + "\" target=\"_blank\"><li><b>" + data[i].title + "</b></li></a>";
+               		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
 				}
 				
                 $("#resultUnepList").append(str);
@@ -40,6 +55,7 @@
    <h2>UN Environment <br> Programme</h2>
 	<div class="figure image mode-full" style="width:275px"><a href="https://www.unep.org/"><span class="figure image file file-image file-image-jpeg view-mode-full" style="width:280px;"><img alt="UNEP site" title="UN Environment Programme" height="153" width="280" class="media-element file-full" src="img/logo_unep.png"></span></a></div>
 		<ul class="article3">
+			<li></li>
 			<div id="resultUnepList"></div>
 		</ul>
 </div>
