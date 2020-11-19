@@ -54,9 +54,10 @@ float: left;
             success : function(data){
 
                 console.log(data);
-                console.log(eventArticles);                          
+
                 //var length = data.length > 3 ? 3 : data.length;
-            	$('#eventListTable').DataTable({ // 데이터 테이블 지정한것 (CSS를 저절로 ? 생성해서 실제 HTML은 이곳에서 확인할수는 없다)
+            	 for(i=0; i<length; i++){
+                $('#eventListTable').DataTable({ // 데이터 테이블 지정한것 (CSS를 저절로 ? 생성해서 실제 HTML은 이곳에서 확인할수는 없다)
 	      	    	  data: eventArticles, //API에서 가져온 자료를 데이터 테이블가져온것에 각각의 자리에 해당 자료를 넣어주기 위한 작업
 	      	    	  "aaSorting": [], //datatable 기본 정렬옵션 해
 	      	    	  columns: [ 
@@ -67,7 +68,7 @@ float: left;
 	      	    	    ]
 	      	    	});
                  
-   				/* html = '<tr>';
+   				/* /* html = '<tr>';
 			  		html += '<th scope="row">1</th>';
 		  			html += '<td><a href="eventDetail.jsp">'+ data[i].title +'</a></td>';
 		  			if(data[i].isLocked){
@@ -81,6 +82,7 @@ float: left;
         		
                 //$("#eventAllList").append(html);	
             }  
+            }
         });
     	
     });
