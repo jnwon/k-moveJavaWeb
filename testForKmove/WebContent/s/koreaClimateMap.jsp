@@ -12,8 +12,8 @@
     }
 
     $(document).ready(function(){
-    	$('.nav-item').click(function(){
-    		$('a.active').attr('class', 'nav-link');
+    	$('#navTab .nav-item').click(function(){
+    		$('#navTab a.active').attr('class', 'nav-link');
     		$(this).children().attr('class', 'nav-link active');
 		});
     });
@@ -21,7 +21,7 @@
 <!-- stefan start -->
 
 <h2>MAP DATA</h2>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" id="navTab">
 	<li class="nav-item">
 		<a class="nav-link active" href="javascript:void(0)">Air Pollution</a>
 	</li>
