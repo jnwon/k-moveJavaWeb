@@ -7,7 +7,7 @@
 %>   
 <link rel="stylesheet" href="css/top.css">
 
-<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="off">	<!-- NewsAPI 이용하려면 on으로 -->
+<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="on">	<!-- NewsAPI 이용하려면 on으로 -->
    <h1><a href="main.um" id="mainFont">GRÜNWELT</a></h1>
   <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 

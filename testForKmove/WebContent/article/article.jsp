@@ -39,7 +39,7 @@
     	$("#newsSearch").click(function(){
     		  keyword = $('#searchInput').val(); //키워드에 검색한 input에 적은 값 넣기 
     		  console.log(keyword); // 키워드 출력해보기 
-    		  var newUrl = "http://" + rootAddress + "/testForKmove/ArticleBoardController"; // 더보기를 클릭시 3개뿐아닌 나머지도 불러오기위한 컨트롤러 처리 주소
+    		  var newUrl = "http://" + rootAddress + "/testForKmove/ArticleBoardController"; // main page에서 더보기를 클릭시 3개뿐아닌 나머지도 불러오기위한 컨트롤러 처리 주소
     		  newUrl += '?keyword="' + keyword + '"'; //검색한 키워드를 같이 받아서 가져가기위한 키워드 전달
     		  console.log(newUrl); //주소가 전달이 잘되었는지 확인위해 출력해보기
     		  window.location.href=newUrl; //메인에서 article페이지로 more클릭하여 API불러왔을때 키워드를 같이 들고와서 보여주는데 키워드 들고간 페이지에서 다시 검색시 이전값이 존재하므로 새로고침을 해주어 초기화?시키는작업
