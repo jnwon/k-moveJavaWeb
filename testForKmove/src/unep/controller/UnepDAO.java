@@ -40,7 +40,7 @@ public class UnepDAO {
 		{
 			conn = dataFactory.getConnection();
 			String query = "select * from articles where source = 'UNEP'";
-			System.out.println(query);
+			//System.out.println(query);	20.11.23 Stephan: 보안상의 이유로 콘솔출력을 주석처리함
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next())
