@@ -22,10 +22,31 @@
             success : function(data){
             	console.log(data)
 
-                var str = ""; 
-				for(var i = 0; i < data.length; i++) {
-               		str += "<a href = \"" + data[i].link + "\" target=\"_blank\"><li><b>" + data[i].title + "</b></li></a>";
-				}
+                var str = "";
+            	
+            	//if (data[i].date )
+            	
+            	for(var i = 0; i < data.length; i++) {
+            		if (data[i].continent == "africa") {
+                    	str += "<li><b>Africa</b></li>"
+                   		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>" + data[i].date;
+            		}
+            			
+            		else if (data[i].continent == "asia") {
+                   		str += "<li><b>Asia</b></li>"
+                   		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            		}
+            			
+            		else if (data[i].continent == "europe") {
+                   		str += "<li><b>Europe</b></li>"
+                   		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            		}
+            			
+            		else if (data[i].continent == "america") {
+                     	str += "<li><b>America</b></li>"
+                    	str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            		}
+            	}
 				
                 $("#resultUnepList").append(str);
                 
