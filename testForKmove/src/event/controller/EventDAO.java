@@ -62,9 +62,9 @@ public class EventDAO {
 		
 		int insertCount = 0;
 		try {
-			conn = dataFactory.getConnection(){
-				
-			}
+//			conn = dataFactory.getConnection(){
+//				
+//			}
 
 		} catch (Exception e) {
 			// TODO: handle exception

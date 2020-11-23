@@ -12,7 +12,7 @@
  <li class="nav-item">
           <a class="nav-link" href="/testForKmove/MyAccountController">My Account</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"> 
           <a class="nav-link" href="/testForKmove/SaveController">Favorites</a>
         </li>
         <li class="nav-item">

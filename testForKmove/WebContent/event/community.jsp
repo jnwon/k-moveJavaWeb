@@ -61,7 +61,7 @@
                     		{ data: 'writer' },
                     		{ "width": "15%", data: 'publishedDate' }
                     	]
-                    });
+                    }); 
                   
 	            	//테이블에 title부분에 링크주소 달아주는 작업
 	            	tr = $('#eventAllList').children(); //newsAllList:135 아이디준곳(테이블전체)tbody의 자식태그인 tr의 모든 다음줄 돌림(for문처럼=each)
