@@ -40,8 +40,8 @@ public class UnepDAO {
 		try
 		{
 			conn = dataFactory.getConnection();
-			String query = "select * from articleUnep";
-			System.out.println(query);
+			String query = "select * from articles where source = 'UNEP'";
+			//String query = "select * from articleUnep";
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next())
