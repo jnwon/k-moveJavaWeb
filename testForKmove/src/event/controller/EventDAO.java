@@ -57,4 +57,20 @@ public class EventDAO {
 		}
 		return eventsList;
 	}
+	
+	public int insertEvent(EventVO eventVo) {
+		
+		int insertCount = 0;
+		try {
+			conn = dataFactory.getConnection(){
+				
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return insertCount;
+	}
+	//INSERT INTO `events` (`no`, `title`, `writer`, `publishedDate`, `isOpened`, `password`, `contents`, `numOfAttachLinks`, `numOfMaxMembers`, `numOfJoiningMembers`, `numOfComment`, `numOfViews`, `numOfLikes`) VALUES
 }

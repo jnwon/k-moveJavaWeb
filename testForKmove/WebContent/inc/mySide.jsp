@@ -10,7 +10,7 @@
       <p>Lorem ipsum dolor sit ame.</p>
       <ul class="nav nav-pills flex-column">
  <li class="nav-item">
-          <a class="nav-link active" href="/testForKmove/MyAccountController">My Account</a>
+          <a class="nav-link" href="/testForKmove/MyAccountController">My Account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/testForKmove/SaveController">Favorites</a>

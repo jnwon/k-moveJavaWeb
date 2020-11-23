@@ -46,40 +46,6 @@
             
             success : function(data){
                 console.log(data);
-
-
-                //var length = data.length > 3 ? 3 : data.length;
-                //for(i=0; i < event.length; i++){
-                    //var datetime = data[i].publishedDate.split(" ");
-                    //var date = datetime[0].split("-");
-                    //var month = "";
-                    
-                    /* switch(Number(date[1])){
-                    	case 1: month = 'Jan';
-                    		break;
-                    	case 2: month = 'Feb';
-                			break;
-                    	case 3: month = 'Mar';
-            				break;
-                    	case 4: month = 'Apr';
-            				break;
-                    	case 5: month = 'May';
-        					break;
-                    	case 6: month = 'Jun';
-        					break;
-                    	case 7: month = 'Jul';
-        					break;
-                    	case 8: month = 'Aug';
-        					break;
-                    	case 9: month = 'Sep';
-        					break;
-                    	case 10: month = 'Oct';
-        					break;
-                    	case 11: month = 'Nov';
-        					break;
-                    	case 12: month = 'Dec';
-        					break;
-                    }           */
                    
 	            	for(i=0; i < data.length; i++){ //article가져온 수만큼 돌리기
 	            		temp = data[i].publishedDate.split(' '); //시간부분이 조금 길어서 T를 중심으로 나눠주기

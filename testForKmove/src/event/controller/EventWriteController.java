@@ -1,6 +1,7 @@
 package event.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,14 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/EventWriteController")
 public class EventWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	EventDAO eventDAO;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EventWriteController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	public void init() throws ServletException {
+		eventDAO = new EventDAO();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +42,9 @@ public class EventWriteController extends HttpServlet {
 	}
 
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		List<EventVO> eventList = eventDAO.listEventsForMain();
+		request.setAttribute("eventList", eventList);
+
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventForm.jsp");
