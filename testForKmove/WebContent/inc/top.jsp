@@ -135,11 +135,11 @@
               <i class="fas fa-envelope mr-2"></i> Account
             </a>
             <div class="dropdown-divider"></div>
-            <a href="../mem/favorites.jsp" class="dropdown-item">
+            <a href="/testForKmove/SaveController" class="dropdown-item">
               <i class="fas fa-users mr-2"></i> Saved
             </a>
             <div class="dropdown-divider"></div>
-            <a href="../mem/meetup.jsp" class="dropdown-item">
+            <a href="/testForKmove/MyActivController" class="dropdown-item">
               <i class="fas fa-file mr-2"></i> My activities
             </a>
             <div class="dropdown-divider"></div>
