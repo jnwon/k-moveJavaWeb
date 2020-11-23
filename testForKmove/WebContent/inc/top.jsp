@@ -7,7 +7,7 @@
 %>   
 <link rel="stylesheet" href="css/top.css">
 
-<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="on">	<!-- NewsAPI 이용하려면 on으로 -->
+<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="off">	<!-- NewsAPI 이용하려면 on으로 -->
    <h1><a href="main.um" id="mainFont">GRÜNWELT</a></h1>
   <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 
@@ -62,7 +62,7 @@
       <ul class="navbar-nav ml-auto">
       <!-- Login and Logout -->
             
-          <a class="nav-link" href="../mem/login.jsp">login</a> | <a class="nav-link" href="../mem/join.jsp">join</a>
+          <a class="nav-link" href="/testForKmove/LogController">login</a> | <a class="nav-link" href="/testForKmove/JoinController">join</a>
 
         <!-- Messages Dropdown Menu -->
  		<li class="nav-item dropdown">
@@ -131,7 +131,7 @@
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header">Setting</span>
             <div class="dropdown-divider"></div>
-            <a href="../mem/myAccount.jsp" class="dropdown-item">
+            <a href="/testForKmove/MyAccountController" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> Account
             </a>
             <div class="dropdown-divider"></div>
