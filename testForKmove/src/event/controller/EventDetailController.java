@@ -43,11 +43,13 @@ public class EventDetailController extends HttpServlet {
 	}
 
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<EventVO> eventList = eventDAO.listEventsForMain();
-		request.setAttribute("eventList", eventList);
-		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+		int no = Integer.parseInt(request.getParameter("no")); //주소창에서 no값을이 들어있는 주소창을엔터쳤다고 생각할때 (request) no뒤에 값을 가져오는것
+		
+		List<EventVO> eventList = eventDAO.listEventsForMain();
+		request.setAttribute("eventList", eventList);
+
 		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventDetail.jsp");
 		dispatch.forward(request, response);
 	}

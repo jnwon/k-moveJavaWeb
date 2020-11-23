@@ -57,18 +57,26 @@
                     	data: data,
                     	"aaSorting": [],
                     	columns: [
+                    		{ data: 'no'},
                     		{ data: 'title' },
                     		{ data: 'writer' },
                     		{ "width": "15%", data: 'publishedDate' }
                     	]
-                    }); 
-                  
+                    });
+                    
+                    $('tr').click(function(){
+                    	//console.log($(this).children().eq(0).text());
+                    	//console.log("/testForKmove/EventDetailController?no="+$(this).children().eq(0).text());
+                    	location.href="/testForKmove/EventDetailController?no="+$(this).children().eq(0).text();
+                    });
+                    
+ /*                  
 	            	//테이블에 title부분에 링크주소 달아주는 작업
 	            	tr = $('#eventAllList').children(); //newsAllList:135 아이디준곳(테이블전체)tbody의 자식태그인 tr의 모든 다음줄 돌림(for문처럼=each)
 	            	tr.each(function(i){ // 기사한개줄당
 	            		title = tr.eq(i).children().eq(0).html(); //tr의 i번째의 자식td의 0번째 즉 title일때 HTML을 적용시키는데 들어오는 새로운? 인자값이 없으면 아무처리안함 (새로운 검색을 하지않았을경우를 말하는듯)
 	            		//console.log(articles[i].url);
-	            		tr.eq(i).children().eq(0).html('<a href ="' + data[i].url +'" target="_blank">'+title+'</a>'); // 마찬가지로 인자값이 있으면 a태그지정해줌
+	            		tr.eq(i).children().eq(0).html('<a href ="' + data[i].url +'?no='+data[i].no+'>'+title+'</a>'); // 마찬가지로 인자값이 있으면 a태그지정해줌
 	            	});
 	            	//페이지가 1이상인경우에 a태그를 1페이지에서만 불러온다. 그래서 위는 1페이지에만해당이된다. 총 게시글은 20개만 불러옴으려 2페이지까지 적용시켜주면된다
 	        		$('#listTable_next').trigger("click"); // next를 자동으로 클릭하는 트리거 실행 =  페이지를 로드할때 트리거가 발생하여 저절로 next & previous를 실행시켜주어 a태그를 모두 적용시킨다
@@ -80,7 +88,7 @@
 	            		tr.eq(i).children().eq(0).html('<a href ="'+ data[i+10].url +'" target="_blank">'+title+'</a>'); //여기서 아티클에 i+10은 다음페이지에 적용시켜야하기에 +10을 하여 앞의 10개이후의 값 즉 2페이지 부터 적용시키다
 	            	});
 	            	
-	            	$('#listTable_previous').trigger("click"); //previous버튼도 클릭시켜준다( 여기서 listTable_previous,listTable_next는 현제페이지에 없고 데이터테이블에서 저절로 만들기에 웹상에서 개발자보기로가서 참고하여 가져올수있다)
+	            	$('#listTable_previous').trigger("click"); //previous버튼도 클릭시켜준다( 여기서 listTable_previous,listTable_next는 현제페이지에 없고 데이터테이블에서 저절로 만들기에 웹상에서 개발자보기로가서 참고하여 가져올수있다) */
 
 /*     				html = '<tr>';
 				  		html += '<th scope="row">1</th>';
@@ -136,7 +144,7 @@ float: left;
   <thead>
     <tr>
 
- 	 <!--  <th scope="col">#</th>  -->
+ 	  <th scope="col">#</th>
 
       <th scope="col">Title</th>
 <!-- 	  <th scope="col">Locked</th> -->

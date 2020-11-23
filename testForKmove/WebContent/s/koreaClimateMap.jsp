@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- <c:import url="http://open.ev.or.kr:8080/openapi/services/rest/EvChargerService?serviceKey=Br9ZD1jNUSVEWk2pzmFs4d6YxbkJ87tZQ%2BotT9cHiPf6xGKNwrR94bOypjcYra1PsaMIqaur86JPZkw3uI29Rw%3D%3D&" /> --%>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2um8xr8ytg&callback=initMap"></script>
 <script type="text/javascript" src="/testForKmove/s/greenCompanies.json"></script>

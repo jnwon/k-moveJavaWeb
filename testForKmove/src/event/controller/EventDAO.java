@@ -31,11 +31,12 @@ public class EventDAO {
 		List<EventVO> eventsList = new ArrayList();
 		try {
 			conn = dataFactory.getConnection();
-			String query = "SELECT e.title, m.name, e.publishedDate, e.isOpened, e.password, e.numOfMaxMembers, e.numOfJoiningMembers, e.numOfComment, e.numOfViews, e.numOfLikes from events as e join Members as m where e.writer = m.no order by publishedDate DESC";
+			String query = "SELECT e.no, e.title, m.name, e.publishedDate, e.isOpened, e.password, e.numOfMaxMembers, e.numOfJoiningMembers, e.numOfComment, e.numOfViews, e.numOfLikes from events as e join Members as m where e.writer = m.no order by publishedDate DESC";
 			//System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+				int no = rs.getInt("e.no");
 				String title = rs.getString("e.title");
 				String writer = rs.getString("m.name");
 				String publishedDate = rs.getString("e.publishedDate");
@@ -46,7 +47,7 @@ public class EventDAO {
 				int numOfComment = rs.getInt("e.numOfComment"); 
 				int numOfViews = rs.getInt("e.numOfViews");
 				int numOfLikes = rs.getInt("e.numOfLikes");
-				EventVO eventVO = new EventVO(title, writer, publishedDate, isOpened, isLocked, numOfMaxMembers, numOfJoiningMembers, numOfComment, numOfViews, numOfLikes);
+				EventVO eventVO = new EventVO(no, title, writer, publishedDate, isOpened, isLocked, numOfMaxMembers, numOfJoiningMembers, numOfComment, numOfViews, numOfLikes);
 				eventsList.add(eventVO);
 			}
 			rs.close();
