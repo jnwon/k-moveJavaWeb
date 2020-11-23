@@ -143,7 +143,7 @@
               <i class="fas fa-file mr-2"></i> My activities
             </a>
             <div class="dropdown-divider"></div>
-            <a href="../mem/contact.jsp" class="dropdown-item dropdown-footer">My Q&A</a>
+            <a href="/testForKmove/ContactController" class="dropdown-item dropdown-footer">My Q&A</a>
           </div>
         </li>
         

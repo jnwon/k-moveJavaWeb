@@ -1,4 +1,4 @@
-package save.controllor;
+package save.controller;
 
 import java.io.IOException;
 
