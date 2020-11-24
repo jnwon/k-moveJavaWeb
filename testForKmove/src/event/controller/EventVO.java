@@ -15,7 +15,9 @@ public class EventVO {
 	private	int numOfComment;
 	private	int numOfViews;
 	private	int numOfLikes;
-	
+
+	private String contents;
+	 
 	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int password,
 			int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes,
 			String contents) {
@@ -35,9 +37,6 @@ public class EventVO {
 		this.contents = contents;
 	}
 
-	private String contents;
-	
-	
 	
 	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes) {
 		super();

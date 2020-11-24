@@ -91,7 +91,7 @@ float: left;
 <!-- Navbar -->
 <jsp:include page="/inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
-
+ 
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">

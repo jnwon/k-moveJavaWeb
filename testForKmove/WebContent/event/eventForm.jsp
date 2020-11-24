@@ -16,7 +16,7 @@
     background: #aaa;
   }
   
-  </style>
+  </style> 
 </head>
 <body>
 

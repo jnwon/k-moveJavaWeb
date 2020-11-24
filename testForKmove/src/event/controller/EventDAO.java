@@ -90,7 +90,7 @@ public class EventDAO {
 			}
 			rs.close();
 			pstmt.close();
-
+ 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 

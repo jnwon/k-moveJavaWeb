@@ -25,7 +25,7 @@ public class EventDetailController extends HttpServlet {
 		eventDAO = new EventDAO();
 	}
 
-
+ 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
