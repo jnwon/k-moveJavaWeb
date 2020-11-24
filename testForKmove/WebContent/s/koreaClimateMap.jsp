@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <c:import url="http://open.ev.or.kr:8080/openapi/services/rest/EvChargerService?serviceKey=Br9ZD1jNUSVEWk2pzmFs4d6YxbkJ87tZQ%2BotT9cHiPf6xGKNwrR94bOypjcYra1PsaMIqaur86JPZkw3uI29Rw%3D%3D&" /> --%>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2um8xr8ytg&callback=initMap"></script>
 <script type="text/javascript" src="/testForKmove/s/greenCompanies.json"></script>
 <script type="text/javascript">
@@ -12,17 +11,24 @@
             zoom: 10
         });
     	
-/*     	$.ajax({
+     	$.ajax({
             type : "GET", //전송방식을 지정한다 (POST,GET)
-            url : "http://open.ev.or.kr:8080/openapi/services/rest/EvChargerService?serviceKey=Br9ZD1jNUSVEWk2pzmFs4d6YxbkJ87tZQ%2BotT9cHiPf6xGKNwrR94bOypjcYra1PsaMIqaur86JPZkw3uI29Rw%3D%3D&",
+            url : "/testForKmove/s/ChargeCenter.xml",
             dataType : "xml",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
             error : function(){
                 console.log("connection down!!!!");
             },
             success : function(data){
-            	console.log(data)
+            /*	console.log($(data).find('body'));
+            	
+            	$(data).find('item').each(function(){
+            		console.log($(this));
+            		//console.log($(this).find('statId'));
+            		if(i++ == 10)
+            			break;
+            	});  */
             }
-    	}); */
+    	});
     	
     	$('#navTab .nav-item').click(function(){
     		$('#navTab a.active').attr('class', 'nav-link');

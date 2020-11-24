@@ -59,43 +59,44 @@ public class EventDAO {
 		return eventsList;
 	}
 	
-	public int insertEvent(int eventsNo) {
+	public EventVO getDetailedEvent(int no) {
 		
-		EventVO eventVO = null;
+		EventVO detailedEvent = null;
 		
-		int insertCount = 0;
 		try {
 			conn = dataFactory.getConnection();
 			String query = "SELECT * from events WHERE no=?";
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			
-			pstmt.setInt(1, eventsNo);
+			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
 
 			if(rs.next()) {
-				eventVO = new EventVO();
-				eventVO.setNo(rs.getInt("no"));
-				eventVO.setTitle(rs.getString("title"));
-				eventVO.setWriter(rs.getString("writer"));
-				eventVO.setPublishedDate(rs.getString("publishedDate"));
-				eventVO.setIsOpened(rs.getInt("isOpened"));
-				eventVO.setIsLocked(rs.getInt("isLocked"));
-				eventVO.setPassword(rs.getInt("password"));
-				eventVO.setNumOfMaxMembers(rs.getInt("numOfMaxMembers"));
-				eventVO.setNumOfComment(rs.getInt("numOfComment"));
-				eventVO.setNumOfViews(rs.getInt("numOfViews"));
-				eventVO.setNumOfLikes(rs.getInt("numOfLikes"));
-				eventVO.setContents(rs.getString("contents"));
-
+				detailedEvent = new EventVO();
+				detailedEvent.setNo(rs.getInt("no"));
+				detailedEvent.setTitle(rs.getString("title"));
+				detailedEvent.setWriter(rs.getString("writer"));
+				detailedEvent.setPublishedDate(rs.getString("publishedDate"));
+				detailedEvent.setIsOpened(rs.getInt("isOpened"));
+				detailedEvent.setIsLocked(rs.getInt("isLocked"));
+				detailedEvent.setPassword(rs.getInt("password"));
+				detailedEvent.setNumOfMaxMembers(rs.getInt("numOfMaxMembers"));
+				detailedEvent.setNumOfJoiningMembers(rs.getInt("numOfJoiningMembers"));
+				detailedEvent.setNumOfComment(rs.getInt("numOfComment"));
+				detailedEvent.setNumOfViews(rs.getInt("numOfViews"));
+				detailedEvent.setNumOfLikes(rs.getInt("numOfLikes"));
+				detailedEvent.setContents(rs.getString("contents"));
 			}
-			
+			rs.close();
+			pstmt.close();
 
 		} catch (Exception e) {
-			// TODO: handle exception
-		}
+			e.printStackTrace();
+		} 
 		
-		return insertCount;
+		return detailedEvent;
 	}
 	//INSERT INTO `events` (`no`, `title`, `writer`, `publishedDate`, `isOpened`, `password`, `contents`, `numOfAttachLinks`, `numOfMaxMembers`, `numOfJoiningMembers`, `numOfComment`, `numOfViews`, `numOfLikes`) VALUES
+
 }
