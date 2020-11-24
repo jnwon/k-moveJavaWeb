@@ -46,11 +46,12 @@ public class UnepDAO {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next())
 			{
+				int no = rs.getInt("no");
 				String continent = rs.getString("continent");
 				String title = rs.getString("title");
 				String link = rs.getString("link");
 				String date = rs.getString("date");
-				UnepVO unepVO = new UnepVO(continent, title, link, date);
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date);
 				linksList.add(unepVO);
 			}
 			rs.close();

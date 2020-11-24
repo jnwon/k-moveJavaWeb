@@ -25,34 +25,81 @@
                 var str = "";
 	
             	for(var i = 0; i < data.length; i++) {
-            		//for (var j = 0; j < data.length; j++) {
-                    	
-            			var date1 = new Date(data[i].date);
-                    	//var date2 = new Date(data[j].date);
-                    	
-                    	//if (date1.valueOf() > date2.valueOf()) {
-                    		if (data[i].continent == "africa") {
+            		for (var j = 0; j < data.length; j++) {
+
+                    	if (data[i].continent == "africa" && data[j].continent == "africa") {
+                    			
+                    		var date1 = new Date(data[i].date);
+                           	var date2 = new Date(data[j].date);
+                    			
+                            if (date1.valueOf() > date2.valueOf()) {
                     			str += "<li><b>Africa</b></li>"
                    				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            				}
+                    		}
+                            	
+                            else if (date1.valueOf() == date2.valueOf()) {
+                            	if (data[i].no > data[j].no) {
+                        			str += "<li><b>Africa</b></li>"
+                       				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+                            	}
+                            }
+                    	}
+            				
+            			else if (data[i].continent == "asia" && data[j].continent == "asia") {
+            				
+            				var date3 = new Date(data[i].date);
+                           	var date4 = new Date(data[j].date);
+                           	
+                           	if (date3.valueOf() > date4.valueOf()) {
+                           		str += "<li><b>Asia</b></li>"
+                       			str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+                    		}
+                           	
+                           	else if (date3.valueOf() == date4.valueOf()) {
+                            	if (data[i].no > data[j].no) {
+                   					str += "<li><b>Asia</b></li>"
+                   					str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+            					}
+                           	}
+            			}
             			
-            				else if (data[i].continent == "asia") {
-                   				str += "<li><b>Asia</b></li>"
-                   				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            				}
-            			
-            				else if (data[i].continent == "europe") {
+            			else if (data[i].continent == "europe" && data[j].continent == "europe") {
+            					
+            				var date5 = new Date(data[i].date);
+                            var date6 = new Date(data[j].date);
+                               	
+                            if (date5.valueOf() > date6.valueOf()) {
                    				str += "<li><b>Europe</b></li>"
                    				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            				}
+                            }
+                            
+                            else if (date5.valueOf() == date6.valueOf()) {
+                            	if (data[i].no > data[j].no) {
+                            		str += "<li><b>Europe</b></li>"
+                           			str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+                            	}
+                            }
+            			}
             			
-            				else if (data[i].continent == "america") {
+            			else if (data[i].continent == "america" && data[j].continent == "america") {
+            				
+            				var date7 = new Date(data[i].date);
+                            var date8 = new Date(data[j].date);
+                               	
+                            if (date7.valueOf() > date8.valueOf()) {
                      			str += "<li><b>America</b></li>"
                     			str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
             				}
-                    	//}
-            		
-            		//}
+                            
+                            else if (date7.valueOf() == date8.valueOf()) {
+                            	if (data[i].no > data[j].no) {
+                            		str += "<li><b>America</b></li>"
+                            		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
+                            	}
+                            }
+            			}
+
+            		}
             	}
 				
                 $("#resultUnepList").append(str);
