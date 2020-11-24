@@ -65,13 +65,14 @@ public class EventDAO {
 		
 		try {
 			conn = dataFactory.getConnection();
-			String query = "SELECT * from events WHERE no=?";
+			//String query = "SELECT * from events WHERE no=?";
+			String query = "SELECT * from events WHERE no="+no;
 			//String query = "SELECT e.no, e.title, m.name, e.publishedDate, e.isOpened, e.password, e.numOfMaxMembers, e.numOfJoiningMembers, e.numOfComment, e.numOfViews, e.numOfLikes from events as e join Members as m where e.writer = m.no order by publishedDate DESC";
-
+			System.out.println("no from DAO" + no);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			
-			pstmt.setInt(1, no);
+			//pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
 
 			if(rs.next()) {
