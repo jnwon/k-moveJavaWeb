@@ -59,13 +59,37 @@ public class EventDAO {
 		return eventsList;
 	}
 	
-	public int insertEvent(EventVO eventVo) {
+	public int insertEvent(int eventsNo) {
+		
+		EventVO eventVO = null;
 		
 		int insertCount = 0;
 		try {
-//			conn = dataFactory.getConnection(){
-//				
-//			}
+			conn = dataFactory.getConnection();
+			String query = "SELECT * from events WHERE no=?";
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			
+			pstmt.setInt(1, eventsNo);
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+				eventVO = new EventVO();
+				eventVO.setNo(rs.getInt("no"));
+				eventVO.setTitle(rs.getString("title"));
+				eventVO.setWriter(rs.getString("writer"));
+				eventVO.setPublishedDate(rs.getString("publishedDate"));
+				eventVO.setIsOpened(rs.getInt("isOpened"));
+				eventVO.setIsLocked(rs.getInt("isLocked"));
+				eventVO.setPassword(rs.getInt("password"));
+				eventVO.setNumOfMaxMembers(rs.getInt("numOfMaxMembers"));
+				eventVO.setNumOfComment(rs.getInt("numOfComment"));
+				eventVO.setNumOfViews(rs.getInt("numOfViews"));
+				eventVO.setNumOfLikes(rs.getInt("numOfLikes"));
+				eventVO.setContents(rs.getString("contents"));
+
+			}
+			
 
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -16,6 +16,10 @@ public class EventVO {
 	private	int numOfViews;
 	private	int numOfLikes;
 	
+	private	int numOfAttachLinks;
+	
+	private String contents;
+	
 	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes) {
 		super();
 		this.no = no;
@@ -32,17 +36,24 @@ public class EventVO {
 	}
 	
 	
-	
-	public void setTitle(String title) {
-		this.title = title;
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
 
 	public int getNo() {
 		return no;
 	}
-
+	
 	public void setNo(int no) {
 		this.no = no;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public void setWriter(String writer) {

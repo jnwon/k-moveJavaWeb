@@ -54,11 +54,11 @@
 
                     //DataTable Initialising 
                     $('#eventlistTable').DataTable({
-                    	data: data,
-                    	"aaSorting": [],
-                    	columns: [
-                    		{ data: 'no'},
-                    		{ data: 'title' },
+                    	data: data, // 웹에서 개발자들어가면 data에서자료를 들고오는데 처음에 0으로 바로시작함 그래서 따로 데이터담는곳 지정하지않았고 data로 바로 들고오니 출력됨
+                    	"aaSorting": [], //최신글 순서가 젤 위로오게하여 정렬기능 
+                    	columns: [ 
+                    		{ data: 'no'}, //페이지 넘겨주기위해서 no불러옴 (빈에 생성하고 게시글에도 추가함 > 마우스가져다대면 해당 글 번호의 정보를 가져옴)
+                    		{ data: 'title' }, 
                     		{ data: 'writer' },
                     		{ "width": "15%", data: 'publishedDate' }
                     	]
@@ -67,44 +67,8 @@
                     $('tr').click(function(){
                     	//console.log($(this).children().eq(0).text());
                     	//console.log("/testForKmove/EventDetailController?no="+$(this).children().eq(0).text());
-                    	location.href="/testForKmove/EventDetailController?no="+$(this).children().eq(0).text();
-                    });
-                    
- /*                  
-	            	//테이블에 title부분에 링크주소 달아주는 작업
-	            	tr = $('#eventAllList').children(); //newsAllList:135 아이디준곳(테이블전체)tbody의 자식태그인 tr의 모든 다음줄 돌림(for문처럼=each)
-	            	tr.each(function(i){ // 기사한개줄당
-	            		title = tr.eq(i).children().eq(0).html(); //tr의 i번째의 자식td의 0번째 즉 title일때 HTML을 적용시키는데 들어오는 새로운? 인자값이 없으면 아무처리안함 (새로운 검색을 하지않았을경우를 말하는듯)
-	            		//console.log(articles[i].url);
-	            		tr.eq(i).children().eq(0).html('<a href ="' + data[i].url +'?no='+data[i].no+'>'+title+'</a>'); // 마찬가지로 인자값이 있으면 a태그지정해줌
-	            	});
-	            	//페이지가 1이상인경우에 a태그를 1페이지에서만 불러온다. 그래서 위는 1페이지에만해당이된다. 총 게시글은 20개만 불러옴으려 2페이지까지 적용시켜주면된다
-	        		$('#listTable_next').trigger("click"); // next를 자동으로 클릭하는 트리거 실행 =  페이지를 로드할때 트리거가 발생하여 저절로 next & previous를 실행시켜주어 a태그를 모두 적용시킨다
-	        		
-	        		tr = $('#eventAllList').children();
-	            	tr.each(function(i){
-	            		title = tr.eq(i).children().eq(0).html();
-	            		//console.log(articles[i].url);
-	            		tr.eq(i).children().eq(0).html('<a href ="'+ data[i+10].url +'" target="_blank">'+title+'</a>'); //여기서 아티클에 i+10은 다음페이지에 적용시켜야하기에 +10을 하여 앞의 10개이후의 값 즉 2페이지 부터 적용시키다
-	            	});
-	            	
-	            	$('#listTable_previous').trigger("click"); //previous버튼도 클릭시켜준다( 여기서 listTable_previous,listTable_next는 현제페이지에 없고 데이터테이블에서 저절로 만들기에 웹상에서 개발자보기로가서 참고하여 가져올수있다) */
-
-/*     				html = '<tr>';
-				  		html += '<th scope="row">1</th>';
-			  			html += '<td><a href="eventDetail.jsp">'+ data[i].title +'</a></td>';
-			  			if(data[i].isLocked){
-	   						html += '<td> ᛄ </td>';
-	   					} else {
-	   						html += '<td></td>';
-	   					}
-	  					html += '<td>'+ data[i].writer +'</td>';
-   						html += '<td>'+ date[2] + '. ' + month +'</td>';
-   					html += '</tr>';
-	        		
-	                $("#eventAllList").append(html); */	
-                //}
-
+                    	location.href="/testForKmove/EventDetailController?no="+$(this).children().eq(0).text(); // 해당 글 클릭시 해당 글 불러올수있도록 글번호주소지정함
+                    }); //this의 tr을 클릭하면 그 밑의 자식중에서 0번째 즉 no의 text를 가져오기
             }  
         });
  	   }
