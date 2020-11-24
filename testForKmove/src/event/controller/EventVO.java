@@ -16,6 +16,7 @@ public class EventVO {
 	private	int numOfViews;
 	private	int numOfLikes;
 
+	private int numOfAttachLinks;
 	private String contents;
 	 
 	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int password,
@@ -53,10 +54,19 @@ public class EventVO {
 		this.numOfLikes = numOfLikes;
 	}
 	
+	
 	public EventVO() {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getNumOfAttachLinks() {
+		return numOfAttachLinks;
+	}
+
+	public void setNumOfAttachLinks(int numOfAttachLinks) {
+		this.numOfAttachLinks = numOfAttachLinks;
+	}
+	
 	public String getContents() {
 	return contents;
 	}

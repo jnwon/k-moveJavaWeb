@@ -13,7 +13,10 @@
 		sid = (String)session.getAttribute("sid");
 	} */
 // 전달받은 request 객체에서 데이터 가져오기
-	//EventVO detailedEvent = (EventVO)request.getAttribute("detailedEvent"); 
+	EventVO detailedEvent = (EventVO)request.getAttribute("detailedEvent");
+	//EventVO detailedEvent2 = (EventVO)request.getAttribute("eventList");
+
+	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +30,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/facebookstyle.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  
+    <%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="/rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>
+   <script type="text/javascript" language="javascript">
+
+<%-- 	var rootAddress = "<%=rootAddress%>";
+	var url = "http://" + rootAddress + "/testForKmove/EventDetailController?no="++;
+	 --%>
+	
+ 	</script>
   <style>
   .fakeimg {
     height: 200px;
@@ -50,7 +62,7 @@ float: right;
     <div class="col-sm-12">
       <h2>EVENT</h2>
 
-<form>
+<form action="">
     <div class="form-group">
   <div class="row">
     <div class="col">
@@ -69,7 +81,7 @@ float: right;
       <input type="text" class="form-control" placeholder="max mem countt & current joined mem" readonly="readonly">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="date" readonly="readonly">
+      <input type="text" class="form-control" placeholder="date<%=detailedEvent.getPublishedDate() %>" readonly="readonly">
     </div>
   </div>
   </div>
@@ -93,7 +105,7 @@ float: right;
  
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Content</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" readonly="readonly">sss</textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" readonly="readonly"><%=detailedEvent.getContents() %></textarea>
     
   </div>
   
@@ -286,11 +298,10 @@ float: right;
          </div>
          <!-- end timeline-body -->
  <!-- facebook style commend -->
-
+</form>
     </div>
   </div>
 </div>
-
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 
 </body>
