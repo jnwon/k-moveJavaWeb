@@ -13,7 +13,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class UnepDAO {
-	
+	 
 	private DataSource dataFactory;
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -40,8 +40,8 @@ public class UnepDAO {
 		try
 		{
 			conn = dataFactory.getConnection();
+			//String query = "select * from articles where source = 'UNEP'";
 			String query = "select * from articleUnep";
-			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next())

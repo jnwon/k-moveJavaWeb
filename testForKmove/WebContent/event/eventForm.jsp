@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- Navbar --> 
 <jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
 
@@ -30,7 +30,7 @@
       <h2>EVENT</h2>
       <h5>Title description, Dec 7, 2017</h5>
 
-<form>
+<form action="" method="post" enctype="multipart/form-data" name="">
     <div class="form-group">
   <div class="row">
     <div class="col">

@@ -62,7 +62,7 @@
       <ul class="navbar-nav ml-auto">
       <!-- Login and Logout -->
             
-          <a class="nav-link" href="../mem/login.jsp">login</a> | <a class="nav-link" href="../mem/join.jsp">join</a>
+          <a class="nav-link" href="/testForKmove/LogController">login</a> | <a class="nav-link" href="/testForKmove/JoinController">join</a>
 
         <!-- Messages Dropdown Menu -->
  		<li class="nav-item dropdown">
@@ -131,19 +131,19 @@
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header">Setting</span>
             <div class="dropdown-divider"></div>
-            <a href="../mem/myAccount.jsp" class="dropdown-item">
+            <a href="/testForKmove/MyAccountController" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> Account
             </a>
             <div class="dropdown-divider"></div>
-            <a href="../mem/favorites.jsp" class="dropdown-item">
+            <a href="/testForKmove/SaveController" class="dropdown-item">
               <i class="fas fa-users mr-2"></i> Saved
             </a>
             <div class="dropdown-divider"></div>
-            <a href="../mem/meetup.jsp" class="dropdown-item">
+            <a href="/testForKmove/MyActivController" class="dropdown-item">
               <i class="fas fa-file mr-2"></i> My activities
             </a>
             <div class="dropdown-divider"></div>
-            <a href="../mem/contact.jsp" class="dropdown-item dropdown-footer">My Q&A</a>
+            <a href="/testForKmove/ContactController" class="dropdown-item dropdown-footer">My Q&A</a>
           </div>
         </li>
         

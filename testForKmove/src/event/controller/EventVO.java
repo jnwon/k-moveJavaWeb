@@ -3,6 +3,7 @@ package event.controller;
 import java.sql.Date;
 
 public class EventVO {
+	private int no;
 	private	String title;
 	private	String writer;
 	private	String publishedDate;
@@ -15,8 +16,9 @@ public class EventVO {
 	private	int numOfViews;
 	private	int numOfLikes;
 	
-	public EventVO(String title, String writer, String publishedDate, int isOpened, int isLocked, int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes) {
+	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes) {
 		super();
+		this.no = no;
 		this.title = title;
 		this.writer = writer;
 		this.publishedDate = publishedDate;
@@ -29,8 +31,18 @@ public class EventVO {
 		this.numOfLikes = numOfLikes;
 	}
 	
+	
+	
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public void setWriter(String writer) {
