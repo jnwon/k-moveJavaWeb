@@ -32,17 +32,12 @@ public class EventVO {
 	}
 	
 	
+	public void setNo(int no) {
+		this.no = no;
+	}
 	
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
 	}
 
 	public void setWriter(String writer) {
@@ -85,47 +80,51 @@ public class EventVO {
 		this.numOfLikes = numOfLikes;
 	}	
 
-	public String setTitle() {
+	public int getNo() {
+		return no;
+	}
+
+	public String getTitle() {
 		return title;
 	}
 
-	public String setWriter() {
+	public String getWriter() {
 		return writer;
 	}
 
-	public String setPublishedDate() {
+	public String getPublishedDate() {
 		return publishedDate;
 	}
 
-	public int setIsOpened() {
+	public int getIsOpened() {
 		return isOpened;
 	}
 
-	public int setIsLocked() {
+	public int getIsLocked() {
 		return isLocked;
 	}
 
-	public int setPassword() {
+	public int getPassword() {
 		return password;
 	}
 
-	public int setNumOfMaxMembers() {
+	public int getNumOfMaxMembers() {
 		return numOfMaxMembers;
 	}
 
-	public int setNumOfJoiningMembers() {
+	public int getNumOfJoiningMembers() {
 		return numOfJoiningMembers;
 	}
 
-	public int setNumOfComment() {
+	public int getNumOfComment() {
 		return numOfComment;
 	}
 
-	public int setNumOfViews() {
+	public int getNumOfViews() {
 		return numOfViews;
 	}
 
-	public int setNumOfLikes() {
+	public int getNumOfLikes() {
 		return numOfLikes;
 	}
 
