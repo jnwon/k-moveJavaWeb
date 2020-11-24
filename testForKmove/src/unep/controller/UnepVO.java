@@ -4,7 +4,7 @@ public class UnepVO {
 	
 	private int no;
 	private String continent, title, link, date;
-	
+	 
 	public UnepVO(int no, String continent, String title, String link, String date)
 	{
 		this.no = no;

@@ -5,7 +5,7 @@
 <%@ include file="../rootAddress.jsp" %>
 <%-----------------------------------------------------------------------------%>
 
-<script type="text/javascript" language="javascript">
+<script type="text/javascript" language="javascript"> 
 
 	var rootAddress = "<%=rootAddress%>";
 	var unepUrl = "http://" + rootAddress + "/testForKmove/UnepController";
