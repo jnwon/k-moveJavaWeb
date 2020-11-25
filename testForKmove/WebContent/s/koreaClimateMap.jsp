@@ -22,22 +22,22 @@
             },
             success : function(data){
             	$('#navTab .nav-item').click(function(){
+            		var tab = $(this).children().attr('id');
             		$('#navTab a.active').attr('class', 'nav-link');
             		$(this).children().attr('class', 'nav-link active');
             		
-            		if($(this).children().attr('id') == 'GreenCompaniesTab'){
+            		if(tab == 'GreenCompaniesTab'){
             	    	map.destroy();
-            	    	initNaverMap(jsonData, 37.5666805, 126.9784147, 9, greenCompanieeMarkerSeter, greenCompanieesClickHandler);
+            	    	initNaverMap(jsonData, 37.5666805, 126.9784147, 9, greenCompanieeMarkerSeter, greenCompanieesClickHandler, tab);
             		}
-            		else if($(this).children().attr('id') == 'ChargeCenterTab'){
+            		else if(tab == 'ChargeCenterTab'){
             			navigator.geolocation.getCurrentPosition(function(pos) {
             			    lat = pos.coords.latitude;
             			    lng = pos.coords.longitude;
                 	    	map.destroy();
-                	    	initNaverMap(data, lat, lng, 12, chargeCenterMarkerSeter, chargeCenterClickHandler);            			    
+                	    	initNaverMap(data, lat, lng, 12, chargeCenterMarkerSeter, chargeCenterClickHandler, tab);            			    
             			});
             		}            		
-            		
         		});            	
             }
     	});
@@ -55,7 +55,7 @@
     	    });
     	
     	    var infoWindow = new naver.maps.InfoWindow({
-    	        content: '<div style="width:150px;text-align:center;padding:10px;font-size:80%;">'+ data[i].ENTRPS_NM +'"</b></div>'
+    	        content: '<div style="width:150px;text-align:center;padding:10px;font-size:80%;">'+ data[i].ENTRPS_NM +'</b></div>'
     	    });
     	
     	    markers.push(marker);
@@ -63,38 +63,64 @@
     	}
     }
     
-    var i=0;
-    
     function chargeCenterMarkerSeter(data, markers, infoWindows, infoModals, southWest, northEast){
-    	    	
+    	
+    	var i = 0;
      	$(data).find('item').each(function(){
      		var lat = $(this).find('lat').text();
      		var lng = $(this).find('lng').text();
      		
      		if((northEast.lat() > lat && lat > southWest.lat()) && (northEast.lng() > lng && lng > southWest.lng())){
-     						
-	     		var position = new naver.maps.LatLng(parseFloat(lat), parseFloat(lng));
-	        	
-	     	    var marker = new naver.maps.Marker({
-	    	        map: map,
-	    	        position: position,
-	    	        zIndex: 100
-	    	    });
-	    	
-	    	    var infoWindow = new naver.maps.InfoWindow({
-	    	        content: '<div style="width:150px;text-align:center;padding:10px;font-size:80%;">'+ $(this).find('statNm').text() +'"</b></div>'
-	    	    });
-	    	    
-	    	    console.log(++i + ": " + $(this).find('statNm').text());
-	    	
-	    	    markers.push(marker);
-	    	    infoWindows.push(infoWindow);
+     			
+     			if( i == 0 ){
+     				infoRegister($(this), lat, lng, markers, infoWindows, infoModals);
+		    	    i++;
+     			}
+     			else {
+     				if( infoModals[i-1].statId != $(this).find('statId').text() ){
+     					infoRegister($(this), lat, lng, markers, infoWindows, infoModals);
+    		    	    i++;
+     				}
+     				else {
+     					infoModals[i-1].chgerId.push($(this).find('chgerId').text());
+     				}
+     			}
      		}
     	});
-     	
-    }    
+    }
+    
+    function infoRegister(this_, lat, lng, markers, infoWindows, infoModals){
+    	var position = new naver.maps.LatLng(parseFloat(lat), parseFloat(lng));
+    	
+ 	    var marker = new naver.maps.Marker({
+	        map: map,
+	        position: position,
+	        zIndex: 100
+	    });
 	
-    function initNaverMap(data, centerLat, centerLog, zoomLevel, markerSeter, clickHandler) {
+	    var infoWindow = new naver.maps.InfoWindow({
+	        content: '<div style="width:150px;text-align:center;padding:10px;font-size:80%;">'+ this_.find('statNm').text() +'</b></div>'
+	    });
+	    
+	    var infoModal = new Object();
+	    infoModal['statId'] = this_.find('statId').text();
+	    infoModal['statNm'] = this_.find('statNm').text();
+	    infoModal['chgerType'] = this_.find('chgerType').text();
+	    infoModal['stat'] = this_.find('stat').text();
+	    infoModal['addrDoro'] = this_.find('addrDoro').text();
+	    infoModal['useTime'] = this_.find('useTime').text();
+	    
+	    infoModal['chgerId'] = [];
+	    infoModal['chgerId'].push(this_.find('chgerId').text());
+	    
+	    markers.push(marker);
+	    infoWindows.push(infoWindow);
+	    infoModals.push(infoModal);
+    }
+	
+    var move = false;
+    
+    function initNaverMap(data, centerLat, centerLog, zoomLevel, markerSeter, clickHandler, tab) {
         map = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(centerLat, centerLog),
             zoom: zoomLevel
@@ -150,6 +176,30 @@
     	    naver.maps.Event.addListener(markers[i], 'click', clickHandler(data, markers, infoWindows, infoModals, i));
     	}
     	
+		naver.maps.Event.addListener(map, 'zoom_changed', function(zoom) {
+			lat = map.getCenter()._lat;
+			lng = map.getCenter()._lng;
+			newZoom = zoom;
+			if(tab == 'ChargeCenterTab'){
+				map.destroy();
+	    		initNaverMap(data, lat, lng, newZoom, chargeCenterMarkerSeter, chargeCenterClickHandler, tab);
+			}
+	    });
+
+	    naver.maps.Event.addListener(map, 'mousemove', function(bounds) {
+	    	move = true;
+	    });
+	    
+	    naver.maps.Event.addListener(map, 'mouseup', function(bounds) {
+	    	lat = map.getCenter()._lat;
+			lng = map.getCenter()._lng;
+			zoom = map.getZoom();
+			if(tab == 'ChargeCenterTab' && move){
+				move = false;
+				map.destroy();
+	    		initNaverMap(data, lat, lng, zoom, chargeCenterMarkerSeter, chargeCenterClickHandler, tab);
+			}
+	    }); 
     }
     
 	function greenCompanieesClickHandler(data, markers, infoWindows, infoModals, seq) {
@@ -175,17 +225,44 @@
 	    return function(e) {
 	        var marker = markers[seq],
 	        infoWindow = infoWindows[seq];
+	        var chType;
+	        var status;
+	        
+	        switch(infoModals[seq].chgerType)
+	        {
+	        	case '01' : chType = 'DC 차데모';
+	        		break;
+	        	case '03' : chType = 'DC 차데모 + AC 3상';
+	        		break;
+	        	case '06' : chType = 'DC 차데모 + AC 3상 + DC 콤보';
+        			break;
+	        }
+	        
+	        switch(infoModals[seq].stat)
+	        {
+	        	case '1' : status = '통신이상';
+	        		break;
+	        	case '2' : status = '충전대기';
+	        		break;
+	        	case '3' : status = '충전중';
+        			break;
+	        	case '4' : status = '운영중지';
+    				break;
+	        	case '5' : status = '점검중';
+					break;
+	        }
 	
 	        if (infoWindow.getMap()) {
 	            infoWindow.close();
 	        } else {
 	            infoWindow.open(map, marker);
-	            $("#statNm").text(data[seq].ENTRPS_NM);
-	            $("#CONTCT_NO").text(data[seq].CONTCT_NO);
-	            $("#REPRSNTV_NM").text('대표자 : '+data[seq].REPRSNTV_NM);
-	            $("#INDUTYPE_NM").text('분야 : '+data[seq].INDUTYPE_NM);
-	            $("#REFINE_ROADNM_ADDR").text(data[seq].REFINE_ROADNM_ADDR);
-	            $("#GreenCompanyModal").modal();
+	            $("#statNm").text(infoModals[seq].statNm);
+	            $("#addrDoro").text(infoModals[seq].addrDoro);
+	            $("#chgerType").text('충전타입 : '+ chType);
+	            $("#chgerId").text('충전기 수 : '+infoModals[seq].chgerId.length);
+	            $("#useTime").text('이용시간 : '+infoModals[seq].useTime);
+	            $("#stat").text('현재상태 : '+ status);
+	            $("#ChargeCenterModal").modal();
 	        }
 	    }
 	}
@@ -248,10 +325,11 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <p id="REFINE_ROADNM_ADDR">sample</p>
-        <p id="CONTCT_NO">data</p>
-        <p id="REPRSNTV_NM"></p>
-        <p id="INDUTYPE_NM"></p>
+        <p id="addrDoro">sample</p>
+        <p id="chgerType">data</p>
+        <p id="chgerId"></p>
+        <p id="useTime"></p>
+        <p id="stat"></p>
       </div>
 
       <!-- Modal footer -->
