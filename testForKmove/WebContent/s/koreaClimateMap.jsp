@@ -43,7 +43,7 @@
     	});
     });
     
-    function greenCompanieeMarkerSeter(data, markers, infoWindows){    	
+    function greenCompanieeMarkerSeter(data, markers, infoWindows, infoModals){    	
     	for (i=0; i< data.length; i++) {
         	
     	    var position = new naver.maps.LatLng(parseFloat(data[i].REFINE_WGS84_LAT), parseFloat(data[i].REFINE_WGS84_LOGT));
@@ -65,17 +65,15 @@
     
     var i=0;
     
-    function chargeCenterMarkerSeter(data, markers, infoWindows, southWest, northEast){
+    function chargeCenterMarkerSeter(data, markers, infoWindows, infoModals, southWest, northEast){
     	    	
      	$(data).find('item').each(function(){
      		var lat = $(this).find('lat').text();
      		var lng = $(this).find('lng').text();
      		
      		if((northEast.lat() > lat && lat > southWest.lat()) && (northEast.lng() > lng && lng > southWest.lng())){
-     			
-     			console.log('in');
-     			
-	     		/* var position = new naver.maps.LatLng(parseFloat(lat), parseFloat(lng));
+     						
+	     		var position = new naver.maps.LatLng(parseFloat(lat), parseFloat(lng));
 	        	
 	     	    var marker = new naver.maps.Marker({
 	    	        map: map,
@@ -87,10 +85,10 @@
 	    	        content: '<div style="width:150px;text-align:center;padding:10px;font-size:80%;">'+ $(this).find('statNm').text() +'"</b></div>'
 	    	    });
 	    	    
-	    	    console.log(++i + ": " + $(this).find('statNm').text()); */
+	    	    console.log(++i + ": " + $(this).find('statNm').text());
 	    	
-	    	    //markers.push(marker);
-	    	    //infoWindows.push(infoWindow);
+	    	    markers.push(marker);
+	    	    infoWindows.push(infoWindow);
      		}
     	});
      	
@@ -110,10 +108,11 @@
 
     	var markers = [],
     	infoWindows = [];
+    	infoModals = [];
    
-     	markerSeter(data, markers, infoWindows, southWest, northEast);
+     	markerSeter(data, markers, infoWindows, infoModals, southWest, northEast);
     	
-/*     	naver.maps.Event.addListener(map, 'idle', function() {
+     	naver.maps.Event.addListener(map, 'idle', function() {
     	    updateMarkers(map, markers);
     	});
     	
@@ -148,12 +147,12 @@
     	}
     	    	
     	for (var i=0, ii=markers.length; i<ii; i++) {
-    	    naver.maps.Event.addListener(markers[i], 'click', clickHandler(data, markers, infoWindows, i));
-    	} */
+    	    naver.maps.Event.addListener(markers[i], 'click', clickHandler(data, markers, infoWindows, infoModals, i));
+    	}
     	
     }
     
-	function greenCompanieesClickHandler(data, markers, infoWindows, seq) {
+	function greenCompanieesClickHandler(data, markers, infoWindows, infoModals, seq) {
 	    return function(e) {
 	        var marker = markers[seq],
 	        infoWindow = infoWindows[seq];
@@ -172,22 +171,22 @@
 	    }
 	}
 	
-	function chargeCenterClickHandler(data, markers, infoWindows, seq) {
+	function chargeCenterClickHandler(data, markers, infoWindows, infoModals, seq) {
 	    return function(e) {
-	    /*     var marker = markers[seq],
+	        var marker = markers[seq],
 	        infoWindow = infoWindows[seq];
 	
 	        if (infoWindow.getMap()) {
 	            infoWindow.close();
 	        } else {
 	            infoWindow.open(map, marker);
-	            $("#ENTRPS_NM").text(data[seq].ENTRPS_NM);
+	            $("#statNm").text(data[seq].ENTRPS_NM);
 	            $("#CONTCT_NO").text(data[seq].CONTCT_NO);
 	            $("#REPRSNTV_NM").text('대표자 : '+data[seq].REPRSNTV_NM);
 	            $("#INDUTYPE_NM").text('분야 : '+data[seq].INDUTYPE_NM);
 	            $("#REFINE_ROADNM_ADDR").text(data[seq].REFINE_ROADNM_ADDR);
 	            $("#GreenCompanyModal").modal();
-	        } */
+	        }
 	    }
 	}
 
@@ -217,6 +216,33 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title" id="ENTRPS_NM">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p id="REFINE_ROADNM_ADDR">sample</p>
+        <p id="CONTCT_NO">data</p>
+        <p id="REPRSNTV_NM"></p>
+        <p id="INDUTYPE_NM"></p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ChargeCenterModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title" id="statNm">Modal Heading</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
