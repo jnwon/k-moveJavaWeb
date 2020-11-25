@@ -25,7 +25,7 @@ public class EventDetailController extends HttpServlet {
 		eventDAO = new EventDAO();
 	}
 
-
+ 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -45,11 +45,22 @@ public class EventDetailController extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		int no = Integer.parseInt(request.getParameter("no")); //주소창에서 no값을이 들어있는 주소창을엔터쳤다고 생각할때 (request) no뒤에 값을 가져오는것
-		
-		List<EventVO> eventList = eventDAO.listEventsForMain();
-		request.setAttribute("eventList", eventList);
+		int eventsNo = Integer.parseInt(request.getParameter("no")); //주소창에서 no값을이 들어있는 주소창을엔터쳤다고 생각할때 (request) no뒤에 값을 가져오는것
+		System.out.println("no" + eventsNo);
 
+		EventVO getDetailedE = eventDAO.getDetailedEvent(eventsNo);
+		System.out.println("getdetailedE" + getDetailedE);
+//		System.out.println("action article : " + article);
+		// 게시물 정보(BoardBean 객체), 페이지번호(page) 를 request 객체에 저장
+		//if(getDetailedE != null) {
+			//boardDetailService.plusReadCount(board_num);
+		//}
+		//System.out.println("<%=detailedEvent.getWriter() %>" + eventsNo);
+		request.setAttribute("detailedEvent", getDetailedE);
+		//System.out.println("detailedEvent" + getDetailedE);
+		request.setAttribute("eventsNo", eventsNo);
+		//System.out.println("eventsNo" + eventsNo);
+		//RequestDispatcher dispatch = request.getRequestDispatcher("EventDetailController?no="+ eventsNo);
 		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventDetail.jsp");
 		dispatch.forward(request, response);
 	}

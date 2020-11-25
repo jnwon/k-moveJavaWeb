@@ -15,6 +15,29 @@ public class EventVO {
 	private	int numOfComment;
 	private	int numOfViews;
 	private	int numOfLikes;
+
+	private int numOfAttachLinks;
+	private String contents;
+	 
+	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int password,
+			int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes,
+			String contents) {
+		super();
+		this.no = no;
+		this.title = title;
+		this.writer = writer;
+		this.publishedDate = publishedDate;
+		this.isOpened = isOpened;
+		this.isLocked = isLocked;
+		this.password = password;
+		this.numOfMaxMembers = numOfMaxMembers;
+		this.numOfJoiningMembers = numOfJoiningMembers;
+		this.numOfComment = numOfComment;
+		this.numOfViews = numOfViews;
+		this.numOfLikes = numOfLikes;
+		this.contents = contents;
+	}
+
 	
 	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes) {
 		super();
@@ -31,6 +54,26 @@ public class EventVO {
 		this.numOfLikes = numOfLikes;
 	}
 	
+	
+	public EventVO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getNumOfAttachLinks() {
+		return numOfAttachLinks;
+	}
+
+	public void setNumOfAttachLinks(int numOfAttachLinks) {
+		this.numOfAttachLinks = numOfAttachLinks;
+	}
+	
+	public String getContents() {
+	return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	
 	public void setNo(int no) {
 		this.no = no;
