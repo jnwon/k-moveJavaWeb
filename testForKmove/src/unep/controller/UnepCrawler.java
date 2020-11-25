@@ -1,16 +1,7 @@
 package unep.controller;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -22,18 +13,11 @@ public class UnepCrawler {
 	private Document docOfAfrica, docOfAsia, docOfEurope, docOfAmerica;
 	private Elements eleOfAfrica, eleOfAsia, eleOfEurope, eleOfAmerica;
 	private String UrlOfAfrica, UrlOfAsia, UrlOfEurope, UrlOfAmerica;
-	private Connection conn;
-	private DataSource dataFactory;
-	private PreparedStatement pstmt;
 	
 	public UnepCrawler()
 	{
 		try
 		{
-			Context ctx = new InitialContext();
-			Context envContext = (Context) ctx.lookup("java:/comp/env");
-			dataFactory = (DataSource) envContext.lookup("jdbc/MySQL");
-			
 			docOfAfrica = null; docOfAsia = null; docOfEurope = null; docOfAmerica = null;
 			UrlOfAfrica = "https://www.unep.org/resources?f%5B0%5D=region%3A61";
 			UrlOfAsia = "https://www.unep.org/resources?f%5B0%5D=region%3A62&f%5B1%5D=region%3A66";
@@ -57,21 +41,19 @@ public class UnepCrawler {
 		}
 	}
 	
-	public void listTitleAndLink()
+	public List<UnepVO> listTitleAndLink()
 	{
+		List<UnepVO> titlesAndlinkslist = new ArrayList<UnepVO>();
+		
 		try
 		{
-			conn = dataFactory.getConnection();
-			
-			for (Element e : eleOfAfrica.select("div.result_item_title"))
-			{
-				Iterator<Element> dateTake = eleOfAfrica.select("span.date").iterator();
-				
+			for (Element e : eleOfAfrica.select("div.views-field.views-field-nothing"))
+			{				
 				String continent = "africa";
-				String title = eleOfAfrica.text();
-				String link = "https://www.unep.org/" + e.getElementsByAttribute("href").attr("href");
+				String title = e.select("div.result_item_title").text();
+				String link = "https://www.unep.org" + e.getElementsByAttribute("href").attr("href");
 				
-				String[] dateSplit = dateTake.next().text().split(" ");
+				String[] dateSplit = e.select("span.date").text().split(" ");
 				String day = dateSplit[0];
 				String month = "";
 				switch (dateSplit[1])
@@ -103,52 +85,20 @@ public class UnepCrawler {
 				}
 				String year = dateSplit[2];
 				
-				String date = year + "-" + month + "-" + day;
+				String date = year + month + day;
 				
-				String query = "insert into articleUnep(continent, title, link, date)" + " values(?, ?, ?, ?)";
-				System.out.println(query);
-				pstmt = conn.prepareStatement(query);
-				pstmt.setString(1, continent);
-				pstmt.setString(2, title);
-				pstmt.setString(3, link);
-				pstmt.setString(4, date);
-				pstmt.executeUpdate();
-				pstmt.close();
+				UnepVO unepVO = new UnepVO(continent, title, link, date);
+				titlesAndlinkslist.add(unepVO);
 			}
 			
-			conn.close();
 		}
 		
-		catch (SQLException e)
+		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
+		
+		return titlesAndlinkslist;
 	}
-	/*
-	public void addUnep(UnepVO u)
-	{
-		try
-		{
-			conn = dataFactory.getConnection();
-			String continent = u.getContinent();
-			String title = u.getTilte();
-			String link = u.getLink();
-			String date = u.getDate();
-			String query = "insert into articleUnep(continent, title, email, date)" + " values(?, ?, ?, ?)";
-			System.out.println(query);
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, continent);
-			pstmt.setString(2, title);
-			pstmt.setString(3, link);
-			pstmt.setString(4, date);
-			pstmt.executeUpdate();
-			pstmt.close();
-			conn.close();
-		}
-		
-		catch (SQLException e)
-		{
-			e.printStackTrace();
-		}
-	}*/
+	
 }

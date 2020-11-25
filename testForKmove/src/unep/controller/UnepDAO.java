@@ -64,5 +64,31 @@ public class UnepDAO {
 		
 		return linksList;
 	}
-
+	
+	public void addUnep(UnepVO u)
+	{
+		try
+		{
+			conn = dataFactory.getConnection();
+			String continent = u.getContinent();
+			String title = u.getTilte();
+			String link = u.getLink();
+			String date = u.getDate();
+			String query = "insert into articleUnep(continent, title, email, date)" + " values(?, ?, ?, ?)";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, continent);
+			pstmt.setString(2, title);
+			pstmt.setString(3, link);
+			pstmt.setString(4, date);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		}
+		
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
