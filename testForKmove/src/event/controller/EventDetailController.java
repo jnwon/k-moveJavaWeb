@@ -61,7 +61,7 @@ public class EventDetailController extends HttpServlet {
 		request.setAttribute("eventsNo", eventsNo);
 		//System.out.println("eventsNo" + eventsNo);
 		//RequestDispatcher dispatch = request.getRequestDispatcher("EventDetailController?no="+ eventsNo);
-		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventDetail.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventDetail2.jsp");
 		dispatch.forward(request, response);
 	}
 }
