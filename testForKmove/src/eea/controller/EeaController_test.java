@@ -26,7 +26,7 @@ public class EeaController_test extends HttpServlet {
 		eeaDAO = new EeaDAO(); // EeaDAO¸¦ »ý¼º
 		eeaCrawler = new EeaCrawler();
 	}
-	
+	 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
