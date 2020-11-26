@@ -29,7 +29,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/facebookstyle.css">
+  
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ 
     <%-- Include this file to obtain server's root address wherever using ajax!! --%>
 <%@ include file="/rootAddress.jsp" %>
 <%-----------------------------------------------------------------------------%>
@@ -48,124 +50,221 @@
   .last {
 float: right;
 }
-  
+
+  .fixed {
+color: rgba(255, 255, 255, 0.8);
+}
+
+.timeline-comment-box {
+    /* background: #f2f3f4; */
+    margin-left: -25px;
+    margin-right: -25px;
+    padding: 20px 25px;
+}
+.eventPic {
+    height: 200px;
+    background: #aaa;
+}
+.text{
+color: white;
+}
   </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
-  <!-- /.navbar -->
+<!-- /.navbar -->
 
+ <!-- start -->
+<div class="1">
+ 
+ 
 <div class="container" style="margin-top:30px">
   <div class="row">
-    <div class="col-sm-12">
-      <h2>EVENT</h2>
+    <!-- EVENT TITLE START -->
+    <div class="bounds bounds--wide">
+		<div class="pageHead--wrapper">
+			<div class="pageHead">
+				<div class="flex flex--column atMedium_flex--row flex--alignBottom pageHead-pageTitle">
+				<div class="flex-item flex-item--2 pageHead--titleArea">
+					<p class="pageHead-pageTitleLabel text--medium text--secondary">
+						<time class="eventStatusLabel" datetime="1606399200000">
+							<span>
+							Thursday, November 26, 2020
+							</span>
+						</time>
+					</p>
+				<h1 class="pageHead-headline text--pageTitle">
+				<%=detailedEvent.getTitle()%></h1>
+				<div class="flex flex--row flex--alignCenter event-host-info">
+					<div class="flex-item flex-item--shrink">
+					    <div class="timeline-header">
+					       <span class="userimage">
+					       <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+					       </span>
+					
+						<div class="flex-item event-info-hosts-text valign--middle">
+							<a href="/hvhikers/events/274786161/attendees/">
+						<span>
+							<span class="">
+								Hosted by
+								 <span class="text--bold event-hosts-info-no-link">
+								 <%=detailedEvent.getWriter()%>
+								 </span>
+							 
+							</span>
+						</span>
+						</a>
+						</div>
+						</div>
+				 	</div>
+				</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- EVENT TITLE END -->
 
-<form action="">
-    <div class="form-group">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="user ID:>" readonly="readonly">
+<!-- favorite and join starat with Sticky Navbar-->
+
+   <!-- Navbar -->
+   <nav class="navbar bg-dark navbar-expand-sm navbar-dark sticky-top" style="position: -webkit-sticky;position: sticky;top: 0;z-index: 1020;">
+      <div class="fixed">
+      <div>
+               
+        <div class="flex flex--row flex--spaceBetween flex--alignCenter _EventStickyFooter-module_footerContent__bOcM4" data-e2e="event-footer">
+			<div class="flex-item flex-item--shrink col-sm-7">
+				<div class="flex flex--column">
+					<div class="flex-item" data-e2e="event-footer--date-time" data-e2e_timestamp="1606398300000">
+						<div class="eventTimeDisplay">
+							<time class="" datetime="1606398300000">
+								<span class="eventTimeDisplay-startDate">
+									<span>
+									Thu, Nov 26 |||| ****Need to create the date of event****</span>
+								 	· <span class="eventTimeDisplay-startDate">
+									 <span>
+									8:45 AM EST |||| ****Need time too ? ****</span>
+									</span>
+								</span>
+							</time>
+						</div>
+					</div>
+					<div class="flex-item">
+						<span class="text--bold">
+						<%=detailedEvent.getTitle()%></span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="flex-item flex-item--shrink  col-sm-5">
+				<div class="flex flex--row flex--spaceBetween flex--alignCenter">
+					<div class="flex-item flex-item--shrink  col-sm-8">
+						<div class="flex flex--row flex--alignCenter">
+							<div class="flex-item flex-item--shrink">
+								<div class="flex flex--column">
+									<div class="flex-item text--bold">
+										<span data-e2e="event-footer--price-label">
+											<span>
+											FREE</span>
+										</span>
+									</div>
+									<div class="flex-item">
+										<span>
+										<%=detailedEvent.getNumOfJoiningMembers()%> / <%=detailedEvent.getNumOfMaxMembers()%> = ?? spots left</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex-item flex-item--shrink _EventStickyFooter-module_eventActions__1dOQN">
+						<div class="flex flex--row last">
+						<div class="flex-item flex-item--shrink ">
+							<button data-swarm-button="neutral" data-swarm-size="large" data-icon="only" data-swarm-width="default" type="button" aria-label="Save event" class="saveButton _saveEventButton-module_saveButton__2eemT saveButton--save _saveEventButton-module_newStyle__1WGCV gtmEventFooter--save-btn" data-e2e="event-footer--save-btn">
+								&nbsp; &nbsp; <span>
+									<svg data-swarm-icon="true" height="24" width="24" viewBox="0 0 24 24">
+										<path d="M5.458 22.004l1.25-7.284-5.293-5.16 7.314-1.062L12 1.87l3.271 6.628 7.314 1.063-5.292 5.159 1.249 7.284L12 18.564l-6.542 3.44zm1.328-1.828L12 17.436l5.214 2.74-.996-5.805 4.218-4.112-5.83-.847L12 4.13 9.393 9.412l-5.83.847 4.219 4.112-.996 5.805z">
+										</path>
+									</svg>
+								</span>&nbsp; &nbsp; 
+							</button>
+						</div>
+						<div class="flex-item flex-item--shrink">						
+							<button data-swarm-button="primary" data-swarm-size="large" data-icon="left" data-swarm-width="default" type="button" data-e2e="event-footer--attend-btn" class="gtmEventFooter--attend-btn" style="color: rgba(0,0,0,.5);">
+								<span>
+								&nbsp; Attend &nbsp; </span>
+							</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+       </div>
+      </div>
+   </nav>
+
+<!-- favorite and join end  -->
+
+    <div class="col-sm-4">
+      <p>
+      							    <label for="exampleFormControlTextarea1">When</label><br>
+      				<time class="" datetime="1606399200000">
+					<span class="eventTimeDisplay-startDate">
+						<span>
+						Thursday, November 26, 2020 |||| *****need data for event date *****</span>
+						<br>
+						<span class="eventTimeDisplay-startDate-time">
+							<span>
+							9:00 AM ||| *****need data for start event time ? ? **** ||||</span>
+						</span>
+					</span>
+				<span class="eventTimeDisplay-endDate">
+					 <span>
+					 to 
+						<span class="eventTimeDisplay-endDate-partialTime">
+							<span>
+							1:00 PM EST ||| ****need data for end event time ?? ****</span>
+						</span>
+					</span>
+				</span>
+				</time>
+				<address>
+				    <label for="exampleFormControlTextarea1">Where</label>
+				
+				<p class="wrap--singleLine--truncate">
+				Schunemunk Mountain |||| ****need address ? ? **** ||||</p>
+				<p class="venueDisplay-venue-address text--secondary text--small text--wrapNice">
+				339 Otterkill Road<span>
+				 · Cornwall</span>
+				 <span>
+				, NY</span>
+				</p>
+				</address>
       
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="hits number: " readonly="readonly">
-    </div>
+      
+      </p>
+      <hr class="d-sm-none">
+    </div>   
+    <!-- account side end --> <!-- account side end -->
+    <div class="col-sm-8">
+      <div class="eventPic" style="background: url('img/3.jpg') center no-repeat; background-size: cover; width: 100%;"></div>
+      <br>
   </div>
-  </div>
-  
-    <div class="form-group">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="max mem count: <%=detailedEvent.getNumOfMaxMembers()%> & current joined mem: <%=detailedEvent.getNumOfJoiningMembers()%>" readonly="readonly">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="date: <%=detailedEvent.getPublishedDate() %>" readonly="readonly">
-    </div>
-  </div>
-  </div>
-  
-      <div class="form-group">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Opne to public or not: <%=detailedEvent.getIsOpened()%>" readonly="readonly">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="password: <%=detailedEvent.getPassword()%>" readonly="readonly">
-    </div>
-  </div>
-  </div>
-  
-    <div class="form-group">
-    <label for="exampleFormControlInput1">Subject</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject : <%=detailedEvent.getContents() %>" readonly="readonly">
-  </div>
-  
+</div>
  
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Content</label>
+ <!-- end -->
+<br>
+  <div class="form-group" class="username">
+    <label for="exampleFormControlTextarea1">Detail</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" readonly="readonly"><%=detailedEvent.getContents() %></textarea>
     
   </div>
   
- 
-<!--
-  <div class="custom-control custom-checkbox mb-3">
-    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-    <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
-    <div class="invalid-feedback">Example invalid feedback text</div>
-  </div>
-
-  <div class="custom-control custom-radio">
-    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-    <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
-  </div>
-  <div class="custom-control custom-radio mb-3">
-    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
-    <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
-    <div class="invalid-feedback">More example invalid feedback text</div>
-  </div>
-  <div class="mb-3">
-    <select class="custom-select" required>
-      <option value="">Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-    <div class="invalid-feedback">Example invalid custom select feedback</div>
-  </div>
--->
-  
-  <div class="custom-file mb-3">
-    <input type="file" class="custom-file-input" id="validatedCustomFile" required readonly="readonly">
-    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
-  </div>
-  
-<!-- meeting date start -->
-        <div class="form-group">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Meeting date" readonly="readonly">
-    </div>
-  </div>
-  </div>
-<!-- meeting date end -->
-
 <!-- Comments  start -->
  <div class="timeline-body">
-<!--        <div class="timeline-header">
-          <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
-          <span class="username"><a href="javascript:;">Sean Ngu</a> <small></small></span>
-          <span class="pull-right text-muted">18 Views</span>
-       </div> -->
-<!--        <div class="timeline-content">
-          <p>
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-             Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
-          </p>
-       </div> -->
        <div class="timeline-likes">
           <div class="stats-right">
              <span class="stats-text">259 Shares</span>
@@ -207,47 +306,6 @@ float: right;
   <br>
 <!-- Comments end -->
 
-  
-<!-- previous comments start -->
-<!-- 
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Comments</label>   
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    <button type="submit" class="btn btn-secondary btn-sm last" style="text-align: right;">comments</button>
-  </div>
-<br> -->
-<!-- 
-<ul class="list-unstyled">
-  <li class="media">
-    <img src="../img/comments.png" class="mr-3" alt="...">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </li>
-  <br>
-  
-  <li class="media my-4">
-    <img src="../img/comments.png" class="mr-3" alt="...">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </li>
-  <br>
-  
-  <li class="media">
-    <img src="../img/comments.png" class="mr-3" alt="...">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </li>
-</ul>
-
-<br> -->
-<!-- previous comments end -->
-
          <!-- end timeline-body -->
          <div class="timeline-body">
             <div class="timeline-header">
@@ -296,12 +354,15 @@ float: right;
                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
             </div> -->
          </div>
+         <br>
          <!-- end timeline-body -->
  <!-- facebook style commend -->
-</form>
     </div>
   </div>
 </div>
+
+
+
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 
 </body>

@@ -6,7 +6,11 @@
 	request.setCharacterEncoding("UTF-8"); 
 %>   
 <link rel="stylesheet" href="css/top.css">
-
+   <!-- datetimepicker start-->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<!-- datetimepicker end -->
 <div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="off">	<!-- NewsAPI 이용하려면 on으로 -->
    <h1><a href="main.um" id="mainFont">GRÜNWELT</a></h1>
   <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
@@ -15,7 +19,7 @@
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-light navbar-white">
     <div class="container">
-      <a href="main.um" class="navbar-brand">
+      <a href="main.um" class="">
         <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8"> <!-- 이미지는 /빼고 새로지정해줘야 가상주소에서 작동함 -->
         <span class="brand-text font-weight-light">GRÜNWELT</span>
@@ -67,7 +71,7 @@
         <!-- Messages Dropdown Menu -->
  		<li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">Hello, Emaila
-            <i class="fas fa-comments"></i>
+            <!-- <i class="fas fa-comments"></i> -->
             <span class="badge badge-danger navbar-badge">3</span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -125,7 +129,7 @@
         <!-- Notifications Dropdown Menu -->
  		<li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="../mem/myhome.jsp">My Info
-            <i class="far fa-bell"></i>
+            <!-- <i class="far fa-bell"></i> -->
             <span class="badge badge-warning navbar-badge">15</span> 
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
