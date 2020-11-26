@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- Include this file to obtain server's root address wherever using ajax!! --%>
-<%@ include file="../rootAddress.jsp" %>
-<%-----------------------------------------------------------------------------%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,38 +14,27 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>       <!-- DataTable CDN -->
   
-  <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-  .last {
-float: left;
-}
-  </style>
-  
-    <!-- DataTable Initialising -->
+  <%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="/rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>
   <script type="text/javascript">
-    $(document).ready( function () {
-      $('#listTable').DataTable();
-    });
-    
     $(document).ready( function () {        
         $("#toEventWrite").click(function(){
       	  window.location.href="/testForKmove/EventWriteController";
         	});
       });
-  	
-    
   </script>
   <!-- End of DataTable Initialising -->
   <script type="text/javascript" language="javascript">
 
 	var rootAddress = "<%=rootAddress%>";
 	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
- 
+ 	
     $(document).ready(function(){
     	
+    	ajaxExecute();
+    	
+    	function ajaxExecute(){
         $.ajax({
             type : "GET", //전송방식을 지정한다 (POST,GET)
             url : url,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
@@ -56,69 +42,56 @@ float: left;
             error : function(){
                 console.log("connection down!!!!");
             },
+            
+            
             success : function(data){
                 console.log(data);
-                          
-                //var length = data.length > 3 ? 3 : data.length;
-                for(i=0; i < data.length; i++){
-                    var datetime = data[i].publishedDate.split(" ");
-                    var date = datetime[0].split("-");
-                    var month = "";
-                    switch(Number(date[1])){
-                    	case 1: month = 'Jan';
-                    		break;
-                    	case 2: month = 'Feb';
-                			break;
-                    	case 3: month = 'Mar';
-            				break;
-                    	case 4: month = 'Apr';
-            				break;
-                    	case 5: month = 'May';
-        					break;
-                    	case 6: month = 'Jun';
-        					break;
-                    	case 7: month = 'Jul';
-        					break;
-                    	case 8: month = 'Aug';
-        					break;
-                    	case 9: month = 'Sep';
-        					break;
-                    	case 10: month = 'Oct';
-        					break;
-                    	case 11: month = 'Nov';
-        					break;
-                    	case 12: month = 'Dec';
-        					break;
-                    }                	
+                   
+	            	for(i=0; i < data.length; i++){ //article가져온 수만큼 돌리기
+	            		temp = data[i].publishedDate.split(' '); //시간부분이 조금 길어서 T를 중심으로 나눠주기
+	            		data[i].publishedDate = temp[0]; // 나눈것 콘솔 확인해보면 인덱스 번호가 매겨져있고 T를 중심으로 나눠진것을 볼수있는데 거기에서 필요한 날짜부분은 0가져온것임
+	            	}
+
+                    //DataTable Initialising 
+                    $('#eventlistTable').DataTable({
+                    	data: data, // 웹에서 개발자들어가면 data에서자료를 들고오는데 처음에 0으로 바로시작함 그래서 따로 데이터담는곳 지정하지않았고 data로 바로 들고오니 출력됨
+                    	"aaSorting": [], //최신글 순서가 젤 위로오게하여 정렬기능 
+                    	columns: [ 
+                    		{ data: 'no'}, //페이지 넘겨주기위해서 no불러옴 (빈에 생성하고 게시글에도 추가함 > 마우스가져다대면 해당 글 번호의 정보를 가져옴)
+                    		{ data: 'title' }, 
+                    		{ data: 'writer' },
+                    		{ "width": "15%", data: 'publishedDate' }
+                    	]
+                    });
                     
-                  
-    				html = '<tr>';
-				  		html += '<th scope="row">1</th>';
-			  			html += '<td><a href="eventDetail.jsp">'+ data[i].title +'</a></td>';
-			  			if(data[i].isLocked){
-	   						html += '<td> ᛄ </td>';
-	   					} else {
-	   						html += '<td></td>';
-	   					}
-	  					html += '<td>'+ data[i].writer +'</td>';
-   						html += '<td>'+ date[2] + '. ' + month +'</td>';
-   					html += '</tr>';
-	        		
-	                $("#eventAllList").append(html);	
-                }
+                    $('tr').click(function(){
+                    	//console.log($(this).children().eq(0).text());
+                    	//console.log("/testForKmove/EventDetailController?no="+$(this).children().eq(0).text());
+                    	location.href="/testForKmove/EventDetailController?no="+$(this).children().eq(0).text(); // 해당 글 클릭시 해당 글 불러올수있도록 글번호주소지정함
+                    }); //this의 tr을 클릭하면 그 밑의 자식중에서 0번째 즉 no의 text를 가져오기
             }  
         });
-
+ 	   }
     });
 </script>
   
+<style>
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+}
+
+.last {
+float: left;
+}
+</style>
 </head>
 <body>
 
 <!-- Navbar -->
-<jsp:include page="../inc/top.jsp"></jsp:include>
+<jsp:include page="/inc/top.jsp"></jsp:include>
   <!-- /.navbar -->
-
+ 
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
@@ -131,12 +104,14 @@ float: left;
 	</div>
 	</div> <!-- 버튼 나란히 하기 -->
     <!-- <table class="table">  -->  
-<table class="table" id="listTable">    <!-- Datatable id mapping -->
+<table class="table" id="eventlistTable">    <!-- Datatable id mapping -->
   <thead>
     <tr>
-      <th scope="col">#</th>
+
+ 	  <th scope="col" id="no">#</th>
+
       <th scope="col">Title</th>
-	  <th scope="col">Locked</th>
+<!-- 	  <th scope="col">Locked</th> -->
       <th scope="col">Organizer</th>
       <th scope="col">Date</th>
     </tr>
@@ -155,7 +130,7 @@ float: left;
   </div>
 </div>
 
-<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<jsp:include page="/inc/bottom.jsp"></jsp:include>
 
 </body>
 </html>

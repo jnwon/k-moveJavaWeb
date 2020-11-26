@@ -1,18 +1,35 @@
 package unep.controller;
 
-import java.sql.Date;
-
 public class UnepVO {
 	
-	private String continent, title, link;
-	private Date date;
+	private int no;
+	private String continent, title, link, date;
 	
-	public UnepVO(String continent, String title, String link, Date date)
+	public UnepVO(String continent, String title, String link, String date)
 	{
 		this.continent = continent;
 		this.title = title;
 		this.link = link;
 		this.date = date;
+	}
+	
+	public UnepVO(int no, String continent, String title, String link, String date)
+	{
+		this.no = no;
+		this.continent = continent;
+		this.title = title;
+		this.link = link;
+		this.date = date;
+	}
+	
+	public int getNo()
+	{
+		return no; 
+	}
+
+	public void setNo(int no)
+	{
+		this.no = no;
 	}
 	
 	public String getContinent()
@@ -45,13 +62,14 @@ public class UnepVO {
 		this.link = link;
 	}
 	
-	public Date getDate()
+	public String getDate()
 	{
 		return date;
 	}
 
-	public void setDate(Date date)
+	public void setDate(String date)
 	{
 		this.date = date;
 	}
+
 }
