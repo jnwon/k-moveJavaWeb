@@ -8,32 +8,30 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import unep.controller.UnepVO;
-
 public class EeaCrawler {
-	private Document docOfAfrica, docOfAsia, docOfEurope, docOfAmerica;
-	private Elements eleOfAfrica, eleOfAsia, eleOfEurope, eleOfAmerica;
-	private String UrlOfAfrica, UrlOfAsia, UrlOfEurope, UrlOfAmerica;
+	private Document docOfTopics, docOfPublications, docOfData, docOfAudiovisuals;
+	private Elements eleOfTopics, eleOfPublications, eleOfData, eleOfAudiovisuals;
+	private String UrlOfTopics, UrlOfPublications, UrlOfData, UrlOfAudiovisuals;
 	
-	public UnepCrawler()
+	public EeaCrawler()
 	{
 		try
 		{
-			docOfAfrica = null; docOfAsia = null; docOfEurope = null; docOfAmerica = null;
-			UrlOfAfrica = "https://www.unep.org/resources?f%5B0%5D=region%3A61";
-			UrlOfAsia = "https://www.unep.org/resources?f%5B0%5D=region%3A62&f%5B1%5D=region%3A66";
-			UrlOfEurope = "https://www.unep.org/resources?f%5B0%5D=region%3A63";
-			UrlOfAmerica = "https://www.unep.org/resources?f%5B0%5D=region%3A64&f%5B1%5D=region%3A65";
+			docOfTopics = null; docOfPublications = null; docOfData = null; docOfAudiovisuals = null;
+			UrlOfTopics = "https://www.eea.europa.eu/themes";
+			UrlOfPublications = "https://www.eea.europa.eu/publications#c7=en&c11=20&c14=&c12=&b_start=0";
+			UrlOfData = "https://www.eea.europa.eu/data-and-maps";
+			UrlOfAudiovisuals = "https://www.eea.europa.eu/media/audiovisuals#c8=all&c3=&b_start=0";
 			
-			docOfAfrica = Jsoup.connect(UrlOfAfrica).get();
-			docOfAsia = Jsoup.connect(UrlOfAsia).get();
-			docOfEurope = Jsoup.connect(UrlOfEurope).get();
-			docOfAmerica = Jsoup.connect(UrlOfAmerica).get();
+			docOfTopics = Jsoup.connect(UrlOfTopics).get();
+			docOfPublications = Jsoup.connect(UrlOfPublications).get();
+			docOfData = Jsoup.connect(UrlOfData).get();
+			docOfAudiovisuals = Jsoup.connect(UrlOfAudiovisuals).get();
 			
-			eleOfAfrica = docOfAfrica.select("div.result_items");
-			eleOfAsia = docOfAsia.select("div.result_items");
-			eleOfEurope = docOfEurope.select("div.result_items");
-			eleOfAmerica = docOfAmerica.select("div.result_items");
+			//eleOfTopics = docOfTopics.select("div.list-items");
+			eleOfPublications = docOfPublications.select("div.result_items");
+			eleOfData = docOfData.select("div.result_items");
+			eleOfAudiovisuals = docOfAudiovisuals.select("div.result_items");			
 		}
 		
 		catch (Exception e)
@@ -42,54 +40,25 @@ public class EeaCrawler {
 		}
 	}
 	
-	public List<UnepVO> listTitleAndLink()
+	public List<EeaVO> listTitleAndLink()
 	{
-		List<UnepVO> titlesAndlinkslist = new ArrayList<UnepVO>();
+		List<EeaVO> titlesAndlinkslist = new ArrayList<EeaVO>();
 		
 		try
 		{
-			for (Element e : eleOfAfrica.select("div.views-field.views-field-nothing"))
-			{				
-				String continent = "africa";
-				String title = e.select("div.result_item_title").text();
-				String link = "https://www.unep.org" + e.getElementsByAttribute("href").attr("href");
-				
-				String[] dateSplit = e.select("span.date").text().split(" ");
-				String day = dateSplit[0];
-				String month = "";
-				switch (dateSplit[1])
-				{
-					case "Jan": month = "1";
-						break;
-					case "Feb": month = "2";
-						break;
-					case "Mar": month = "3";
-						break;
-					case "Apr": month = "4";
-						break;
-					case "May": month = "5";
-						break;
-					case "Jun": month = "6";
-						break;
-					case "Jul": month = "7";
-						break;
-					case "Aug": month = "8";
-						break;
-					case "Sep": month = "9";
-						break;
-					case "Oct": month = "10";
-						break;
-					case "Nov": month = "11";
-						break;
-					case "Dec": month = "12";
-						break;
+			for (Element e : docOfTopics.select("ul.list-items"))
+			{	
+				if(!e.hasAttr("id")) {
+					for (Element f : e.select("li")) {
+						int no = 0;
+						String source = "EEA";
+						String category = "Topics";
+						String title = f.getElementsByAttribute("title").attr("title");
+						String link = f.getElementsByAttribute("href").attr("href");
+						EeaVO eeaVO = new EeaVO(no, source, category, title, link);
+						titlesAndlinkslist.add(eeaVO);
+					}
 				}
-				String year = dateSplit[2];
-				
-				String date = year + month + day;
-				
-				UnepVO unepVO = new UnepVO(continent, title, link, date);
-				titlesAndlinkslist.add(unepVO);
 			}
 			
 		}
