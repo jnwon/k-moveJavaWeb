@@ -40,12 +40,13 @@ public class EventListForMainController extends HttpServlet {
 	}
 	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		
 		List<EventVO> eventList = eventDAO.listEventsForMain();
 		request.setAttribute("eventList", eventList);
 		
-		response.setContentType("application/json");
-		response.setCharacterEncoding("utf-8");
-	    String gson = new Gson().toJson(eventList);			
+	    String gson = new Gson().toJson(eventList);   
 	    response.getWriter().write(gson);
 	}
 

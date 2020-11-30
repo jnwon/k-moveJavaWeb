@@ -20,7 +20,7 @@ public class EeaController extends HttpServlet {
 	EeaDAO eeaDAO;
 	
 	public void init() throws ServletException {
-		eeaDAO = new EeaDAO(); // EeaDAO¸¦ »ı¼º
+		eeaDAO = new EeaDAO(); // EeaDAOë¥¼ ìƒì„±
 	}
 	
 	
@@ -37,10 +37,12 @@ public class EeaController extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		List<EeaVO> articlesList = eeaDAO.eea(); // ¿äÃ»¿¡ ´ëÇØ ±â»ç¸®½ºÆ®¸¦ Á¶È¸
-		request.setAttribute("articlesList", articlesList); // Á¶È¸ÇÑ ±â»çÁ¤º¸¸¦ request¿¡ ¹ÙÀÎµù
+		
+		List<EeaVO> articlesList = eeaDAO.eea(); // ìš”ì²­ì— ëŒ€í•´ ê¸°ì‚¬ë¦¬ìŠ¤íŠ¸ë¥¼ ì¡°íšŒ
+		request.setAttribute("articlesList", articlesList); // ì¡°íšŒí•œ ê¸°ì‚¬ì •ë³´ë¥¼ requestì— ë°”ì¸ë”©
+		
 		RequestDispatcher dispatch = request.getRequestDispatcher("/f/eea.jsp"); 
-		dispatch.forward(request, response); // ÄÁÆ®·Ñ·¯¿¡¼­ Ç¥½ÃÇÏ°íÀÚ ÇÏ´Â JSP·Î Æ÷¿öµù
+		dispatch.forward(request, response); // ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ í‘œì‹œí•˜ê³ ì í•˜ëŠ” JSPë¡œ í¬ì›Œë”©
 		
 	}
 	
