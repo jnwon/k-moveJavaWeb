@@ -7,6 +7,7 @@ public class UnepVO {
 	
 	public UnepVO(String continent, String title, String link, String date)
 	{
+		super();
 		this.continent = continent;
 		this.title = title;
 		this.link = link;
@@ -15,6 +16,7 @@ public class UnepVO {
 	
 	public UnepVO(int no, String continent, String title, String link, String date)
 	{
+		super();
 		this.no = no;
 		this.continent = continent;
 		this.title = title;

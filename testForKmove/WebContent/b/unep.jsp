@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<head>
+<style>
+	.ca { text-transform: capitalize; }
+</style>
+</head>
+
 <%-- Include this file to obtain server's root address wherever using ajax!! --%>
 <%@ include file="../rootAddress.jsp" %>
 <%-----------------------------------------------------------------------------%>
@@ -8,103 +14,109 @@
 <script type="text/javascript" language="javascript"> 
 
 	var rootAddress = "<%=rootAddress%>";
-	var unepUrl = "http://" + rootAddress + "/testForKmove/UnepController";
- 
+	var crawlUrl = "http://" + rootAddress + "/testForKmove/CrawlController";
+	//var unepUrl = "http://" + rootAddress + "/testForKmove/UnepController";
+	
 	$(document).ready(function(){
     	
         $.ajax({
-            type : "GET", //전송방식을 지정한다 (POST,GET)
-            url : unepUrl,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
-            dataType : "json",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
-            error : function(){
+            type: "GET", //전송방식을 지정한다 (POST,GET)
+            url: crawlUrl,//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
+            dataType: "json",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
+            error: function(){
                 console.log("connection down!!!!");
             },
-            success : function(data){
-            	console.log(data)
+            success: function(data){
+            	console.log(data);
 
                 var str = "";
-	
-            	for(var i = 0; i < data.length; i++) {
-            		for (var j = 0; j < data.length; j++) {
-
-                    	if (data[i].continent == "africa" && data[j].continent == "africa") {
-                    			
-                    		var date1 = new Date(data[i].date);
-                           	var date2 = new Date(data[j].date);
-                    			
-                            if (date1.valueOf() > date2.valueOf()) {
-                    			str += "<li><b>Africa</b></li>"
-                   				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-                    		}
-                            	
-                            else if (date1.valueOf() == date2.valueOf()) {
-                            	if (data[i].no > data[j].no) {
-                        			str += "<li><b>Africa</b></li>"
-                       				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-                            	}
-                            }
-                    	}
-            				
-            			else if (data[i].continent == "asia" && data[j].continent == "asia") {
-            				
-            				var date3 = new Date(data[i].date);
-                           	var date4 = new Date(data[j].date);
-                           	
-                           	if (date3.valueOf() > date4.valueOf()) {
-                           		str += "<li><b>Asia</b></li>"
-                       			str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-                    		}
-                           	
-                           	else if (date3.valueOf() == date4.valueOf()) {
-                            	if (data[i].no > data[j].no) {
-                   					str += "<li><b>Asia</b></li>"
-                   					str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            					}
-                           	}
+                
+                var AfricaMaxDate = new Date(data[0].date).valueOf();
+                var AsiaMaxDate = new Date(data[10].date).valueOf();
+                var EuropeMaxDate = new Date(data[20].date).valueOf();
+                var AmericaMaxDate = new Date(data[30].date).valueOf();
+                
+                for(var i = 0; i < data.length; i++) {
+            		if (data[i].continent == "africa") {
+            			var africaContinent = "Africa";
+            			if (AfricaMaxDate == new Date(data[i].date).valueOf()) {
+            				continue;
             			}
-            			
-            			else if (data[i].continent == "europe" && data[j].continent == "europe") {
-            					
-            				var date5 = new Date(data[i].date);
-                            var date6 = new Date(data[j].date);
-                               	
-                            if (date5.valueOf() > date6.valueOf()) {
-                   				str += "<li><b>Europe</b></li>"
-                   				str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-                            }
-                            
-                            else if (date5.valueOf() == date6.valueOf()) {
-                            	if (data[i].no > data[j].no) {
-                            		str += "<li><b>Europe</b></li>"
-                           			str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-                            	}
-                            }
+            			else if (AfricaMaxDate < new Date(data[i].date).valueOf()) {
+            				AfricaMaxDate = new Date(data[i].date).valueOf();
+            				var africaTitle = data[i].title;
+            				var africaLink = data[i].link;
             			}
-            			
-            			else if (data[i].continent == "america" && data[j].continent == "america") {
-            				
-            				var date7 = new Date(data[i].date);
-                            var date8 = new Date(data[j].date);
-                               	
-                            if (date7.valueOf() > date8.valueOf()) {
-                     			str += "<li><b>America</b></li>"
-                    			str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-            				}
-                            
-                            else if (date7.valueOf() == date8.valueOf()) {
-                            	if (data[i].no > data[j].no) {
-                            		str += "<li><b>America</b></li>"
-                            		str += "<a href = \"" + data[i].link + "\" target=\"_blank\">" + data[i].title + "</a></br>";
-                            	}
-                            }
+            			else if (AfricaMaxDate > new Date(data[i].date).valueOf()) {
+            				var africaTitle = data[0].title;
+            				var africaLink = data[0].link;
             			}
-
             		}
-            	}
+               
+            		else if (data[i].continent == "asia") {
+            			var asiaContinent = "Asia";
+            			if (AsiaMaxDate == new Date(data[i].date).valueOf()) {
+            				continue;
+            			}
+            			else if (AsiaMaxDate < new Date(data[i].date).valueOf()) {
+            				AsiaMaxDate = new Date(data[i].date).valueOf();
+            				var asiaTitle = data[i].title;
+            				var asiaLink = data[i].link;
+            			}
+            			else if (AsiaMaxDate > new Date(data[i].date).valueOf()) {
+            				var asiaTitle = data[10].title;
+            				var asiaLink = data[10].link;
+            			}
+            		}
+               		
+            		else if (data[i].continent == "europe") {
+            			var europeContinent = "Europe";
+            			if (EuropeMaxDate == new Date(data[i].date).valueOf()) {
+            				continue;
+            			}
+            			else if (EuropeMaxDate < new Date(data[i].date).valueOf()) {
+            				EuropeMaxDate = new Date(data[i].date).valueOf();
+            				var europeTitle = data[i].title;
+            				var europeLink = data[i].link;
+            			}
+            			else if (EuropeMaxDate > new Date(data[i].date).valueOf()) {
+            				var europeTitle = data[20].title;
+            				var europeLink = data[20].link;
+            			}
+            		}
+            		
+            		else if (data[i].continent == "america") {
+            			var americaContinent = "America";
+            			if (AmericaMaxDate == new Date(data[i].date).valueOf()) {
+            				continue;
+            			}
+            			else if (AmericaMaxDate < new Date(data[i].date).valueOf()) {
+            				AmericaMaxDate = new Date(data[i].date).valueOf();
+            				var americaTitle = data[i].title;
+            				var americaLink = data[i].link;
+            			}
+            			else if (AmericaMaxDate > new Date(data[i].date).valueOf()) {
+            				var americaTitle = data[30].title;
+            				var americaLink = data[30].link;
+            			}
+            		}
+                }
+				//africaContinent.charAt(0).toUpperCase() + africaContinent.slice(1, continent.length)
+                str += "<li><b>" + africaContinent + "</b></li>"
+                str += "<a href = \"" + africaLink + "\" target=\"_blank\">" + africaTitle + "</a></br>";
+                
+                str += "<li><b>" + asiaContinent + "</b></li>"
+                str += "<a href = \"" + asiaLink + "\" target=\"_blank\">" + asiaTitle + "</a></br>";
+                
+                str += "<li><b>" + europeContinent + "</b></li>"
+                str += "<a href = \"" + europeLink + "\" target=\"_blank\">" + europeTitle + "</a></br>";
+                
+                str += "<li><b>" + americaContinent + "</b></li>"
+                str += "<a href = \"" + americaLink + "\" target=\"_blank\">" + americaTitle + "</a></br>";
 				
                 $("#resultUnepList").append(str);
                 
-            } 
+            }
         });
     });
 </script>
