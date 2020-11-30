@@ -6,41 +6,47 @@
 	var map = null;
 	var lat;
 	var lng;
-
-    $(document).ready(function(){
+  
+    $(document).ready(function(){    
     	map = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(37.5666805, 126.9784147),
             zoom: 10
         });
-    	
-     	$.ajax({
+
+    	/////////// test
+    	$.ajax({
             type : "GET", //전송방식을 지정한다 (POST,GET)
-            url : "/testForKmove/s/ChargeCenter.xml",
-            dataType : "xml",//호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
+            url : "/testForKmove/Eea.test",//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
+            dataType : "json", //호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
             error : function(){
-                console.log("connection down!!!!");
+                alert("통신실패!!!!");
             },
             success : function(data){
-            	$('#navTab .nav-item').click(function(){
-            		var tab = $(this).children().attr('id');
-            		$('#navTab a.active').attr('class', 'nav-link');
-            		$(this).children().attr('class', 'nav-link active');
-            		
-            		if(tab == 'GreenCompaniesTab'){
-            	    	map.destroy();
-            	    	initNaverMap(jsonData, 37.5666805, 126.9784147, 9, greenCompanieeMarkerSeter, greenCompanieesClickHandler, tab);
-            		}
-            		else if(tab == 'ChargeCenterTab'){
-            			navigator.geolocation.getCurrentPosition(function(pos) {
-            			    lat = pos.coords.latitude;
-            			    lng = pos.coords.longitude;
-                	    	map.destroy();
-                	    	initNaverMap(data, lat, lng, 12, chargeCenterMarkerSeter, chargeCenterClickHandler, tab);            			    
-            			});
-            		}            		
-        		});            	
-            }
-    	});
+                console.log(data);
+            }  
+        });
+    	
+    	///////////   	
+    	
+    	$('#navTab .nav-item').click(function(){
+    		var tab = $(this).children().attr('id');
+    		$('#navTab a.active').attr('class', 'nav-link');
+    		$(this).children().attr('class', 'nav-link active');
+    		
+    		if(tab == 'GreenCompaniesTab'){
+    	    	map.destroy();
+    	    	initNaverMap(jsonData, 37.5666805, 126.9784147, 9, greenCompanieeMarkerSeter, greenCompanieesClickHandler, tab);
+    		}
+    		else if(tab == 'ChargeCenterTab'){
+    			navigator.geolocation.getCurrentPosition(function(pos) {
+    			    lat = pos.coords.latitude;
+    			    lng = pos.coords.longitude;
+    			    xmlData = $('#chargeCenterXml').children();
+        	    	map.destroy();
+        	    	initNaverMap(xmlData, lat, lng, 12, chargeCenterMarkerSeter, chargeCenterClickHandler, tab);            			    
+    			});
+    		}            		
+		});
     });
     
     function greenCompanieeMarkerSeter(data, markers, infoWindows, infoModals){    	
@@ -339,6 +345,10 @@
 
     </div>
   </div>
+</div>
+
+<div hidden id="chargeCenterXml">
+<c:import url="http://open.ev.or.kr:8080/openapi/services/rest/EvChargerService?serviceKey=Br9ZD1jNUSVEWk2pzmFs4d6YxbkJ87tZQ%2BotT9cHiPf6xGKNwrR94bOypjcYra1PsaMIqaur86JPZkw3uI29Rw%3D%3D&" />
 </div>
 
 <!-- stefan end -->

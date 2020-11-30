@@ -27,8 +27,7 @@
   <div class="row">
     <div class="col-sm-12">
       <h2>LOGIN</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-
+<div class="container">
 <form>
   <div class="form-row">
     <div class="col-md-4 mb-2">
@@ -126,7 +125,7 @@
   </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
-
+</div>
     </div>
   </div>
 </div>
