@@ -3,16 +3,7 @@ package unep.controller;
 public class UnepVO {
 	
 	private int no;
-	private String continent, title, link, date;  
-	
-	public UnepVO(String continent, String title, String link, String date)
-	{
-		super();
-		this.continent = continent;
-		this.title = title;
-		this.link = link;
-		this.date = date;
-	}
+	private String continent, title, link, date, type;  
 	
 	public UnepVO(int no, String continent, String title, String link, String date)
 	{
@@ -22,6 +13,17 @@ public class UnepVO {
 		this.title = title;
 		this.link = link;
 		this.date = date;
+	}
+	
+	public UnepVO(int no, String continent, String title, String link, String date, String type)
+	{
+		super();
+		this.no = no;
+		this.continent = continent;
+		this.title = title;
+		this.link = link;
+		this.date = date;
+		this.type = type;
 	}
 	
 	public int getNo()
@@ -73,5 +75,14 @@ public class UnepVO {
 	{
 		this.date = date;
 	}
+	
+	public String getType()
+	{
+		return type;
+	}
 
+	public void setType(String type)
+	{
+		this.type = type;
+	}
 }

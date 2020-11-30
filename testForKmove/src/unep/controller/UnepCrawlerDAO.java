@@ -88,8 +88,9 @@ public class UnepCrawlerDAO {
 				String year = dateSplit[2];
 				
 				String date = year + "-" + month + "-" + day;
+				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date);
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
 				titlesAndlinkslist.add(unepVO);
 			}
 			
@@ -133,8 +134,9 @@ public class UnepCrawlerDAO {
 				String year = dateSplit[2];
 				
 				String date = year + "-" + month + "-" + day;
+				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date);
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
 				titlesAndlinkslist.add(unepVO);
 			}
 			
@@ -178,8 +180,9 @@ public class UnepCrawlerDAO {
 				String year = dateSplit[2];
 				
 				String date = year + "-" + month + "-" + day;
+				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date);
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
 				titlesAndlinkslist.add(unepVO);
 			}
 			
@@ -223,8 +226,9 @@ public class UnepCrawlerDAO {
 				String year = dateSplit[2];
 				
 				String date = year + "-" + month + "-" + day;
+				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date);
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
 				titlesAndlinkslist.add(unepVO);
 			}
 		}
