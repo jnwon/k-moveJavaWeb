@@ -47,7 +47,7 @@ public class EventWriteController extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventForm.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventForm2.jsp");
 		dispatch.forward(request, response);
 		
 	}

@@ -5,6 +5,7 @@ import java.sql.Date;
 public class EeaVO {
 	private int no;
 	private String source;
+	private String category;
 	private String title;
 	private String link;
 	
@@ -18,6 +19,15 @@ public class EeaVO {
 		super();
 		this.no = no;
 		this.source = source;
+		this.title = title;
+		this.link = link;
+	}
+	
+	public EeaVO(int no, String source, String category, String title, String link) {
+		super();
+		this.no = no;
+		this.source = source;
+		this.category = category;
 		this.title = title;
 		this.link = link;
 	}
@@ -44,6 +54,14 @@ public class EeaVO {
 		this.source = source;
 	}
 
+	public String getCategory() {
+		return source;
+	}
+
+	public void setCategory(String source) {
+		this.source = source;
+	}	
+	
 	public String getTitle() {
 		return title;
 	}

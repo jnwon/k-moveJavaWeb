@@ -67,7 +67,6 @@ public class EventDAO {
 			conn = dataFactory.getConnection();
 			//String query = "SELECT * from events WHERE no=?";
 			String query = "SELECT * from events WHERE no="+no;
-			//String query = "SELECT e.no, e.title, m.name, e.publishedDate, e.isOpened, e.password, e.numOfMaxMembers, e.numOfJoiningMembers, e.numOfComment, e.numOfViews, e.numOfLikes from events as e join Members as m where e.writer = m.no order by publishedDate DESC";
 			System.out.println("no from DAO" + no);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
@@ -92,23 +91,6 @@ public class EventDAO {
 				detailedEvent.setNumOfLikes(rs.getInt("numOfLikes"));
 				detailedEvent.setNumOfAttachLinks(rs.getInt("numOfAttachLinks"));
 				detailedEvent.setContents(rs.getString("contents"));
-				
-//				detailedEvent = new EventVO();
-//				detailedEvent.setNo(rs.getInt("e.no"));
-//				detailedEvent.setTitle(rs.getString("e.title"));
-//				detailedEvent.setWriter(rs.getString("m.name"));
-//				detailedEvent.setPublishedDate(rs.getString("e.publishedDate"));
-//				detailedEvent.setIsOpened(rs.getInt("e.isOpened"));
-//				//detailedEvent.setIsLocked(rs.getInt("isLocked"));
-//				//detailedEvent.setPassword(rs.getInt("password"));
-//				detailedEvent.setIsLocked(rs.getInt("e.password") > 0 ? 1 : 0);
-//				detailedEvent.setNumOfMaxMembers(rs.getInt("e.numOfMaxMembers"));
-//				detailedEvent.setNumOfJoiningMembers(rs.getInt("e.numOfJoiningMembers"));
-//				detailedEvent.setNumOfComment(rs.getInt("e.numOfComment"));
-//				detailedEvent.setNumOfViews(rs.getInt("e.numOfViews"));
-//				detailedEvent.setNumOfLikes(rs.getInt("e.numOfLikes"));
-//				//detailedEvent.setNumOfAttachLinks(rs.getInt("numOfAttachLinks"));
-//				//detailedEvent.setContents(rs.getString("contents"));
 				
 			}
 			rs.close();
