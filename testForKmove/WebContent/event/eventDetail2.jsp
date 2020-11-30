@@ -68,6 +68,7 @@ color: rgba(255, 255, 255, 0.8);
 .text{
 color: white;
 }
+
   </style>
 </head>
 <body>
@@ -130,7 +131,7 @@ color: white;
 <!-- favorite and join starat with Sticky Navbar-->
 
    <!-- Navbar -->
-   <nav class="navbar bg-dark navbar-expand-sm navbar-dark sticky-top" style="position: -webkit-sticky;position: sticky;top: 0;z-index: 1020;">
+   <nav class="navbar bg-dark navbar-expand-sm navbar-dark sticky-top" style="position: -webkit-sticky;position: sticky;top: 0;z-index: 1020; width: 100%;">
       <div class="fixed">
       <div>
                
@@ -164,37 +165,40 @@ color: white;
 						<div class="flex flex--row flex--alignCenter">
 							<div class="flex-item flex-item--shrink">
 								<div class="flex flex--column">
-									<div class="flex-item text--bold">
-										<span data-e2e="event-footer--price-label">
-											<span>
-											FREE</span>
-										</span>
-									</div>
+									
 									<div class="flex-item">
 										<span>
-										<%=detailedEvent.getNumOfJoiningMembers()%> / <%=detailedEvent.getNumOfMaxMembers()%> = ?? spots left</span>
+										Joined / Max<br>
+										&nbsp; &nbsp; &nbsp; &nbsp; <%=detailedEvent.getNumOfJoiningMembers()%> / <%=detailedEvent.getNumOfMaxMembers()%></span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="flex-item flex-item--shrink _EventStickyFooter-module_eventActions__1dOQN">
-						<div class="flex flex--row last">
+						<div class="flex flex--row last">						
 						<div class="flex-item flex-item--shrink ">
-							<button data-swarm-button="neutral" data-swarm-size="large" data-icon="only" data-swarm-width="default" type="button" aria-label="Save event" class="saveButton _saveEventButton-module_saveButton__2eemT saveButton--save _saveEventButton-module_newStyle__1WGCV gtmEventFooter--save-btn" data-e2e="event-footer--save-btn">
+							<!-- <button data-swarm-button="neutral" data-swarm-size="large" data-icon="only" data-swarm-width="default" type="button" aria-label="Save event" class="saveButton _saveEventButton-module_saveButton__2eemT saveButton--save _saveEventButton-module_newStyle__1WGCV gtmEventFooter--save-btn" data-e2e="event-footer--save-btn">
 								&nbsp; &nbsp; <span>
 									<svg data-swarm-icon="true" height="24" width="24" viewBox="0 0 24 24">
 										<path d="M5.458 22.004l1.25-7.284-5.293-5.16 7.314-1.062L12 1.87l3.271 6.628 7.314 1.063-5.292 5.159 1.249 7.284L12 18.564l-6.542 3.44zm1.328-1.828L12 17.436l5.214 2.74-.996-5.805 4.218-4.112-5.83-.847L12 4.13 9.393 9.412l-5.83.847 4.219 4.112-.996 5.805z">
 										</path>
 									</svg>
 								</span>&nbsp; &nbsp; 
+							</button> -->
+							<button type="button" class="btn btn-block btn-default">
+							<svg data-swarm-icon="true" height="24" width="24" viewBox="0 0 24 24">
+										<path d="M5.458 22.004l1.25-7.284-5.293-5.16 7.314-1.062L12 1.87l3.271 6.628 7.314 1.063-5.292 5.159 1.249 7.284L12 18.564l-6.542 3.44zm1.328-1.828L12 17.436l5.214 2.74-.996-5.805 4.218-4.112-5.83-.847L12 4.13 9.393 9.412l-5.83.847 4.219 4.112-.996 5.805z">
+										</path>
+									</svg>
 							</button>
 						</div>
 						<div class="flex-item flex-item--shrink">						
-							<button data-swarm-button="primary" data-swarm-size="large" data-icon="left" data-swarm-width="default" type="button" data-e2e="event-footer--attend-btn" class="gtmEventFooter--attend-btn" style="color: rgba(0,0,0,.5);">
+							<!-- <button data-swarm-button="primary" data-swarm-size="large" data-icon="left" data-swarm-width="default" type="button" data-e2e="event-footer--attend-btn" class="gtmEventFooter--attend-btn" style="color: rgba(0,0,0,.5);">
 								<span>
 								&nbsp; Attend &nbsp; </span>
-							</button>
+							</button> -->
+							<button type="button" class="btn btn-block btn-default">&nbsp; Join &nbsp;</button>
 						</div>
 						</div>
 					</div>

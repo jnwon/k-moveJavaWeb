@@ -107,7 +107,7 @@
   
 <div class="row" id="event">
 	<div class="col-sm-8">
-		<h2>EVENTS</h2>
+		<h2 style="padding-bottom:42.5px;">EVENTS</h2>
 	</div>
 	<div class="col-sm-4">
 		<section id="writeButton"> <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
