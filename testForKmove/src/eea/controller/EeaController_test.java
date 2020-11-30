@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+
 /**
  * Servlet implementation class EeaController
  */
@@ -23,30 +24,38 @@ public class EeaController_test extends HttpServlet {
 	EeaCrawler eeaCrawler;
 	
 	public void init() throws ServletException {
-		eeaDAO = new EeaDAO(); // EeaDAO¸¦ »ý¼º
+		eeaDAO = new EeaDAO(); // EeaDAOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		eeaCrawler = new EeaCrawler();
 	}
 	 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doHandle1(request, response);
-		doHandle2(request, response);
+		if(request.getParameter("request").equals("crawl")) {
+			doHandle2(request, response);
+		}
+		else if(request.getParameter("request").equals("addArticles")) {
+			doHandle3(request, response);
+		}
 	}	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doHandle1(request, response);
-		doHandle2(request, response);
+		if(request.getParameter("request").equals("crawl")) {
+			doHandle2(request, response);
+		}
+		else if(request.getParameter("request").equals("addArticles")) {
+			doHandle3(request, response);
+		}
 	}
 	
 	private void doHandle1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		List<EeaVO> articlesList = eeaDAO.eea(); // ¿äÃ»¿¡ ´ëÇØ ±â»ç¸®½ºÆ®¸¦ Á¶È¸
-		request.setAttribute("articlesList", articlesList); // Á¶È¸ÇÑ ±â»çÁ¤º¸¸¦ request¿¡ ¹ÙÀÎµù
+		List<EeaVO> articlesList = eeaDAO.eea(); // ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ç¸®ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¸
+		request.setAttribute("articlesList", articlesList); // ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ requestï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½
 		//RequestDispatcher dispatch = request.getRequestDispatcher("/f/eea.jsp"); 
-		//dispatch.forward(request, response); // ÄÁÆ®·Ñ·¯¿¡¼­ Ç¥½ÃÇÏ°íÀÚ ÇÏ´Â JSP·Î Æ÷¿öµù
+		//dispatch.forward(request, response); // ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ JSPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	private void doHandle2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -54,10 +63,20 @@ public class EeaController_test extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		
-		List<EeaVO> titlesAndlinkslist = eeaCrawler.listTitleAndLink();
-		request.setAttribute("titlesAndlinkslist", titlesAndlinkslist);
+		List<EeaVO> result = eeaCrawler.listTitleAndLink();
+		request.setAttribute("articlesList", result);
 		
-		String gson = new Gson().toJson(titlesAndlinkslist);
+		String gson = new Gson().toJson(result);
+	    response.getWriter().write(gson);		
+	}
+	
+	private void doHandle3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		eeaCrawler.InsertArticles(request.getParameter("data"));
+		
+		String gson = new Gson().toJson("articles added");
 	    response.getWriter().write(gson);		
 	}	
 }

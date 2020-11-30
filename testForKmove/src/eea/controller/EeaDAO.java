@@ -30,17 +30,17 @@ public class EeaDAO {
 		List<EeaVO> articlesList = new ArrayList();
 		try {
 			conn = dataFactory.getConnection();
-			String query = "select * from  articles where source='EEA'"; // SQL¹® ÀÛ¼º
+			String query = "select * from  articles where source='EEA'"; // SQLï¿½ï¿½ ï¿½Û¼ï¿½
 			System.out.println(query);
-			pstmt = conn.prepareStatement(query); // PrepareStatement °´Ã¼¸¦ »ý¼ºÇÏ¸é¼­ SQL¹®À» ÀÎÀÚ·Î Àü´Þ 
+			pstmt = conn.prepareStatement(query); // PrepareStatement ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸é¼­ SQLï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int no = rs.getInt("no");
 				String source = rs.getString("source");
 				String title = rs.getString("title");
 				String link = rs.getString("link");
-				EeaVO eeaVO = new EeaVO(no, source, title, link); // Á¶È¸ÇÑ ±â»çÁ¤º¸¸¦ ·¹ÄÚµåº°·Î EeaVO °´Ã¼ÀÇ ¼Ó¼º¿¡ ÀúÀå
-				articlesList.add(eeaVO); // articlesList¿¡ eeaVO °´Ã¼µéÀ» Â÷·Ê´ë·Î ÀúÀå
+				EeaVO eeaVO = new EeaVO(no, source, title, link); // ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµåº°ï¿½ï¿½ EeaVO ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				articlesList.add(eeaVO); // articlesListï¿½ï¿½ eeaVO ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 			rs.close();
 			pstmt.close();
@@ -51,5 +51,51 @@ public class EeaDAO {
 		return articlesList;
 	}
 
+	public void addArticle(EeaVO m) {
+		try {
+			conn = dataFactory.getConnection();
+			String source = m.getSource();
+			String category = m.getCategory();
+			String title = m.getTitle();
+			String link = m.getLink();
+			String query = "INSERT INTO articles(source, category, title, link)" + " VALUES(?, ? ,? ,?)";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, source);
+			pstmt.setString(2, category);
+			pstmt.setString(3, title);
+			pstmt.setString(4, link);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean isArticleInTable(String source, String category, String link) {
+		
+		boolean result = false;
+
+		try {
+			conn = dataFactory.getConnection();
+			String query = "select * from  articles where source='" + source + "' and category='" + category + "' and link='" + link + "'";
+			pstmt = conn.prepareStatement(query); // PrepareStatement ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸é¼­ SQLï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+			ResultSet rs = pstmt.executeQuery();
+			if (rs != null) 
+			{
+			  rs.last();    // moves cursor to the last row
+			  if(rs.getRow() > 0)
+				  result = true;
+			  else
+				  result = false;
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 }

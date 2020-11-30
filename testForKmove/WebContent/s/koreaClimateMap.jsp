@@ -15,14 +15,27 @@
 
     	/////////// test
     	$.ajax({
-            type : "GET", //전송방식을 지정한다 (POST,GET)
-            url : "/testForKmove/Eea.test",//호출 URL을 설정한다. GET방식일경우 뒤에 파라티터를 붙여서 사용해도된다.
-            dataType : "json", //호출한 페이지의 형식이다. xml,json,html,text등의 여러 방식을 사용할 수 있다.
+            type : "GET",
+            url : "/testForKmove/Eea.test",
+            dataType : "json",
+            data: { "request" : "crawl" },
             error : function(){
-                alert("통신실패!!!!");
+                alert("connection down!!!!");
             },
-            success : function(data){
-                console.log(data);
+            success : function(jsonData){
+                console.log(jsonData);
+                    $.ajax({
+                    type : "POST",
+                    url : "/testForKmove/Eea.test",
+                    dataType : "json",
+                    data: { "request" : "addArticles", "data" : JSON.stringify(jsonData)},
+                    error : function(){
+                        alert("connection down!!!!");
+                    },
+                    success : function(responceData){
+                        console.log(responceData);
+                    }  
+                });
             }  
         });
     	
@@ -219,8 +232,8 @@
 	            infoWindow.open(map, marker);
 	            $("#ENTRPS_NM").text(data[seq].ENTRPS_NM);
 	            $("#CONTCT_NO").text(data[seq].CONTCT_NO);
-	            $("#REPRSNTV_NM").text('대표자 : '+data[seq].REPRSNTV_NM);
-	            $("#INDUTYPE_NM").text('분야 : '+data[seq].INDUTYPE_NM);
+	            $("#REPRSNTV_NM").text('���몴�옄 : '+data[seq].REPRSNTV_NM);
+	            $("#INDUTYPE_NM").text('遺꾩빞 : '+data[seq].INDUTYPE_NM);
 	            $("#REFINE_ROADNM_ADDR").text(data[seq].REFINE_ROADNM_ADDR);
 	            $("#GreenCompanyModal").modal();
 	        }
@@ -236,25 +249,25 @@
 	        
 	        switch(infoModals[seq].chgerType)
 	        {
-	        	case '01' : chType = 'DC 차데모';
+	        	case '01' : chType = 'DC 李⑤뜲紐�';
 	        		break;
-	        	case '03' : chType = 'DC 차데모 + AC 3상';
+	        	case '03' : chType = 'DC 李⑤뜲紐� + AC 3�긽';
 	        		break;
-	        	case '06' : chType = 'DC 차데모 + AC 3상 + DC 콤보';
+	        	case '06' : chType = 'DC 李⑤뜲紐� + AC 3�긽 + DC 肄ㅻ낫';
         			break;
 	        }
 	        
 	        switch(infoModals[seq].stat)
 	        {
-	        	case '1' : status = '통신이상';
+	        	case '1' : status = '�넻�떊�씠�긽';
 	        		break;
-	        	case '2' : status = '충전대기';
+	        	case '2' : status = '異⑹쟾��湲�';
 	        		break;
-	        	case '3' : status = '충전중';
+	        	case '3' : status = '異⑹쟾以�';
         			break;
-	        	case '4' : status = '운영중지';
+	        	case '4' : status = '�슫�쁺以묒�';
     				break;
-	        	case '5' : status = '점검중';
+	        	case '5' : status = '�젏寃�以�';
 					break;
 	        }
 	
@@ -264,10 +277,10 @@
 	            infoWindow.open(map, marker);
 	            $("#statNm").text(infoModals[seq].statNm);
 	            $("#addrDoro").text(infoModals[seq].addrDoro);
-	            $("#chgerType").text('충전타입 : '+ chType);
-	            $("#chgerId").text('충전기 수 : '+infoModals[seq].chgerId.length);
-	            $("#useTime").text('이용시간 : '+infoModals[seq].useTime);
-	            $("#stat").text('현재상태 : '+ status);
+	            $("#chgerType").text('異⑹쟾���엯 : '+ chType);
+	            $("#chgerId").text('異⑹쟾湲� �닔 : '+infoModals[seq].chgerId.length);
+	            $("#useTime").text('�씠�슜�떆媛� : '+infoModals[seq].useTime);
+	            $("#stat").text('�쁽�옱�긽�깭 : '+ status);
 	            $("#ChargeCenterModal").modal();
 	        }
 	    }
