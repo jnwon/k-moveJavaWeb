@@ -108,7 +108,7 @@
                 str += "<li><b>" + asiaContinent + "</b></li>"
                 str += "<a href = \"" + asiaLink + "\" target=\"_blank\">" + asiaTitle + "</a></br>";
                 
-                str += "<li><b>" + europeContinent + "</b></li>"
+                str += "<li><b>" + europeContinent + "</b></li>" 
                 str += "<a href = \"" + europeLink + "\" target=\"_blank\">" + europeTitle + "</a></br>";
                 
                 str += "<li><b>" + americaContinent + "</b></li>"

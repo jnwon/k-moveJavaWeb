@@ -20,7 +20,7 @@ public class CrawlController extends HttpServlet {
 	public void init() throws ServletException
 	{
 		unepDAO = new UnepDAO();
-		unepCrawler = new UnepCrawlerDAO();
+		unepCrawler = new UnepCrawlerDAO(); 
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
