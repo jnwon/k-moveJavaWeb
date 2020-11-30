@@ -45,7 +45,7 @@ public class UnepDAO {
 			while (rs.next())
 			{
 				int no = rs.getInt("no");
-				String continent = rs.getString("continent");
+				String continent = rs.getString("continent"); 
 				String title = rs.getString("title");
 				String link = rs.getString("link");
 				String date = rs.getString("date");

@@ -3,7 +3,7 @@ package unep.controller;
 public class UnepVO {
 	
 	private int no;
-	private String continent, title, link, date; 
+	private String continent, title, link, date;  
 	
 	public UnepVO(String continent, String title, String link, String date)
 	{

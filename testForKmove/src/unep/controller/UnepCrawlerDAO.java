@@ -183,7 +183,7 @@ public class UnepCrawlerDAO {
 				titlesAndlinkslist.add(unepVO);
 			}
 			
-			for (Element e : eleOfAmerica.select("div.views-field.views-field-nothing")) 
+			for (Element e : eleOfAmerica.select("div.views-field.views-field-nothing"))  
 			{	
 				no++;
 				String continent = "america";

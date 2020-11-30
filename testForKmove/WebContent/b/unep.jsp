@@ -8,7 +8,7 @@
 </head>
 
 <%-- Include this file to obtain server's root address wherever using ajax!! --%>
-<%@ include file="../rootAddress.jsp" %>
+<%@ include file="../rootAddress.jsp" %> 
 <%-----------------------------------------------------------------------------%>
 
 <script type="text/javascript" language="javascript"> 
