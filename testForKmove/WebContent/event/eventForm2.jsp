@@ -214,7 +214,7 @@
     </div>
     
         <div class="col-sm-1">
-      <button type="submit" class="btn btn-primary" id="toEventList"><a href="/testForKmove/EventListController">List</a></button>
+      <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-primary" id="toEventList">List</button></a>
     </div>
     
   </div>

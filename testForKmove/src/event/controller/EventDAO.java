@@ -98,7 +98,8 @@ public class EventDAO {
 			}
 			rs.close();
 			pstmt.close();
- 
+			conn.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -106,7 +107,7 @@ public class EventDAO {
 		return detailedEvent;
 	}
 	
-	public int insertArticle(EventVO eventVO) {
+	public int insertEvent(EventVO eventVO) {
 		
 		int insertCount = 0; // executeUpdate() 메서드를 통해 글쓰기 작업 수행 결과를 저장할 변수
 		
@@ -146,7 +147,8 @@ public class EventDAO {
 			insertCount = pstmt.executeUpdate();
 			
 			pstmt.close();
-			
+			conn.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -154,4 +156,30 @@ public class EventDAO {
 		return insertCount;
 	}
 
+	// ========== 글 삭제 ===========
+	// => 삭제를 위한 패스워드 확인은 글 수정의 isArticleWriter() 메서드 함께 사용
+	public int deleteEvent(int no) {
+		// 글 번호(board_num) 에 해당하는 게시물 삭제
+		int deleteCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM events WHERE no=?";
+			System.out.println("no from DAO" + no);
+
+			pstmt = conn.prepareStatement(sql);
+			//pstmt.setInt(1, no);
+			deleteCount = pstmt.executeUpdate();
+
+			pstmt.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		
+		return deleteCount;
+	}
+	
 }

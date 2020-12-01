@@ -227,6 +227,7 @@ color: white;
 							<%=detailedEvent.getEndTime()%></span>
 						</span>
 					</span>
+					</span>
 				<span class="eventTimeDisplay-endDate">
 				</span>
 				</time>
@@ -241,8 +242,6 @@ color: white;
 				</p>
 				</address>
       
-      
-      </p>
       <hr class="d-sm-none">
     </div>   
     <!-- account side end --> <!-- account side end -->
@@ -354,11 +353,32 @@ color: white;
          <br>
          <!-- end timeline-body -->
  <!-- facebook style commend -->
+
+   <div class="form-group row">
+    <div class="col-sm-1">
+      <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-primary">Modify</button></a>
+    </div>
+    
+        <div class="col-sm-1">
+      <a href="/testForKmove/EventDeleteController"><button type="submit" class="btn btn-primary">Delete</button></a>
+    </div>
+    
+            <div class="col-sm-1">
+     <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-primary" id="toEventList">List</button></a>
+    </div>
+    
+  </div>
+
     </div>
   </div>
-</div>
 
-
+<%-- 	<section id="commandList">
+		<a href="BoardReplyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage %>"><input type="button" value="Reply"></a>
+		<a href="BoardModifyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage %>"><input type="button" value="Modify"></a>
+		<a href="BoardDeleteForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage %>"><input type="button" value="Delete"></a>
+		<a href="BoardList.bo?page=<%=nowPage%>"><input type="button" value="List"></a>
+	</section>
+ --%>
 
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 
