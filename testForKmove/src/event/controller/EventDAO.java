@@ -91,6 +91,9 @@ public class EventDAO {
 				detailedEvent.setNumOfLikes(rs.getInt("numOfLikes"));
 				detailedEvent.setNumOfAttachLinks(rs.getInt("numOfAttachLinks"));
 				detailedEvent.setContents(rs.getString("contents"));
+				detailedEvent.setStartTime(rs.getString("startTime"));
+				detailedEvent.setEndTime(rs.getString("endTime"));
+				detailedEvent.setEventPlace(rs.getString("eventPlace"));
 				
 			}
 			rs.close();
@@ -102,6 +105,53 @@ public class EventDAO {
 		
 		return detailedEvent;
 	}
-	//INSERT INTO `events` (`no`, `title`, `writer`, `publishedDate`, `isOpened`, `password`, `contents`, `numOfAttachLinks`, `numOfMaxMembers`, `numOfJoiningMembers`, `numOfComment`, `numOfViews`, `numOfLikes`) VALUES
+	
+	public int insertArticle(EventVO eventVO) {
+		
+		int insertCount = 0; // executeUpdate() 메서드를 통해 글쓰기 작업 수행 결과를 저장할 변수
+		
+		try {
+			conn = dataFactory.getConnection();
+			// INSERT 구문을 사용하여 전달된 항목들 및 기타 데이터를 board 테이블에 추가
+			// 글번호(board_num) : 자동 증가 옵션이 설정되어 있으므로 null 값 전달(쿼리에서 직접 전달)
+			// 작성자(board_name), 패스워드(board_pass), 제목(board_subject), 본문(board_content), 파일명(board_file)
+			// 참조글 번호(board_re_ref) : 자동증가로 인해 글 번호 식별이 불가능하므로 임시번호 -1 지정
+			// 들여쓰기 레벨(board_re_lev) : 현재 글이 원본 글이므로 0 사용
+			// 답글 순서 번호(board_re_seq) : 현재 글이 원본 글이므로 0 사용
+			// 조회수(board_readcount) : 새 글이므로 0 사용
+			// 작성일(board_date) : 현재 DB 의 날짜 및 시각 정보 전달(now() 함수를 사용하여 쿼리에서 직접 전달)
+
+			String query = "INSERT INTO events VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+			
+			// Connection 객체로부터 PreparedStatement 객체 가져와서 쿼리 전달
+			pstmt = conn.prepareStatement(query);
+			// ? 파라미터값 채우기
+			pstmt.setString(1, eventVO.getTitle());
+			pstmt.setString(2, eventVO.getWriter());
+			pstmt.setString(3, eventVO.getPublishedDate());
+			pstmt.setString(4, eventVO.getContents());
+			pstmt.setString(5, eventVO.getStartTime());
+			pstmt.setString(6, eventVO.getEndTime());
+			pstmt.setString(7, eventVO.getEventPlace());
+			pstmt.setInt(8, eventVO.getIsOpened());
+			pstmt.setInt(9, eventVO.getIsLocked());
+			pstmt.setInt(10, eventVO.getPassword());
+			pstmt.setInt(11, eventVO.getNumOfMaxMembers());
+			pstmt.setInt(12, eventVO.getNumOfJoiningMembers());
+//			pstmt.setInt(6, -1);// board_re_ref(새 글에 참조글 번호는 자기 자신 => 임시번호로 -1 부여)
+//			pstmt.setInt(7, 0); // board_re_lev
+//			pstmt.setInt(8, 0); // board_re_seq
+			pstmt.setInt(13, 0); // board_readcount
+			// 쿼리 실행
+			insertCount = pstmt.executeUpdate();
+			
+			pstmt.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return insertCount;
+	}
 
 }

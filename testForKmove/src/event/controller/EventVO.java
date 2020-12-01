@@ -19,6 +19,10 @@ public class EventVO {
 	private int numOfAttachLinks;
 	private String contents;
 	 
+	private	String startTime;
+	private	String endTime;
+	private	String eventPlace;
+	
 	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int password,
 			int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes,
 			String contents) {
@@ -59,6 +63,36 @@ public class EventVO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public String getStartTime() {
+		return startTime;
+	}
+
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+
+	public String getEventPlace() {
+		return eventPlace;
+	}
+
+
+	public void setEventPlace(String eventPlace) {
+		this.eventPlace = eventPlace;
+	}
+	
 	public int getNumOfAttachLinks() {
 		return numOfAttachLinks;
 	}

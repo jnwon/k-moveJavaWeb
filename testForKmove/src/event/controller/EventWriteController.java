@@ -17,12 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 public class EventWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	EventDAO eventDAO;
+	EventVO eventVO;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
 	public void init() throws ServletException {
 		eventDAO = new EventDAO();
+		eventVO = new EventVO();
 	}
 
 	/**
@@ -42,11 +44,13 @@ public class EventWriteController extends HttpServlet {
 	}
 
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<EventVO> eventList = eventDAO.listEventsForMain();
-		request.setAttribute("eventList", eventList);
-
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+		int insertCount = eventDAO.insertArticle(eventVO);
+		
+		System.out.println("insertCount" + insertCount);
+		eventVO.setWriter(request.getParameter("writter"));
+		
 		RequestDispatcher dispatch = request.getRequestDispatcher("/event/eventForm2.jsp");
 		dispatch.forward(request, response);
 		

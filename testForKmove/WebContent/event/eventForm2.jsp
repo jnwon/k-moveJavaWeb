@@ -1,5 +1,23 @@
+<%@page import="event.controller.EventVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	//String sid = null;
+//로그인이 되지 않은 상태일 경우 로그인 페이지로 강제 이동 처리
+/* 	if(session.getAttribute("sid") == null) {
+		out.println("<script>");
+		out.println("alert('This service requires a login')");
+		out.println("location.href='LoginForm.me'");
+		out.println("</script>");
+	} else {// 로그인 된 상태일 경우 세션 ID 가져오기
+		sid = (String)session.getAttribute("sid");
+	} */
+// 전달받은 request 객체에서 데이터 가져오기
+	EventVO detailedEvent = (EventVO)request.getAttribute("detailedEvent");
+	//EventVO detailedEvent2 = (EventVO)request.getAttribute("eventList");
+
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,9 +81,17 @@ $(function () {
     real demo: https://www.jquery-az.com/boots/demo.php?ex=20.0_1 
     ref site :https://www.jquery-az.com/bootstrap-datetimepicker-managing-with-date-and-time-in-bootstrap/-->
 		  <div class="form-group">
-		    <label for="dtpickerdemo" class="control-label"><h5>Select date/time:</h5></label>
-		    <div class='col-sm-4 input-group date' id='dtpickerdemo'>
-		         <input type='text' class="form-control" />
+		    <label for="dtpickerdemo" class="control-label last"><h5>Select Start date/time:</h5></label>
+		    <div class='col-sm-4 input-group date' id='dtpickerdemoStart'>
+		         <input type='text' class="form-control" name="startTime" id="startTime"/>
+		         <span class="input-group-addon">
+		             <span class="glyphicon glyphicon-calendar"></span>
+		         </span>
+		     </div>
+		     
+		      <label for="dtpickerdemo" class="control-label last"><h5>Select End date/time:</h5></label>
+		    <div class='col-sm-4 input-group date' id='dtpickerdemoEnd'>
+		         <input type='text' class="form-control" name="endTime" id="endTime"/>
 		         <span class="input-group-addon">
 		             <span class="glyphicon glyphicon-calendar"></span>
 		         </span>
@@ -73,18 +99,34 @@ $(function () {
 		  </div>    
         <script type="text/javascript">
             $(function () {
-                $('#dtpickerdemo').datetimepicker();
+                $('#dtpickerdemoStart').datetimepicker();
+            });
+            $(function () {
+                $('#dtpickerdemoEnd').datetimepicker();
             });
         </script>
 
 		     <!-- open or private -->
-    <label class="radio-inline">
-      <input type="radio" name="optradio" checked>Public Event
+
+   <div class="form-group">
+  <div class="row">
+    <div class="col">
+      <label for="exampleFormControlInput1"><h5>Open As</h5></label>
+     <label class="radio-inline">
+      <input type="radio" name="isOpened" id="isOpened" checked>Public Event
     </label>
-    <label class="radio-inline">
-      <input type="radio" name="optradio">Private Event
+     <label class="radio-inline">
+      <input type="radio" name="optradio">Private Event &nbsp; &nbsp; 
     </label>
-<br>
+    </div>
+    <div class="col">
+      <label for="exampleFormControlInput1"><h5>num Of Max Members</h5></label>
+    <label class="">
+      	<input type="text" class="form-control col-sm-4" name="numOfMaxMembers" id="numOfMaxMembers" placeholder="Max">
+    </label>
+    </div>
+  </div>
+  </div>
 		     <!-- open or private -->
 
     <!-- datetimepicker end -->
@@ -117,24 +159,24 @@ $(function () {
     <div class="form-group">
   <div class="row">
     <div class="col">
-      <label for="exampleFormControlInput1"><h5>open to everyone</h5></label>
-      <input type="text" class="form-control" placeholder="User info">
+      <label for="exampleFormControlInput1"><h5>User ID</h5></label>
+      <input type="text" class="form-control" placeholder="userID" name="writer" id="writer" readonly="readonly">
     </div>
     <div class="col">
       <label for="exampleFormControlInput1"><h5>password</h5></label>
-      <input type="password" class="form-control" placeholder="hits number">
+      <input type="password" class="form-control" name="password" id="password" placeholder="password">
     </div>
   </div>
   </div>
   
     <div class="form-group">
     <label for="exampleFormControlInput1"><h5>your event location</h5></label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="your event location">
+    <input type="text" class="form-control" id="exampleFormControlInput1 eventPlace" name="eventPlace" placeholder="your event location">
   </div>
    
       <div class="form-group">
     <label for="exampleFormControlInput1"><h5>your event title</h5></label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="your event name">
+    <input type="text" class="form-control" id="exampleFormControlInput1 title" name="title" placeholder="your event name">
   </div>
   
   <div class="form-group">
@@ -161,19 +203,16 @@ $(function () {
 		</ul>
 	</div>
     </label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" placeholder="describe what your group will be about"></textarea>
+    <textarea class="form-control" name="contents" id="exampleFormControlTextarea1 contents" rows="11" placeholder="describe what your group will be about"></textarea>
   </div>
   
-  <div class="custom-file mb-3">
+ <!--  <div class="custom-file mb-3">
     <input type="file" class="custom-file-input" id="validatedCustomFile" required>
     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
     <div class="invalid-feedback">Example invalid custom file feedback</div>
-  </div>
+  </div> -->
  
-<input type="hidden" name="writer" value="board">
-<input type="hidden" name="isOpened" value="board">
 <input type="hidden" name="numOfAttachLinks" value="board">
-<input type="hidden" name="numOfJoiningMembers" value="board">
 <input type="hidden" name="numOfComment" value="board">
 <input type="hidden" name="numOfViews" value="board">
 <input type="hidden" name="numOfLikes" value="board">
@@ -190,8 +229,6 @@ $(function () {
   </div>
   
 </form>
-
-
 
     </div>
   </div>
