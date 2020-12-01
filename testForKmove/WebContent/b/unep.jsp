@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 
 <head>
-<style>
-	.ell { text-overflow: ellipsis; overflow: hidden; width: 275px; white-space:pre; }
-</style>
+	<style> 
+		.ell { text-overflow: ellipsis; overflow: hidden; width: 275px; white-space:pre; }
+	</style>
 </head>
 
 <%-- Include this file to obtain server's root address wherever using ajax!! --%>
@@ -30,6 +30,7 @@
             	console.log(data);
 
                 var str = "";
+                var img = "";
                 //--------------------------- Africa start ------------------------------------------------------
                 var africaMaxDate = new Date(data[0].date).valueOf();
                 var africaContinent = "Africa";
@@ -67,6 +68,7 @@
             	var africaYear = africaDateSplit[0];
             	var africaDate = africaDay + " " + africaMonth + " " + africaYear;
             	var africaType = data[0].type;
+            	var africaImage = data[0].image;
             	//--------------------------- Asia start ------------------------------------------------------
             	var asiaMaxDate = new Date(data[10].date).valueOf();
             	var asiaContinent = "Asia";
@@ -104,6 +106,7 @@
             	var asiaYear = asiaDateSplit[0];
             	var asiaDate = asiaDay + " " + asiaMonth + " " + asiaYear;
             	var asiaType = data[10].type;
+            	var asiaImage = data[10].image;
             	//--------------------------- Europe start ------------------------------------------------------
                 var europeMaxDate = new Date(data[20].date).valueOf();
                 var europeContinent = "Europe";
@@ -141,6 +144,7 @@
             	var europeYear = europeDateSplit[0];
             	var europeDate = europeDay + " " + europeMonth + " " + europeYear;
             	var europeType = data[20].type;
+            	var europeImage = data[20].image;
             	//--------------------------- america start ------------------------------------------------------
             	var americaMaxDate = new Date(data[30].date).valueOf();
             	var americaContinent = "America";
@@ -178,6 +182,7 @@
             	var americaYear = americaDateSplit[0];
             	var americaDate = americaDay + " " + americaMonth + " " + americaYear;
             	var americaType = data[30].type;
+            	var americaImage = data[30].image;
             	
                 for(var i = 0; i < data.length; i++) {
                 	//--------------------------- Africa start ------------------------------------------------------
@@ -221,6 +226,7 @@
                         	africaYear = africaDateSplit[0];
             				africaDate = africaDay + " " + africaMonth + " " + africaYear;
             				africaType = data[i].type;
+            				africaImage = data[i].image;
             			}
            				else if (africaMaxDate > new Date(data[i].date).valueOf()) {
            					continue;
@@ -267,6 +273,7 @@
                         	asiaYear = asiaDateSplit[0];
                         	asiaDate = asiaDay + " " + asiaMonth + " " + asiaYear;
                         	asiaType = data[i].type;
+                        	asiaImage = data[i].image;
             			}
            				else if (asiaMaxDate > new Date(data[i].date).valueOf()) {
            					continue;
@@ -313,6 +320,7 @@
                         	europeYear = europeDateSplit[0];
                         	europeDate = europeDay + " " + europeMonth + " " + europeYear;
                         	europeType = data[i].type;
+                        	europeImage = data[i].image;
             			}
            				else if (asiaMaxDate > new Date(data[i].date).valueOf()) {
            					continue;
@@ -359,41 +367,82 @@
                         	americaYear = americaDateSplit[0];
                         	americaDate = americaDay + " " + americaMonth + " " + americaYear;
                         	americaType = data[i].type;
+                        	americaImage = data[i].image;
             			}
            				else if (asiaMaxDate > new Date(data[i].date).valueOf()) {
            					continue;
            				}
             		}
                 }
-              //--------------------------- Africa start ------------------------------------------------------
+                
+              	//--------------------------- Africa start ------------------------------------------------------
                 str += "<li><b>" + africaContinent + "</b></li>";
                 str += africaDate + " | " + africaType.toUpperCase() + "</br>";
-                str += "<div class = \"ell\"><a href = \"" + africaLink + "\" target=\"_blank\">" + africaTitle + "</a></div>";
-              //--------------------------- Asia start ------------------------------------------------------
+                str += "<div class = \"ell\"><a href = \"" + africaLink + "\" target=\"_blank\" title=\"" + africaTitle + "\">";
+                str += africaTitle + "</a></div>";
+              	//--------------------------- Asia start ------------------------------------------------------
                 str += "<li><b>" + asiaContinent + "</b></li>";
                 str += asiaDate + " | " + asiaType.toUpperCase() + "</br>";
-                str += "<div class = \"ell\"><a href = \"" + asiaLink + "\" target=\"_blank\">" + asiaTitle + "</a></div>";
-              //--------------------------- Europe start ------------------------------------------------------
+                str += "<div class = \"ell\"><a href = \"" + asiaLink + "\" target=\"_blank\" title=\"" + asiaTitle + "\">";
+                str += asiaTitle + "</a></div>";
+              	//--------------------------- Europe start ------------------------------------------------------
                 str += "<li><b>" + europeContinent + "</b></li>";
                 str += europeDate + " | " + europeType.toUpperCase() + "</br>";
-                str += "<div class = \"ell\"><a href = \"" + europeLink + "\" target=\"_blank\">" + europeTitle + "</a></div>";
-              //--------------------------- America start ------------------------------------------------------
+                str += "<div class = \"ell\"><a href = \"" + europeLink + "\" target=\"_blank\" title=\"" + europeTitle + "\">";
+                str += europeTitle + "</a></div>";
+              	//--------------------------- America start ------------------------------------------------------
                 str += "<li><b>" + americaContinent + "</b></li>";
                 str += americaDate + " | " + americaType.toUpperCase() + "</br>";
-                str += "<div class = \"ell\"><a href = \"" + americaLink + "\" target=\"_blank\">" + americaTitle + "</a></div>";
-				
+                str += "<div class = \"ell\"><a href = \"" + americaLink + "\" target=\"_blank\" title=\"" + americaTitle + "\">";
+                str += americaTitle + "</a></div>";
+       
+              	//--------------------------- Image change start ------------------------------------------------------
+              	var imgNum = Math.round(Math.random()*4);
+              	
+              	if (imgNum == 0) {
+              		img +="<a href=\"https://www.unep.org/\">";
+              		img += "<img alt=\"UNEP site\" title=\"UN Environment Programme\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+              		img += "src=\"img/logo_unep.png\"></a>";
+              	}
+              	else if (imgNum == 1) {
+              		img += "<a href=\"" + africaLink + "\">";
+              		img += "<img alt=\"UNEP site\" title=\"" + africaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+              		img += "src=\"" + africaImage + "\"></a>"; 
+              	}
+              	else if (imgNum == 2) {
+              		img += "<a href=\"" + asiaLink + "\">";
+              		img += "<img alt=\"UNEP site\" title=\"" + asiaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\""; 
+              		img += "src=\"" + asiaImage + "\"></a>";
+              	}
+              	else if (imgNum == 3) {
+              		img += "<a href=\"" + europeLink + "\">";
+              		img += "<img alt=\"UNEP site\" title=\"" + europeTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+              		img += "src=\"" + europeImage + "\"></a>";
+              	}
+              	else if (imgNum == 4) {
+              		img += "<a href=\"" + americaLink + "\">";
+              		img += "<img alt=\"UNEP site\" title=\"" + americaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+              		img += "src=\"" + americaImage + "\"></a>";
+              	}
+              	
                 $("#resultUnepList").append(str);
                 
+                $("#resultUnepImage").append(img);
             }
         });
+        
     });
+
 </script>
 
 <!-- UNEP start -->
 
 <div class="pane-content">
    <h2>UN Environment <br> Programme</h2>
-	<div class="figure image mode-full" style="width:275px"><a href="https://www.unep.org/"><span class="figure image file file-image file-image-jpeg view-mode-full" style="width:280px;"><img alt="UNEP site" title="UN Environment Programme" height="153" width="280" class="media-element file-full" src="img/logo_unep.png"></span></a></div>
+	<div class="figure image mode-full" style="width:275px">
+	<span class="figure image file file-image file-image-jpeg view-mode-full" style="width:280px;">
+	<div id="resultUnepImage"></div>
+	</span></div>
 		<ul class="article3">
 			<div id="resultUnepList"></div>
 		</ul>

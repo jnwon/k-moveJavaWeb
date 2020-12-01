@@ -60,7 +60,9 @@
                     		{ data: 'no'}, //페이지 넘겨주기위해서 no불러옴 (빈에 생성하고 게시글에도 추가함 > 마우스가져다대면 해당 글 번호의 정보를 가져옴)
                     		{ data: 'title' }, 
                     		{ data: 'writer' },
-                    		{ "width": "15%", data: 'publishedDate' }
+                    		{ "width": "15%", data: 'publishedDate' },
+                    		{ "width": "5%", data: 'numOfViews' }
+
                     	]
                     });
                     
@@ -114,6 +116,8 @@ float: left;
 <!-- 	  <th scope="col">Locked</th> -->
       <th scope="col">Organizer</th>
       <th scope="col">Date</th>
+      <th scope="col">RC</th>
+      
     </tr>
   </thead>
   <tbody id="eventAllList">

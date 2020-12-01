@@ -38,7 +38,7 @@ public class UnepCrawlerDAO {
 		catch (Exception e)
 		{
 			e.printStackTrace();
-		}
+		} 
 	}
 	
 	public List<UnepVO> listTitleAndLink()
@@ -90,7 +90,9 @@ public class UnepCrawlerDAO {
 				String date = year + "-" + month + "-" + day;
 				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
+				String image = e.getElementsByAttribute("src").attr("src");
+				
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type, image);
 				titlesAndlinkslist.add(unepVO);
 			}
 			
@@ -136,7 +138,9 @@ public class UnepCrawlerDAO {
 				String date = year + "-" + month + "-" + day;
 				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
+				String image = e.getElementsByAttribute("src").attr("src");
+				
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type, image);
 				titlesAndlinkslist.add(unepVO);
 			}
 			
@@ -182,7 +186,9 @@ public class UnepCrawlerDAO {
 				String date = year + "-" + month + "-" + day;
 				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
+				String image = e.getElementsByAttribute("src").attr("src");
+				
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type, image);
 				titlesAndlinkslist.add(unepVO);
 			}
 			
@@ -228,7 +234,9 @@ public class UnepCrawlerDAO {
 				String date = year + "-" + month + "-" + day;
 				String type = e.select("span.type").text();
 				
-				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type);
+				String image = e.getElementsByAttribute("src").attr("src");
+				
+				UnepVO unepVO = new UnepVO(no, continent, title, link, date, type, image);
 				titlesAndlinkslist.add(unepVO);
 			}
 		}
