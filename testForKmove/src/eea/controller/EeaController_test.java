@@ -31,52 +31,29 @@ public class EeaController_test extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if(request.getParameter("request").equals("crawl")) {
-			doHandle2(request, response);
-		}
-		else if(request.getParameter("request").equals("addArticles")) {
-			doHandle3(request, response);
-		}
+		doHandle(request, response);
 	}	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if(request.getParameter("request").equals("crawl")) {
+		/*	
+	   if(request.getParameter("request").equals("crawl")) {
 			doHandle2(request, response);
 		}
 		else if(request.getParameter("request").equals("addArticles")) {
 			doHandle3(request, response);
 		}
+		*/
+		doHandle(request, response);
 	}
-	
-	private void doHandle1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		List<EeaVO> articlesList = eeaDAO.eea(); // ��û�� ���� ��縮��Ʈ�� ��ȸ
-		request.setAttribute("articlesList", articlesList); // ��ȸ�� ��������� request�� ���ε�
-		//RequestDispatcher dispatch = request.getRequestDispatcher("/f/eea.jsp"); 
-		//dispatch.forward(request, response); // ��Ʈ�ѷ����� ǥ���ϰ��� �ϴ� JSP�� ������
-	}
-	
-	private void doHandle2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+		
+	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
+		eeaCrawler.crawlAndInsertArticles();
 		
-		List<EeaVO> result = eeaCrawler.listTitleAndLink();
-		request.setAttribute("articlesList", result);
-		
-		String gson = new Gson().toJson(result);
-	    response.getWriter().write(gson);		
-	}
-	
-	private void doHandle3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("application/json");
-		eeaCrawler.InsertArticles(request.getParameter("data"));
-		
-		String gson = new Gson().toJson("articles added");
+		String gson = new Gson().toJson("EEA articles crawled and added");
 	    response.getWriter().write(gson);		
 	}	
 }

@@ -26,7 +26,6 @@
   </script>
   <!-- End of DataTable Initialising -->
   <script type="text/javascript" language="javascript">
-
 	var rootAddress = "<%=rootAddress%>";
 	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
  	
@@ -51,7 +50,6 @@
 	            		temp = data[i].publishedDate.split(' '); //시간부분이 조금 길어서 T를 중심으로 나눠주기
 	            		data[i].publishedDate = temp[0]; // 나눈것 콘솔 확인해보면 인덱스 번호가 매겨져있고 T를 중심으로 나눠진것을 볼수있는데 거기에서 필요한 날짜부분은 0가져온것임
 	            	}
-
                     //DataTable Initialising 
                     $('#eventlistTable').DataTable({
                     	data: data, // 웹에서 개발자들어가면 data에서자료를 들고오는데 처음에 0으로 바로시작함 그래서 따로 데이터담는곳 지정하지않았고 data로 바로 들고오니 출력됨
@@ -80,7 +78,6 @@
     height: 200px;
     background: #aaa;
 }
-
 .last {
 float: left;
 }

@@ -84,10 +84,14 @@ public class EeaDAO {
 			if (rs != null) 
 			{
 			  rs.last();    // moves cursor to the last row
-			  if(rs.getRow() > 0)
+			  if(rs.getRow() > 0) {
+				  //System.out.println(query + "\n select success");
 				  result = true;
-			  else
+			  }
+			  else {
+				  //System.out.println(query + "\n select failed");
 				  result = false;
+			  }
 			}
 			rs.close();
 			pstmt.close();

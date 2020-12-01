@@ -18,13 +18,13 @@
             type : "GET",
             url : "/testForKmove/Eea.test",
             dataType : "json",
-            data: { "request" : "crawl" },
+            //data: { "request" : "crawl" },
             error : function(){
                 alert("connection down!!!!");
             },
             success : function(jsonData){
                 console.log(jsonData);
-                    $.ajax({
+                /*     $.ajax({
                     type : "POST",
                     url : "/testForKmove/Eea.test",
                     dataType : "json",
@@ -35,7 +35,7 @@
                     success : function(responceData){
                         console.log(responceData);
                     }  
-                });
+                }); */
             }  
         });
     	

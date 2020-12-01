@@ -10,10 +10,10 @@ public class EeaVO {
 	private String link;
 	
 	public EeaVO() {
-		System.out.println("EeaVO »ý¼ºÀÚ È£Ãâ");
+		System.out.println("EeaVO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½");
 	}
 	
-	// ÀÎÀÚ ³× °³¸¦ °®´Â »ý¼ºÀÚ¸¦ ¸¸µì´Ï´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 
 	public EeaVO(int no, String source, String title, String link) {
 		super();
@@ -55,11 +55,11 @@ public class EeaVO {
 	}
 
 	public String getCategory() {
-		return source;
+		return category;
 	}
 
-	public void setCategory(String source) {
-		this.source = source;
+	public void setCategory(String category) {
+		this.category = category;
 	}	
 	
 	public String getTitle() {
