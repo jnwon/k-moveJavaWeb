@@ -51,20 +51,13 @@
 }
   </style> 
   <script type="text/javascript">
-  $(document).ready( function () {        
+  /* $(document).ready( function () {        
       $("#toEventList").click(function(){
     	  window.location.href="/testForKmove/EventListController";
       	});
-    });
+    }); */
   
   </script> 
-<!-- datetimepicker start -->
-<script type="text/javascript">
-$(function () {
-	$('#dtpickerdemo').datetimepicker();
-});
-</script>
-<!-- datetimepicker end -->
 </head>
 <body>
 
@@ -76,7 +69,7 @@ $(function () {
   <div class="row">
     <div class="col-sm-8">
 
-<form action="" method="post" enctype="multipart/form-data" name="">
+<form action="/testForKmove/EventWriteController" method="post" enctype="multipart/form-data" name="">
     <!-- datetimepicker : 
     real demo: https://www.jquery-az.com/boots/demo.php?ex=20.0_1 
     ref site :https://www.jquery-az.com/bootstrap-datetimepicker-managing-with-date-and-time-in-bootstrap/-->
@@ -97,17 +90,18 @@ $(function () {
 		         </span>
 		     </div>
 		  </div>    
-        <script type="text/javascript">
+        <script type="text/javascript"><!-- datetimepicker start -->
+
             $(function () {
                 $('#dtpickerdemoStart').datetimepicker();
             });
             $(function () {
                 $('#dtpickerdemoEnd').datetimepicker();
             });
-        </script>
+        </script><!-- datetimepicker end -->
+        
 
 		     <!-- open or private -->
-
    <div class="form-group">
   <div class="row">
     <div class="col">
@@ -212,10 +206,7 @@ $(function () {
     <div class="invalid-feedback">Example invalid custom file feedback</div>
   </div> -->
  
-<input type="hidden" name="numOfAttachLinks" value="board">
-<input type="hidden" name="numOfComment" value="board">
-<input type="hidden" name="numOfViews" value="board">
-<input type="hidden" name="numOfLikes" value="board">
+<!-- <input type="hidden" name="numOfAttachLinks" value=""> -->
  
    <div class="form-group row">
     <div class="col-sm-1">
@@ -223,7 +214,7 @@ $(function () {
     </div>
     
         <div class="col-sm-1">
-      <button type="submit" class="btn btn-primary" id="toEventList">List</button>
+      <button type="submit" class="btn btn-primary" id="toEventList"><a href="/testForKmove/EventListController">List</a></button>
     </div>
     
   </div>
