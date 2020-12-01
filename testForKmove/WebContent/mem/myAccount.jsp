@@ -30,7 +30,6 @@
  <!-- account side end -->
     <div class="col-sm-8">
       <h2>Account Info</h2>
-      <h5>Title description, Dec 7, 2017</h5>
 
 
 <form>
@@ -117,18 +116,8 @@
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-      <label class="form-check-label" for="invalidCheck3">
-        Agree to terms and conditions
-      </label>
-      <div  id="invalidCheck3Feedback" class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+
+  <button class="btn btn-primary" type="submit">Modify</button>
 </form>
 
 
