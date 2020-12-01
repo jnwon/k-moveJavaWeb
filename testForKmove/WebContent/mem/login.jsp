@@ -36,7 +36,7 @@
       <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
+    </div> 
     <div class="form-group col-md-8">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
