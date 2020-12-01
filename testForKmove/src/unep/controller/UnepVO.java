@@ -1,8 +1,5 @@
 package unep.controller; 
 
-import java.net.URL;
-//import java.awt.image.BufferedImage;
-
 public class UnepVO {
 	
 	private int no;
