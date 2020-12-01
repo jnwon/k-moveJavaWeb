@@ -405,24 +405,52 @@
               		img += "src=\"img/logo_unep.png\"></a>";
               	}
               	else if (imgNum == 1) {
-              		img += "<a href=\"" + africaLink + "\">";
-              		img += "<img alt=\"UNEP site\" title=\"" + africaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
-              		img += "src=\"" + africaImage + "\"></a>"; 
+              		if (africaImage != "") {
+              			img += "<a href=\"" + africaLink + "\">";
+                  		img += "<img alt=\"UNEP site\" title=\"" + africaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+              			img += "src=\"" + africaImage + "\"></a>";
+              		}
+              		else {
+              			img += "<a href=\"" + africaLink + "\">";
+                  		img += "<img alt=\"UNEP site\" title=\"" + africaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+                  		img += "src=\"img/logo_unep.png\"></a>";
+              		}
               	}
               	else if (imgNum == 2) {
-              		img += "<a href=\"" + asiaLink + "\">";
-              		img += "<img alt=\"UNEP site\" title=\"" + asiaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\""; 
-              		img += "src=\"" + asiaImage + "\"></a>";
+              		if (asiaImage != "") {
+              			img += "<a href=\"" + asiaLink + "\">";
+              			img += "<img alt=\"UNEP site\" title=\"" + asiaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\""; 
+              			img += "src=\"" + asiaImage + "\"></a>";
+              		}
+              		else {
+              			img += "<a href=\"" + asiaLink + "\">";
+              			img += "<img alt=\"UNEP site\" title=\"" + asiaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+                  		img += "src=\"img/logo_unep.png\"></a>";
+              		}
               	}
               	else if (imgNum == 3) {
-              		img += "<a href=\"" + europeLink + "\">";
-              		img += "<img alt=\"UNEP site\" title=\"" + europeTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
-              		img += "src=\"" + europeImage + "\"></a>";
+              		if (europeImage != "") {
+              			img += "<a href=\"" + europeLink + "\">";
+              			img += "<img alt=\"UNEP site\" title=\"" + europeTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+              			img += "src=\"" + europeImage + "\"></a>";
+              		}
+              		else {
+              			img += "<a href=\"" + europeLink + "\">";
+              			img += "<img alt=\"UNEP site\" title=\"" + europeTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+                  		img += "src=\"img/logo_unep.png\"></a>";
+              		}
               	}
               	else if (imgNum == 4) {
-              		img += "<a href=\"" + americaLink + "\">";
-              		img += "<img alt=\"UNEP site\" title=\"" + americaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
-              		img += "src=\"" + americaImage + "\"></a>";
+              		if (americaImage != "") {
+              			img += "<a href=\"" + americaLink + "\">";
+              			img += "<img alt=\"UNEP site\" title=\"" + americaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+              			img += "src=\"" + americaImage + "\"></a>";
+              		}
+              		else {
+              			img += "<a href=\"" + americaLink + "\">";
+              			img += "<img alt=\"UNEP site\" title=\"" + americaTitle + "\"\height=\"153\" width=\"280\" class=\"media-element file-full\"";
+                  		img += "src=\"img/logo_unep.png\"></a>";
+              		}
               	}
               	
                 $("#resultUnepList").append(str);

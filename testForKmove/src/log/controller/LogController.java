@@ -37,7 +37,7 @@ public class LogController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		doHandle(request, response);
 	}
 	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +46,7 @@ public class LogController extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		RequestDispatcher dispatch = request.getRequestDispatcher("/mem/login.jsp");
-		dispatch.forward(request, response);
+		RequestDispatcher dispatch1 = request.getRequestDispatcher("/mem/login.jsp");
+		dispatch1.forward(request, response);
 	}
 }
