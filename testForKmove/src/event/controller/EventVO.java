@@ -6,6 +6,7 @@ public class EventVO {
 	private int no;
 	private	String title;
 	private	String writer;
+	private	int writerNo;
 	private	String publishedDate;
 	private	int isOpened;
 	private	int isLocked;
@@ -19,16 +20,19 @@ public class EventVO {
 	private int numOfAttachLinks;
 	private String contents;
 	 
-	public EventVO(int no, String title, String writer, String publishedDate, int isOpened, int isLocked, int password,
+	private	String startTime;
+	private	String endTime;
+	private	String eventPlace;
+	
+	public EventVO(int no, String title, int writerNo, String publishedDate, int isOpened, int password,
 			int numOfMaxMembers, int numOfJoiningMembers, int numOfComment, int numOfViews, int numOfLikes,
-			String contents) {
+			String contents, String startTime, String endTime, String eventPlace) {
 		super();
 		this.no = no;
 		this.title = title;
-		this.writer = writer;
+		this.writerNo = writerNo;
 		this.publishedDate = publishedDate;
 		this.isOpened = isOpened;
-		this.isLocked = isLocked;
 		this.password = password;
 		this.numOfMaxMembers = numOfMaxMembers;
 		this.numOfJoiningMembers = numOfJoiningMembers;
@@ -36,6 +40,9 @@ public class EventVO {
 		this.numOfViews = numOfViews;
 		this.numOfLikes = numOfLikes;
 		this.contents = contents;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.eventPlace = eventPlace;
 	}
 
 	
@@ -59,6 +66,36 @@ public class EventVO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public String getStartTime() {
+		return startTime;
+	}
+
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+
+	public String getEventPlace() {
+		return eventPlace;
+	}
+
+
+	public void setEventPlace(String eventPlace) {
+		this.eventPlace = eventPlace;
+	}
+	
 	public int getNumOfAttachLinks() {
 		return numOfAttachLinks;
 	}
@@ -85,6 +122,10 @@ public class EventVO {
 
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	
+	public void setWriterNo(int writerNo) {
+		this.writerNo = writerNo;
 	}
 
 	public void setPublishedDate(String publishedDate) {
@@ -133,6 +174,10 @@ public class EventVO {
 
 	public String getWriter() {
 		return writer;
+	}
+	
+	public int getWriterNo() {
+		return writerNo;
 	}
 
 	public String getPublishedDate() {

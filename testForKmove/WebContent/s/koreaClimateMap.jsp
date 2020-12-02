@@ -6,40 +6,15 @@
 	var map = null;
 	var lat;
 	var lng;
-  
-    $(document).ready(function(){    
-    	map = new naver.maps.Map('map', {
-            center: new naver.maps.LatLng(37.5666805, 126.9784147),
-            zoom: 10
-        });
 
-    	/////////// test
-    	$.ajax({
-            type : "GET",
-            url : "/testForKmove/Eea.test",
-            dataType : "json",
-            //data: { "request" : "crawl" },
-            error : function(){
-                alert("connection down!!!!");
-            },
-            success : function(jsonData){
-                console.log(jsonData);
-                /*     $.ajax({
-                    type : "POST",
-                    url : "/testForKmove/Eea.test",
-                    dataType : "json",
-                    data: { "request" : "addArticles", "data" : JSON.stringify(jsonData)},
-                    error : function(){
-                        alert("connection down!!!!");
-                    },
-                    success : function(responceData){
-                        console.log(responceData);
-                    }  
-                }); */
-            }  
-        });
-    	
-    	///////////   	
+    $(document).ready(function(){
+   	
+    	navigator.geolocation.getCurrentPosition(function(pos) {
+		    lat = pos.coords.latitude;
+		    lng = pos.coords.longitude;
+		    xmlData = $('#chargeCenterXml').children();
+	    	initNaverMap(xmlData, lat, lng, 12, chargeCenterMarkerSeter, chargeCenterClickHandler, 'ChargeCenterTab');            			    
+		});
     	
     	$('#navTab .nav-item').click(function(){
     		var tab = $(this).children().attr('id');
@@ -59,7 +34,7 @@
         	    	initNaverMap(xmlData, lat, lng, 12, chargeCenterMarkerSeter, chargeCenterClickHandler, tab);            			    
     			});
     		}            		
-		});
+		});    
     });
     
     function greenCompanieeMarkerSeter(data, markers, infoWindows, infoModals){    	
@@ -232,8 +207,8 @@
 	            infoWindow.open(map, marker);
 	            $("#ENTRPS_NM").text(data[seq].ENTRPS_NM);
 	            $("#CONTCT_NO").text(data[seq].CONTCT_NO);
-	            $("#REPRSNTV_NM").text('���몴�옄 : '+data[seq].REPRSNTV_NM);
-	            $("#INDUTYPE_NM").text('遺꾩빞 : '+data[seq].INDUTYPE_NM);
+	            $("#REPRSNTV_NM").text('대표자 : '+data[seq].REPRSNTV_NM);
+	            $("#INDUTYPE_NM").text('분야 : '+data[seq].INDUTYPE_NM);
 	            $("#REFINE_ROADNM_ADDR").text(data[seq].REFINE_ROADNM_ADDR);
 	            $("#GreenCompanyModal").modal();
 	        }
@@ -249,25 +224,25 @@
 	        
 	        switch(infoModals[seq].chgerType)
 	        {
-	        	case '01' : chType = 'DC 李⑤뜲紐�';
+	        	case '01' : chType = 'DC 차데모';
 	        		break;
-	        	case '03' : chType = 'DC 李⑤뜲紐� + AC 3�긽';
+	        	case '03' : chType = 'DC 차데모 + AC 3상';
 	        		break;
-	        	case '06' : chType = 'DC 李⑤뜲紐� + AC 3�긽 + DC 肄ㅻ낫';
+	        	case '06' : chType = 'DC 차데모 + AC 3상 + DC 콤보';
         			break;
 	        }
 	        
 	        switch(infoModals[seq].stat)
 	        {
-	        	case '1' : status = '�넻�떊�씠�긽';
+	        	case '1' : status = '통신이상';
 	        		break;
-	        	case '2' : status = '異⑹쟾��湲�';
+	        	case '2' : status = '충전대기';
 	        		break;
-	        	case '3' : status = '異⑹쟾以�';
+	        	case '3' : status = '충전중';
         			break;
-	        	case '4' : status = '�슫�쁺以묒�';
+	        	case '4' : status = '운영중지';
     				break;
-	        	case '5' : status = '�젏寃�以�';
+	        	case '5' : status = '점검중';
 					break;
 	        }
 	
@@ -277,10 +252,10 @@
 	            infoWindow.open(map, marker);
 	            $("#statNm").text(infoModals[seq].statNm);
 	            $("#addrDoro").text(infoModals[seq].addrDoro);
-	            $("#chgerType").text('異⑹쟾���엯 : '+ chType);
-	            $("#chgerId").text('異⑹쟾湲� �닔 : '+infoModals[seq].chgerId.length);
-	            $("#useTime").text('�씠�슜�떆媛� : '+infoModals[seq].useTime);
-	            $("#stat").text('�쁽�옱�긽�깭 : '+ status);
+	            $("#chgerType").text('충전타입 : '+ chType);
+	            $("#chgerId").text('충전기 수 : '+infoModals[seq].chgerId.length);
+	            $("#useTime").text('이용시간 : '+infoModals[seq].useTime);
+	            $("#stat").text('현재상태 : '+ status);
 	            $("#ChargeCenterModal").modal();
 	        }
 	    }
@@ -292,10 +267,7 @@
 <h2>MAP DATA</h2>
 <ul class="nav nav-tabs" id="navTab">
 	<li class="nav-item">
-		<a class="nav-link active" href="javascript:void(0)" id="AirPollutionTab">Air Pollution</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="javascript:void(0)" id="ChargeCenterTab">E-vehicle charge centers</a>
+		<a class="nav-link active" href="javascript:void(0)" id="ChargeCenterTab">E-vehicle charge centers</a>
 	<li>
 	<li class="nav-item">
 		<a class="nav-link" href="javascript:void(0)" id="GreenCompaniesTab">Green companies</a>

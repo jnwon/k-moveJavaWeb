@@ -30,7 +30,7 @@ public class EeaDAO {
 		List<EeaVO> articlesList = new ArrayList();
 		try {
 			conn = dataFactory.getConnection();
-			String query = "select * from  articles where source='EEA'"; // SQL�� �ۼ�
+			String query = "select * from  articles where source='EEA' limit 4"; // SQL�� �ۼ�
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query); // PrepareStatement ��ü�� �����ϸ鼭 SQL���� ���ڷ� ���� 
 			ResultSet rs = pstmt.executeQuery();

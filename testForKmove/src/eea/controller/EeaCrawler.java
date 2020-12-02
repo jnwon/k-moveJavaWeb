@@ -8,14 +8,10 @@ import javax.servlet.ServletException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonArray;
+import java.util.TimerTask;
 
-public class EeaCrawler {
+public class EeaCrawler extends TimerTask  {
+	
 	private Document docOfTopics, docOfPublications, docOfData, docOfMedia;
 	private String UrlOfTopics, UrlOfPublications, UrlOfData, UrlOfMedia;
 	
@@ -41,7 +37,8 @@ public class EeaCrawler {
 		}
 	}
 	
-	public void crawlAndInsertArticles()
+	@Override
+	public void run()
 	{
 		try
 		{
@@ -138,5 +135,6 @@ public class EeaCrawler {
 		{
 			e.printStackTrace();
 		}
+		System.out.println("EEA articles crawled and DB added");
 	}
 }

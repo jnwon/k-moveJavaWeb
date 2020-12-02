@@ -7,9 +7,9 @@
 %>   
 <link rel="stylesheet" href="css/top.css">
    <!-- datetimepicker start-->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet"> -->
 <!-- datetimepicker end -->
 <div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="off">	<!-- NewsAPI 이용하려면 on으로 -->
    <h1><a href="main.um" id="mainFont">GRÜNWELT</a></h1>
@@ -30,7 +30,7 @@
         </li>
 
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/testForKmove/ArticleBoardController" class="nav-link">Article</a> <!-- 가상주소에는 /를 붙여야 이동함 -->
+          <a href="/testForKmove/ArticleBoardController" class="nav-link">&nbsp; &nbsp; Article</a> <!-- 가상주소에는 /를 붙여야 이동함 -->
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="/testForKmove/EventListController" class="nav-link">Community</a>
@@ -69,14 +69,14 @@
           <a class="nav-link" href="/testForKmove/LogController">login</a> | <a class="nav-link" href="/testForKmove/JoinController">join</a>
 
         <!-- Messages Dropdown Menu -->
- 		<li class="nav-item dropdown">
+<!--  		<li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">Hello, Emaila
-            <!-- <i class="fas fa-comments"></i> -->
+            <i class="fas fa-comments"></i>
             <span class="badge badge-danger navbar-badge">3</span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="#" class="dropdown-item">
-              <!-- Message Start -->
+              Message Start
               <div class="media">
                 <img src="img/user1.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
@@ -88,11 +88,11 @@
                   <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
-              <!-- Message End -->
+              Message End
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              <!-- Message Start -->
+              Message Start
               <div class="media">
                 <img src="img/user8.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
@@ -104,11 +104,11 @@
                   <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
-              <!-- Message End -->
+              Message End
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              <!-- Message Start -->
+              Message Start
               <div class="media">
                 <img src="img/user4.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
@@ -120,17 +120,17 @@
                   <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
               </div>
-              <!-- Message End -->
+              Message End
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
           </div>
-        </li>
+        </li> -->
         <!-- Notifications Dropdown Menu -->
  		<li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="../mem/myhome.jsp">My Info
             <!-- <i class="far fa-bell"></i> -->
-            <span class="badge badge-warning navbar-badge">15</span> 
+           <!--  <span class="badge badge-warning navbar-badge">15</span>  -->
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header">Setting</span>

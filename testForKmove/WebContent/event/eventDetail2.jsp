@@ -31,6 +31,11 @@
   <link rel="stylesheet" href="css/facebookstyle.css">
   
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
  
     <%-- Include this file to obtain server's root address wherever using ajax!! --%>
 <%@ include file="/rootAddress.jsp" %>
@@ -68,7 +73,9 @@ color: rgba(255, 255, 255, 0.8);
 .text{
 color: white;
 }
-
+.text--bold {
+    font-weight: 500!important;
+}
   </style>
 </head>
 <body>
@@ -92,7 +99,7 @@ color: white;
 					<p class="pageHead-pageTitleLabel text--medium text--secondary">
 						<time class="eventStatusLabel" datetime="1606399200000">
 							<span>
-							Thursday, November 26, 2020
+							<%=detailedEvent.getStartTime()%>
 							</span>
 						</time>
 					</p>
@@ -132,7 +139,7 @@ color: white;
 
    <!-- Navbar -->
    <nav class="navbar bg-dark navbar-expand-sm navbar-dark sticky-top" style="position: -webkit-sticky;position: sticky;top: 0;z-index: 1020; width: 100%;">
-      <div class="fixed">
+      <div class="fixed col-sm-12">
       <div>
                
         <div class="flex flex--row flex--spaceBetween flex--alignCenter _EventStickyFooter-module_footerContent__bOcM4" data-e2e="event-footer">
@@ -143,10 +150,14 @@ color: white;
 							<time class="" datetime="1606398300000">
 								<span class="eventTimeDisplay-startDate">
 									<span>
-									Thu, Nov 26 |||| ****Need to create the date of event****</span>
-								 	· <span class="eventTimeDisplay-startDate">
-									 <span>
-									8:45 AM EST |||| ****Need time too ? ****</span>
+									<br>From <%=detailedEvent.getStartTime()%> to <%=detailedEvent.getEndTime()%>
+									
+									</span>
+								 	<span class="eventTimeDisplay-startDate">
+								<br><span>
+									
+									 </span>
+								 	<span class="eventTimeDisplay-startDate">
 									</span>
 								</span>
 							</time>
@@ -168,7 +179,7 @@ color: white;
 									
 									<div class="flex-item">
 										<span>
-										Joined / Max<br>
+										<br>Joined / Max<br>
 										&nbsp; &nbsp; &nbsp; &nbsp; <%=detailedEvent.getNumOfJoiningMembers()%> / <%=detailedEvent.getNumOfMaxMembers()%></span>
 									</div>
 								</div>
@@ -186,11 +197,8 @@ color: white;
 									</svg>
 								</span>&nbsp; &nbsp; 
 							</button> -->
-							<button type="button" class="btn btn-block btn-default">
-							<svg data-swarm-icon="true" height="24" width="24" viewBox="0 0 24 24">
-										<path d="M5.458 22.004l1.25-7.284-5.293-5.16 7.314-1.062L12 1.87l3.271 6.628 7.314 1.063-5.292 5.159 1.249 7.284L12 18.564l-6.542 3.44zm1.328-1.828L12 17.436l5.214 2.74-.996-5.805 4.218-4.112-5.83-.847L12 4.13 9.393 9.412l-5.83.847 4.219 4.112-.996 5.805z">
-										</path>
-									</svg>
+							<button type="button" class="btn btn-block btn-default fa fa-thumbs-up fa-fw fa-lg m-r-3">
+							
 							</button>
 						</div>
 						<div class="flex-item flex-item--shrink">						
@@ -218,38 +226,27 @@ color: white;
       				<time class="" datetime="1606399200000">
 					<span class="eventTimeDisplay-startDate">
 						<span>
-						Thursday, November 26, 2020 |||| *****need data for event date *****</span>
-						<br>
+						<%=detailedEvent.getStartTime()%> ~
 						<span class="eventTimeDisplay-startDate-time">
 							<span>
-							9:00 AM ||| *****need data for start event time ? ? **** ||||</span>
+							<%=detailedEvent.getEndTime()%></span>
 						</span>
+					</span>
 					</span>
 				<span class="eventTimeDisplay-endDate">
-					 <span>
-					 to 
-						<span class="eventTimeDisplay-endDate-partialTime">
-							<span>
-							1:00 PM EST ||| ****need data for end event time ?? ****</span>
-						</span>
-					</span>
 				</span>
 				</time>
 				<address>
 				    <label for="exampleFormControlTextarea1">Where</label>
 				
 				<p class="wrap--singleLine--truncate">
-				Schunemunk Mountain |||| ****need address ? ? **** ||||</p>
+				</p>
 				<p class="venueDisplay-venue-address text--secondary text--small text--wrapNice">
-				339 Otterkill Road<span>
-				 · Cornwall</span>
-				 <span>
-				, NY</span>
+				<span>
+				 <%=detailedEvent.getEventPlace()%></span>
 				</p>
 				</address>
       
-      
-      </p>
       <hr class="d-sm-none">
     </div>   
     <!-- account side end --> <!-- account side end -->
@@ -269,7 +266,7 @@ color: white;
   
 <!-- Comments  start -->
  <div class="timeline-body">
-       <div class="timeline-likes">
+       <!-- <div class="timeline-likes">
           <div class="stats-right">
              <span class="stats-text">259 Shares</span>
              <span class="stats-text">21 Comments</span>
@@ -285,12 +282,12 @@ color: white;
              </span>
              <span class="stats-total">4.3k</span>
           </div>
-       </div>
-       <div class="timeline-footer">
+       </div> -->
+<!--        <div class="timeline-footer">
           <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
           <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a> 
           <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
-       </div>
+       </div> -->
        <div class="timeline-comment-box">
           <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
           <div class="input">
@@ -361,11 +358,32 @@ color: white;
          <br>
          <!-- end timeline-body -->
  <!-- facebook style commend -->
+
+   <div class="form-group row">
+    <div class="col-sm-1">
+      <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-primary">Modify</button></a>
+    </div>
+    
+        <div class="col-sm-1">
+      <a href="/testForKmove/EventDeleteController"><button type="submit" class="btn btn-primary">Delete</button></a>
+    </div>
+    
+            <div class="col-sm-1">
+     <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-primary" id="toEventList">List</button></a>
+    </div>
+    
+  </div>
+
     </div>
   </div>
-</div>
 
-
+<%-- 	<section id="commandList">
+		<a href="BoardReplyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage %>"><input type="button" value="Reply"></a>
+		<a href="BoardModifyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage %>"><input type="button" value="Modify"></a>
+		<a href="BoardDeleteForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage %>"><input type="button" value="Delete"></a>
+		<a href="BoardList.bo?page=<%=nowPage%>"><input type="button" value="List"></a>
+	</section>
+ --%>
 
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 
