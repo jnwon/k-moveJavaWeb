@@ -14,8 +14,7 @@
 <script type="text/javascript" language="javascript">
 
 	var rootAddress = "<%=rootAddress%>";
-	var crawlUrl = "http://" + rootAddress + "/testForKmove/CrawlController";
-	//var unepUrl = "http://" + rootAddress + "/testForKmove/UnepController";
+	var crawlUrl = "http://" + rootAddress + "/CrawlController";
 	
 	$(document).ready(function(){
     	

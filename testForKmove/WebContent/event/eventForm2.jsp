@@ -1,6 +1,9 @@
 <%@page import="event.controller.EventVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>    
 <%
 	//String sid = null;
 //로그인이 되지 않은 상태일 경우 로그인 페이지로 강제 이동 처리
@@ -37,7 +40,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-
+  <link rel='shortcut icon' type='image/x-icon' href='http://<%=rootAddress%>/image/favicon.ico'>
+  <link rel="icon" type="image/x-icon" href="http://<%=rootAddress%>/image/favicon.ico">
   <!-- datetimepicker -->
     <!-- for open event -->
 <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -55,14 +59,6 @@
     background-color: #fff;
 }
   </style> 
-  <script type="text/javascript">
-  /* $(document).ready( function () {        
-      $("#toEventList").click(function(){
-    	  window.location.href="/testForKmove/EventListController";
-      	});
-    }); */
-  
-  </script> 
 </head>
 
 <script>
@@ -82,7 +78,7 @@ $(document).ready(function(){
   <div class="row">
     <div class="col-sm-8">
 
-<form action="/testForKmove/EventWriteController" method="get" enctype="multipart/form-data" name="">
+<form action="/<%=projectName%>/EventWriteController" method="get" enctype="multipart/form-data" name="">
     <!-- datetimepicker : 
     real demo: https://www.jquery-az.com/boots/demo.php?ex=20.0_1 
     ref site :https://www.jquery-az.com/bootstrap-datetimepicker-managing-with-date-and-time-in-bootstrap/-->
@@ -234,7 +230,7 @@ $(document).ready(function(){
 	    </div>
 	    
 	    <div class="col-sm-6">
-	      <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-light" id="toEventList">List</button></a>
+	      <a href="/<%=projectName%>/EventListController"><button type="submit" class="btn btn-light" id="toEventList">List</button></a>
 	    </div>
     </div>
     

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>   
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +15,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>       <!-- DataTable CDN -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>       <!-- DataTable CDN -->
+  <link rel='shortcut icon' type='image/x-icon' href='http://<%=rootAddress%>/image/favicon.ico'>
+  <link rel="icon" type="image/x-icon" href="http://<%=rootAddress%>/image/favicon.ico">
   
-  <%-- Include this file to obtain server's root address wherever using ajax!! --%>
-<%@ include file="/rootAddress.jsp" %>
-<%-----------------------------------------------------------------------------%>
   <script type="text/javascript">
     $(document).ready( function () {        
     	if(user_no == 'null'){
@@ -24,7 +26,7 @@
     	}
     	
         $("#toEventWrite").click(function(){
-      	  window.location.href="/testForKmove/EventWriteController";
+      	  window.location.href="/<%=projectName%>/EventWriteController";
         });
         
         history.replaceState({}, null, location.pathname);
@@ -33,7 +35,7 @@
   <!-- End of DataTable Initialising -->
   <script type="text/javascript" language="javascript">
 	var rootAddress = "<%=rootAddress%>";
-	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
+	var url = "http://" + rootAddress + "/EventListForMainController";
  	
     $(document).ready(function(){
     	
@@ -75,7 +77,7 @@
                     $('tr').click(function(){
                     	//console.log($(this).children().eq(0).text());
                     	//console.log("/testForKmove/EventDetailController?no="+$(this).children().eq(0).text());
-                    	location.href="/testForKmove/EventDetailController?no="+$(this).children().eq(0).text(); // 해당 글 클릭시 해당 글 불러올수있도록 글번호주소지정함
+                    	location.href="/<%=projectName%>/EventDetailController?no="+$(this).children().eq(0).text(); // 해당 글 클릭시 해당 글 불러올수있도록 글번호주소지정함
                     }); //this의 tr을 클릭하면 그 밑의 자식중에서 0번째 즉 no의 text를 가져오기
             }  
         });

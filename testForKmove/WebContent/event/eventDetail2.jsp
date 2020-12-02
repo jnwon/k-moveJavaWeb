@@ -18,6 +18,9 @@
 
 	
 %>
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,15 +38,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-
+<link rel='shortcut icon' type='image/x-icon' href='http://<%=rootAddress%>/image/favicon.ico'>
+<link rel="icon" type="image/x-icon" href="http://<%=rootAddress%>/image/favicon.ico">
  
-    <%-- Include this file to obtain server's root address wherever using ajax!! --%>
-<%@ include file="/rootAddress.jsp" %>
-<%-----------------------------------------------------------------------------%>
-   <script type="text/javascript" language="javascript">
+<script type="text/javascript" language="javascript">
 
 <%-- 	var rootAddress = "<%=rootAddress%>";
-	var url = "http://" + rootAddress + "/testForKmove/EventDetailController?no="++;
+	var url = "http://" + rootAddress + "/EventDetailController?no="++;
 	 --%>
 	
  	</script>
@@ -368,15 +369,15 @@ $(document).ready(function(){
 
    <div class="form-group row">
     <div class="col-sm-1">
-      <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-primary">Modify</button></a>
+      <a href="/<%=projectName%>/EventListController"><button type="submit" class="btn btn-primary">Modify</button></a>
     </div>
     
         <div class="col-sm-1">
-      <a href="/testForKmove/EventDeleteController"><button type="submit" class="btn btn-primary">Delete</button></a>
+      <a href="/<%=projectName%>/EventDeleteController"><button type="submit" class="btn btn-primary">Delete</button></a>
     </div>
     
             <div class="col-sm-1">
-     <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-primary" id="toEventList">List</button></a>
+     <a href="/<%=projectName%>/EventListController"><button type="submit" class="btn btn-primary" id="toEventList">List</button></a>
     </div>
     
   </div>

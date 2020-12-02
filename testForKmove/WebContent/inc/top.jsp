@@ -5,6 +5,9 @@
 <%
 	request.setCharacterEncoding("UTF-8"); 
 %>   
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>   
 <link rel="stylesheet" href="css/top.css">
    <!-- datetimepicker start-->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,12 +15,10 @@
     <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet"> -->
 <!-- datetimepicker end -->
 <!--  -->    
-<!-- <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
- -->
- <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+<!-- <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png"> -->
  
- <!-- <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
-<link rel="manifest" href="image/manifest.json">
+<!-- <link rel="manifest" href="image/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
  --><!--  -->
@@ -60,10 +61,10 @@ $(document).ready(function(){
         </li>
 
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/testForKmove/ArticleBoardController" class="nav-link">&nbsp; &nbsp; Article</a> <!-- 가상주소에는 /를 붙여야 이동함 -->
+          <a href="/<%=projectName%>/ArticleBoardController" class="nav-link">&nbsp; &nbsp; Article</a> <!-- 가상주소에는 /를 붙여야 이동함 -->
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/testForKmove/EventListController" class="nav-link">Community</a>
+          <a href="/<%=projectName%>/EventListController" class="nav-link">Community</a>
         </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,8 +96,8 @@ $(document).ready(function(){
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
       <!-- Login and Logout -->
-          <a class="nav-link" href="/testForKmove/LogController" id="loginLink">login</a> | <a class="nav-link" href="/testForKmove/JoinController" id="joinLink">join</a>
-		  <a class="nav-link" href="/testForKmove/LogOutController" id="logoutLink">logout</a>
+          <a class="nav-link" href="/<%=projectName%>/LogController" id="loginLink">login</a> | <a class="nav-link" href="/<%=projectName%>/JoinController" id="joinLink">join</a>
+		  <a class="nav-link" href="/<%=projectName%>/LogOutController" id="logoutLink">logout</a>
         <!-- Messages Dropdown Menu -->
 <!--  		<li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">Hello, Emaila

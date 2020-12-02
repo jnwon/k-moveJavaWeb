@@ -36,7 +36,7 @@
    <script type="text/javascript" language="javascript">
 
 <%-- 	var rootAddress = "<%=rootAddress%>";
-	var url = "http://" + rootAddress + "/testForKmove/EventDetailController?no="++;
+	var url = "http://" + rootAddress + "/EventDetailController?no="++;
 	 --%>
 	
  	</script>

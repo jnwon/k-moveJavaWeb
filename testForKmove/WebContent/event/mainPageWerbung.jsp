@@ -7,7 +7,7 @@
 <script type="text/javascript" language="javascript">
 
 	var rootAddress = "<%=rootAddress%>";
-	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
+	var url = "http://" + rootAddress + "/EventListForMainController";
  
     $(document).ready(function(){
     	
@@ -56,7 +56,7 @@
 				  		html += '<div class="card-body">';
 				  			html += '<div class="row">';
 				  				html += '<div class="col-sm-6">';
-			   						html += '<a href="/testForKmove/EventDetailController?no=' + data[i].no + '" class="stretched-link"><h4 class="card-title">'+ data[i].title +'</h4></a>';
+			   						html += '<a href="/<%=projectName%>/EventDetailController?no=' + data[i].no + '" class="stretched-link"><h4 class="card-title">'+ data[i].title +'</h4></a>';
 			   					html += '</div>';
 			   					html += '<div class="col-sm-3">';
 			   						html += '<p class="card-text">'+ data[i].writer +'</p>';
@@ -110,7 +110,7 @@
 		<h2 style="padding-bottom:42.5px;">EVENTS</h2>
 	</div>
 	<div class="col-sm-4">
-		<section id="writeButton"> <a href="/testForKmove/EventListController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
+		<section id="writeButton"> <a href="/<%=projectName%>/EventListController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
 	</div>
 </div>
 <div id="eventList">

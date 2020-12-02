@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2um8xr8ytg&callback=initMap"></script>
-<script type="text/javascript" src="/testForKmove/s/greenCompanies.json"></script>
+<script type="text/javascript" src="/<%=projectName%>/s/greenCompanies.json"></script>
 <script type="text/javascript">
 	var map = null;
 	var lat;

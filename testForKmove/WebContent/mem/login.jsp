@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- Include this file to obtain server's root address wherever using ajax!! --%>
+<%@ include file="../rootAddress.jsp" %>
+<%-----------------------------------------------------------------------------%>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +13,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel='shortcut icon' type='image/x-icon' href='http://<%=rootAddress%>/image/favicon.ico'>
+  <link rel="icon" type="image/x-icon" href="http://<%=rootAddress%>/image/favicon.ico">
   <style>
   .fakeimg {
     height: 200px;
@@ -36,7 +41,7 @@ $(document).ready(function(){
       <h2>LOGIN</h2>
 
 <!-- Login Bootstrap -->
-<form action="/testForKmove/LoginController" method="get" class="was-validated col-sm-5">
+<form action="/<%=projectName%>/LoginController" method="get" class="was-validated col-sm-5">
   <div class="form-group">
     <label for="uname">E-mail:</label>
     <input type="text" class="form-control" id="id" placeholder="Enter E-mail" name="id" required>
