@@ -66,6 +66,10 @@
 </head>
 
 <script>
+$(document).ready(function(){
+	$('#writer').attr("placeholder", user_name);
+	$('#searchBar').hide();
+});
 
 </script>
 <body>

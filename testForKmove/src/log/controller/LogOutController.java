@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class LogController
+ * Servlet implementation class LogOutController
  */
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/LogOutController")
+public class LogOutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public LogOutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,36 +43,17 @@ public class LoginController extends HttpServlet {
 	}
 	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//List<EventVO> eventList = eventDAO.listEventsForMain();
-		//request.setAttribute("eventList", eventList);
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		//RequestDispatcher dispatch = request.getRequestDispatcher("/LogController");
 		
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
-		 
-		String id = request.getParameter("id");
-		int pwd = Integer.parseInt(request.getParameter("pwd"));
-		LoginMemberVO logmemVO = new LoginMemberVO();
-		logmemVO.setId(id);
-		logmemVO.setPwd(pwd);
-		LoginMemberDAO logmemDAO = new LoginMemberDAO();
-		LoginMemberVO result = logmemDAO.isExisted(logmemVO);
 		
-		if(result.getUserNo() != 0) {
-			//String userName = logmemDAO.getUserName(result);
-			//System.out.println("logged-in user name: " + userName);
-			session.setAttribute("user_no", result.getUserNo());
-			session.setAttribute("user_name", result.getName());
-			RequestDispatcher dispatch = request.getRequestDispatcher("/main.um");
-			dispatch.forward(request, response);
-			
-		}
-		else {
-			RequestDispatcher dispatch = request.getRequestDispatcher("/LogController?id=none");
-			dispatch.forward(request, response);
-		}
+		session.removeAttribute("user_no");
+		session.removeAttribute("user_name");
 		
+		RequestDispatcher dispatch = request.getRequestDispatcher("/main.um");
+		dispatch.forward(request, response);		
 	}
+
 }

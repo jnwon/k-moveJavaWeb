@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /** 
  * Servlet implementation class EventWriteController
@@ -65,15 +66,13 @@ public class EventWriteController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		String passwd = request.getParameter("password");
 		int password = passwd != ""? Integer.parseInt(passwd) : 0;
+		HttpSession session = request.getSession();
+		
 		eventVO.setStartTime(request.getParameter("startTime"));
 		eventVO.setEndTime(request.getParameter("endTime"));
 		eventVO.setIsOpened(request.getParameter("isOpened").equals("Opened") ? 1 : 0);
 		eventVO.setNumOfMaxMembers(Integer.parseInt(request.getParameter("numOfMaxMembers")));
-		
-		//////////// 세션 userNo 등록!!!
-		eventVO.setWriterNo(1);
-		///////////////////////////
-		
+		eventVO.setWriterNo((int)session.getAttribute("user_no"));
 		eventVO.setPassword(password);
 		eventVO.setEventPlace(request.getParameter("eventPlace"));
 		eventVO.setTitle(request.getParameter("title"));
@@ -81,7 +80,7 @@ public class EventWriteController extends HttpServlet {
 		int insertCount = eventDAO.insertEvent(eventVO);
 		System.out.println(insertCount + " event DB inserted");
 		
-		RequestDispatcher dispatch = request.getRequestDispatcher("/event/community.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("/EventListController");
 		dispatch.forward(request, response);
 		
 	}

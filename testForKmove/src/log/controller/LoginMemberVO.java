@@ -4,24 +4,33 @@ import java.sql.Date;
 
 public class LoginMemberVO {
 	
-	private String id, pwd, name, email;
+	private int userNo;
+	private String id, name;
+	private int pwd;
 	private Date joinDate;
 
 	public LoginMemberVO()
 	{
-		System.out.println("MemberVO »ý¼ºÀÚ È£Ãâ");
+		System.out.println("MemberVO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½");
 	}
 	
-	public LoginMemberVO(String id, String pwd, String name, String email, Date joinDate)
+	public LoginMemberVO(String id, int pwd, String name, String email, Date joinDate)
 	{
 		super();
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
-		this.email = email;
 		this.joinDate = joinDate;
 	}
 
+	public int getUserNo() {
+		return userNo;
+	}
+	
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -30,11 +39,11 @@ public class LoginMemberVO {
 		this.id = id;
 	}
 	
-	public String getPwd() {
+	public int getPwd() {
 		return pwd;
 	}
 	
-	public void setPwd(String pwd) {
+	public void setPwd(int pwd) {
 		this.pwd = pwd;
 	}
 	
@@ -45,15 +54,7 @@ public class LoginMemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
+		
 	public Date getJoinDate() {
 		return joinDate;
 	}

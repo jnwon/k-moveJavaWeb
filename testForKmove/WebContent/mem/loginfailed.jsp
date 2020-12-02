@@ -21,6 +21,8 @@
 <script>
 $(document).ready(function(){
 	$('#searchBar').hide();
+	alert("E-mail not in existence.\nPlease check your account.");
+	document.location.href="/testForKmove/LogController";
 });
 </script>
 

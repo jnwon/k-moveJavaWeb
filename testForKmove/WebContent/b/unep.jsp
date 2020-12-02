@@ -28,6 +28,7 @@
             },
             success: function(data){
             	console.log(data);
+            	$('#loading').hide();
 
                 var str = "";
                 var img = "";
@@ -472,7 +473,9 @@
 	<div id="resultUnepImage"></div>
 	</span></div>
 		<ul class="article3">
-			<div id="resultUnepList"></div>
+			<div id="resultUnepList">
+				<div class="spinner-border" id="loading"></div>
+			</div>
 		</ul>
 </div>
 

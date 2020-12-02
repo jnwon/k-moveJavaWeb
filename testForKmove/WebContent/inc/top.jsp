@@ -21,7 +21,27 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
  --><!--  -->
-<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="off">	<!-- NewsAPI 이용하려면 on으로 -->
+
+<script>
+var user_no = "<%=session.getAttribute("user_no") %>"
+var user_name = "<%=session.getAttribute("user_name") %>"
+console.log(user_no + " " + user_name);
+
+$(document).ready(function(){
+	if(user_no == 'null'){
+		$('#logoutLink').hide();
+		$('#loginLink').show();
+		$('#joinLink').show();
+	}
+	else{
+		$('#loginLink').hide();
+		$('#joinLink').hide();
+		$('#logoutLink').show();
+	}
+});
+</script>
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="mainPic" newsApi="on">	<!-- NewsAPI 이용하려면 on으로 -->
    <h1><a href="main.um" id="mainFont">GRÜNWELT</a></h1>
   <p id="mainFont">Herzlich willkommen zu unsere Website!</p> 
 </div> 
@@ -45,17 +65,17 @@
         <li class="nav-item d-none d-sm-inline-block">
           <a href="/testForKmove/EventListController" class="nav-link">Community</a>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Help
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="../admin/faq.jsp">FAQ</a>
             <a class="dropdown-item" href="../admin/support.jsp">Support</a>
-        </li>
+        </li> -->
       </ul>
       <!-- SEARCH FORM -->
-      <div class="form-inline ml-3">
+      <div class="form-inline ml-3" id="searchBar">
         <div class="input-group input-group-sm"> <!-- 70:검색창부분에서 placeholder에  --><!-- 71:key값이 아무것도 없을때 --><!-- 72:placeholder에서 메인에서 검색한 key값 가져와서 article에 적용되어 more클릭시 나머지도 보여줄수있도록하기 -->
         <c:choose> 
         <c:when test="${key != null }"> 
@@ -75,9 +95,8 @@
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
       <!-- Login and Logout -->
-            
-          <a class="nav-link" href="/testForKmove/LogController">login</a> | <a class="nav-link" href="/testForKmove/JoinController">join</a>
-
+          <a class="nav-link" href="/testForKmove/LogController" id="loginLink">login</a> | <a class="nav-link" href="/testForKmove/JoinController" id="joinLink">join</a>
+		  <a class="nav-link" href="/testForKmove/LogOutController" id="logoutLink">logout</a>
         <!-- Messages Dropdown Menu -->
 <!--  		<li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">Hello, Emaila
@@ -137,10 +156,10 @@
           </div>
         </li> -->
         <!-- Notifications Dropdown Menu -->
- 		<li class="nav-item dropdown">
+ 		<!-- <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="../mem/myhome.jsp">My Info
-            <!-- <i class="far fa-bell"></i> -->
-           <!--  <span class="badge badge-warning navbar-badge">15</span>  -->
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span> 
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header">Setting</span>
@@ -159,7 +178,7 @@
             <div class="dropdown-divider"></div>
             <a href="/testForKmove/ContactController" class="dropdown-item dropdown-footer">My Q&A</a>
           </div>
-        </li>
+        </li> -->
         
       </ul>
     </div>

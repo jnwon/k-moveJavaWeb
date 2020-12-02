@@ -65,6 +65,7 @@ float: left;
 	            	},
 	            	success : function(data){
 	                	console.log(data);
+	                	$('#loading_news').hide();
 	                	var articles = data.articles;
 	                	var length = articles.length > 3 ? 3 : articles.length; //총보여줄 페이지 수
 	                    for(i=0; i<length; i++){
@@ -117,7 +118,7 @@ float: left;
     <section id="writeButton"><a href="" id="linkToArticleController"><button type="submit" class="btn btn-outline-info">more...</button></a> </section><br>
   </div>
 </div> <!-- 버튼 나란히 하기 -->
-
+<div class="spinner-border" id="loading_news"></div>
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators" id="newsIndicators">
     <!-- <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>

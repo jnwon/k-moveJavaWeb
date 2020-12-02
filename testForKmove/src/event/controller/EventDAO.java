@@ -66,7 +66,7 @@ public class EventDAO {
 		try {
 			conn = dataFactory.getConnection();
 			//String query = "SELECT * from events WHERE no=?";
-			String query = "SELECT * from events WHERE no="+no;
+			String query = "SELECT e.no, e.title, m.name, e.publishedDate, e.isOpened, e.password, e.numOfMaxMembers, e.numOfJoiningMembers, e.numOfComment, e.numOfViews, e.numOfLikes, e.numOfAttachLinks, e.contents, e.startTime, e.endTime, e.eventPlace from events as e join Members as m  WHERE e.no="+no;
 			System.out.println("no from DAO" + no);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
@@ -76,24 +76,24 @@ public class EventDAO {
 
 			if(rs.next()) {
 				detailedEvent = new EventVO();
-				detailedEvent.setNo(rs.getInt("no"));
-				detailedEvent.setTitle(rs.getString("title"));
-				detailedEvent.setWriter(rs.getString("writer"));
-				detailedEvent.setPublishedDate(rs.getString("publishedDate"));
-				detailedEvent.setIsOpened(rs.getInt("isOpened"));
+				detailedEvent.setNo(rs.getInt("e.no"));
+				detailedEvent.setTitle(rs.getString("e.title"));
+				detailedEvent.setWriter(rs.getString("m.name"));
+				detailedEvent.setPublishedDate(rs.getString("e.publishedDate"));
+				detailedEvent.setIsOpened(rs.getInt("e.isOpened"));
 				//detailedEvent.setIsLocked(rs.getInt("isLocked"));
-				detailedEvent.setPassword(rs.getInt("password"));
+				detailedEvent.setPassword(rs.getInt("e.password"));
 				//detailedEvent.setIsLocked(rs.getInt("password") > 0 ? 1 : 0);
-				detailedEvent.setNumOfMaxMembers(rs.getInt("numOfMaxMembers"));
-				detailedEvent.setNumOfJoiningMembers(rs.getInt("numOfJoiningMembers"));
-				detailedEvent.setNumOfComment(rs.getInt("numOfComment"));
-				detailedEvent.setNumOfViews(rs.getInt("numOfViews"));
-				detailedEvent.setNumOfLikes(rs.getInt("numOfLikes"));
-				detailedEvent.setNumOfAttachLinks(rs.getInt("numOfAttachLinks"));
-				detailedEvent.setContents(rs.getString("contents"));
-				detailedEvent.setStartTime(rs.getString("startTime"));
-				detailedEvent.setEndTime(rs.getString("endTime"));
-				detailedEvent.setEventPlace(rs.getString("eventPlace"));
+				detailedEvent.setNumOfMaxMembers(rs.getInt("e.numOfMaxMembers"));
+				detailedEvent.setNumOfJoiningMembers(rs.getInt("e.numOfJoiningMembers"));
+				detailedEvent.setNumOfComment(rs.getInt("e.numOfComment"));
+				detailedEvent.setNumOfViews(rs.getInt("e.numOfViews"));
+				detailedEvent.setNumOfLikes(rs.getInt("e.numOfLikes"));
+				detailedEvent.setNumOfAttachLinks(rs.getInt("e.numOfAttachLinks"));
+				detailedEvent.setContents(rs.getString("e.contents"));
+				detailedEvent.setStartTime(rs.getString("e.startTime"));
+				detailedEvent.setEndTime(rs.getString("e.endTime"));
+				detailedEvent.setEventPlace(rs.getString("e.eventPlace"));
 				
 			}
 			rs.close();

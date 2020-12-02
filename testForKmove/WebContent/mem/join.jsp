@@ -17,6 +17,12 @@
   }
   </style>
 </head>
+
+<script>
+$(document).ready(function(){
+	 $('#searchBar').hide();
+});
+</script>
 <body>
 
 <!-- Navbar -->
@@ -26,20 +32,20 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
-      <h2>LOGIN</h2>
+      <h2>JOIN</h2>
 <div class="container">
 <form>
   <div class="form-row">
     <div class="col-md-4 mb-2">
-      <label for="validationServer01">First name</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+      <label for="validationServer01">E-mail</label>
+      <input type="text" class="form-control is-valid" id="email" required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-2">
-      <label for="validationServer02">Last name</label>
-      <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+      <label for="validationServer02">Name</label>
+      <input type="text" class="form-control is-valid" id="name" required>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -48,70 +54,21 @@
   
     <div class="form-row">
     <div class="col-md-4 mb-2">
-      <label for="validationServer01">E-Mail</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" value="Mark@mark.com" required>
+      <label for="validationServer01">password</label>
+      <input type="text" class="form-control is-valid" id="password" required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-2">
-      <label for="validationServer02">password</label>
-      <input type="text" class="form-control is-valid" id="validationServer02" value="******" required>
+      <label for="validationServer02">password confirm</label>
+      <input type="text" class="form-control is-valid" id="passwordconfirm" required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
   </div>
   
-  <div class="form-row">
-    <div class="col-md-8">
-      <label for="validationServer01">Address</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" value="1234 Main St" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
- 
-  </div>
-  
-    <div class="form-row">
-    <div class="col-md-8">
-      <label for="validationServer01">Address2</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" value="Apartment, studio, or floor" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
- 
-  </div>
-
-  
-  <div class="form-row">
-    <div class="col-md-4 mb-2">
-      <label for="validationServer03">City</label>
-      <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
-      <div id="validationServer03Feedback" class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
-    <div class="col-md-2 mb-2">
-      <label for="validationServer04">State</label>
-      <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div id="validationServer04Feedback" class="invalid-feedback">
-        Please select a valid state.
-      </div>
-    </div>
-    <div class="col-md-2 mb-2">
-      <label for="validationServer05">Zip</label>
-      <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
-      <div id="validationServer05Feedback" class="invalid-feedback">
-        Please provide a valid zip.
-      </div>
-    </div>
-  </div>
   <div class="form-group">
     <div class="form-check">
       <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>

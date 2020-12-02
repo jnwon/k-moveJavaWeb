@@ -46,7 +46,14 @@ public class LogController extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		RequestDispatcher dispatch1 = request.getRequestDispatcher("/mem/login.jsp");
-		dispatch1.forward(request, response);
+		String id = request.getParameter("id");
+		if(id != null) {
+			RequestDispatcher dispatch1 = request.getRequestDispatcher("/mem/loginfailed.jsp");
+			dispatch1.forward(request, response);
+		}
+		else {
+			RequestDispatcher dispatch1 = request.getRequestDispatcher("/mem/login.jsp");
+			dispatch1.forward(request, response);
+		}
 	}
 }

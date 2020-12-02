@@ -78,6 +78,13 @@ color: white;
 }
   </style>
 </head>
+
+<script>
+$(document).ready(function(){
+	$('#searchBar').hide();
+});
+</script>
+
 <body>
 
 <!-- Navbar -->

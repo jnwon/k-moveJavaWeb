@@ -67,6 +67,13 @@ float: left;
 }
 </style>
 </head>
+
+<script>
+
+history.replaceState({}, null, location.pathname);
+
+</script>
+
 <body>
 
 <!-- Navbar -->

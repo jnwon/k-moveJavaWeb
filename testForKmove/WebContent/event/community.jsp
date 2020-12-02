@@ -19,10 +19,16 @@
 <%-----------------------------------------------------------------------------%>
   <script type="text/javascript">
     $(document).ready( function () {        
+    	if(user_no == 'null'){
+    		$("#toEventWrite").hide();
+    	}
+    	
         $("#toEventWrite").click(function(){
       	  window.location.href="/testForKmove/EventWriteController";
-        	});
-      });
+        });
+        
+        history.replaceState({}, null, location.pathname);
+    });
   </script>
   <!-- End of DataTable Initialising -->
   <script type="text/javascript" language="javascript">
@@ -30,6 +36,8 @@
 	var url = "http://" + rootAddress + "/testForKmove/EventListForMainController";
  	
     $(document).ready(function(){
+    	
+    	$('#searchBar').hide();
     	
     	ajaxExecute();
     	

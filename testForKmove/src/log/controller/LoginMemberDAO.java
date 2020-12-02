@@ -34,28 +34,26 @@ public class LoginMemberDAO {
 		}
 	}
 	
-	public boolean isExisted(LoginMemberVO logmemVO)
+	/*
+	public int isExisted(LoginMemberVO logmemVO)
 	{
-		boolean result = false;
+		int result = 0;
 		String id = logmemVO.getId();
-		String pwd = logmemVO.getPwd();
+		int pwd = logmemVO.getPwd();
 		
 		try
 		{
 			conn = dataFactory.getConnection();
-			String query = "select * from articles";
+			String query = "select * from members where id='" + id + "' and pwd=" + pwd;
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
-			while (rs.next())
+			if (rs != null) 
 			{
-				String id = rs.getString("id");
-				String pwd = rs.getString("pwd");
-				String name = rs.getString("name");
-				String email = rs.getString("email");
-				Date joinDate = rs.getDate("joinDate");
-				LoginMemberVO memberVO = new LoginMemberVO(id, pwd, name, email, joinDate);
-				membersList.add(memberVO);
+			  rs.last();    // moves cursor to the last row
+			  if(rs.getRow() > 0) {
+				  result = rs.getInt("no");
+			  }
 			}
 			rs.close();
 			pstmt.close();
@@ -67,6 +65,73 @@ public class LoginMemberDAO {
 			e.printStackTrace();
 		}
 		
-		return membersList;
+		System.out.println(result);
+		return result;
+	}
+	*/
+	
+	public LoginMemberVO isExisted(LoginMemberVO logmemVO)
+	{
+		LoginMemberVO result = new LoginMemberVO();
+		String id = logmemVO.getId();
+		int pwd = logmemVO.getPwd();
+		
+		int userNo = 0;
+		String userName = "";
+		
+		try
+		{
+			conn = dataFactory.getConnection();
+			String query = "select * from members where id='" + id + "' and pwd=" + pwd;
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs != null) 
+			{
+			  rs.last();    // moves cursor to the last row
+			  if(rs.getRow() > 0) {
+				  userNo = rs.getInt("no");
+				  userName = rs.getString("name");
+			  }
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}
+		
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		result.setUserNo(userNo);
+		result.setName(userName);
+		return result;
+	}
+	
+	public String getUserName(int userNo)
+	{
+		String userName = "";
+		
+		try
+		{
+			conn = dataFactory.getConnection();
+			String query = "select name from members where no=" + userNo;
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			System.out.println(rs);
+			//userName = rs.getString("name");
+			System.out.println("name: " + userName);
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}
+		
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return userName;
 	}
 }
