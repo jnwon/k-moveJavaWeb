@@ -230,7 +230,7 @@ $(document).ready(function(){
 	    </div>
 	    
 	    <div class="col-sm-6">
-	      <a href="/<%=projectName%>/EventListController"><button type="submit" class="btn btn-light" id="toEventList">List</button></a>
+	      <a href="/<%=projectName%>/EventListController"><button type="button" class="btn btn-light" id="toEventList">List</button></a>
 	    </div>
     </div>
     
