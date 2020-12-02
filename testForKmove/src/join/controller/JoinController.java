@@ -37,7 +37,7 @@ public class JoinController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		joinDoHandle(request, response);
 	}
 	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,5 +48,19 @@ public class JoinController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		RequestDispatcher dispatch = request.getRequestDispatcher("/mem/join.jsp");
 		dispatch.forward(request, response);
+	}
+	
+	private void joinDoHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+//		String name = request.getParameter("name");
+//		String id = request.getParameter("id");
+//		String pass = request.getParameter("pass");
+//		String email = request.getParameter("email");
+//		
+		
+//		RequestDispatcher dispatch = request.getRequestDispatcher("/");
+//		dispatch.forward(request, response);
 	}
 }

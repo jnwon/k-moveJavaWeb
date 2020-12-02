@@ -34,8 +34,18 @@
     <div class="col-sm-8">
   
         <h2>Meetings</h2>
-      <h5>Title description, Dec 7, 2017</h5>
+  <br>
+      <div class="col-sm-12">
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <br>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
   
+  <!-- 
   <div class="col-md-12">
             <div class="card">
               <div class="card-header p-2">
@@ -44,11 +54,11 @@
                   <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
                   <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
                 </ul>
-              </div><!-- /.card-header -->
+              </div>/.card-header
               <div class="card-body">
                 <div class="tab-content">
                   <div class="tab-pane" id="activity">
-                    <!-- Post -->
+                    Post
                     <div class="post">
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
@@ -58,7 +68,7 @@
                         </span>
                         <span class="description">Shared publicly - 7:30 PM today</span>
                       </div>
-                      <!-- /.user-block -->
+                      /.user-block
                       <p>
                         Lorem ipsum represents a long-held tradition for designers,
                         typographers and the like. Some people hate it and argue for
@@ -79,9 +89,9 @@
 
                       <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
                     </div>
-                    <!-- /.post -->
+                    /.post
 
-                    <!-- Post -->
+                    Post
                     <div class="post clearfix">
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
@@ -91,7 +101,7 @@
                         </span>
                         <span class="description">Sent you a message - 3 days ago</span>
                       </div>
-                      <!-- /.user-block -->
+                      /.user-block
                       <p>
                         Lorem ipsum represents a long-held tradition for designers,
                         typographers and the like. Some people hate it and argue for
@@ -109,9 +119,9 @@
                         </div>
                       </form>
                     </div>
-                    <!-- /.post -->
+                    /.post
 
-                    <!-- Post -->
+                    Post
                     <div class="post">
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="../../dist/img/user6-128x128.jpg" alt="User Image">
@@ -121,30 +131,30 @@
                         </span>
                         <span class="description">Posted 5 photos - 5 days ago</span>
                       </div>
-                      <!-- /.user-block -->
+                      /.user-block
                       <div class="row mb-3">
                         <div class="col-sm-6">
                           <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo">
                         </div>
-                        <!-- /.col -->
+                        /.col
                         <div class="col-sm-6">
                           <div class="row">
                             <div class="col-sm-6">
                               <img class="img-fluid mb-3" src="../../dist/img/photo2.png" alt="Photo">
                               <img class="img-fluid" src="../../dist/img/photo3.jpg" alt="Photo">
                             </div>
-                            <!-- /.col -->
+                            /.col
                             <div class="col-sm-6">
                               <img class="img-fluid mb-3" src="../../dist/img/photo4.jpg" alt="Photo">
                               <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo">
                             </div>
-                            <!-- /.col -->
+                            /.col
                           </div>
-                          <!-- /.row -->
+                          /.row
                         </div>
-                        <!-- /.col -->
+                        /.col
                       </div>
-                      <!-- /.row -->
+                      /.row
 
                       <p>
                         <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
@@ -158,20 +168,20 @@
 
                       <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
                     </div>
-                    <!-- /.post -->
+                    /.post
                   </div>
-                  <!-- /.tab-pane -->
+                  /.tab-pane
                   <div class="tab-pane" id="timeline">
-                    <!-- The timeline -->
+                    The timeline
                     <div class="timeline timeline-inverse">
-                      <!-- timeline time label -->
+                      timeline time label
                       <div class="time-label">
                         <span class="bg-danger">
                           10 Feb. 2014
                         </span>
                       </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
+                      /.timeline-label
+                      timeline item
                       <div>
                         <i class="fas fa-envelope bg-primary"></i>
 
@@ -192,8 +202,8 @@
                           </div>
                         </div>
                       </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
+                      END timeline item
+                      timeline item
                       <div>
                         <i class="fas fa-user bg-info"></i>
 
@@ -204,8 +214,8 @@
                           </h3>
                         </div>
                       </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
+                      END timeline item
+                      timeline item
                       <div>
                         <i class="fas fa-comments bg-warning"></i>
 
@@ -224,15 +234,15 @@
                           </div>
                         </div>
                       </div>
-                      <!-- END timeline item -->
-                      <!-- timeline time label -->
+                      END timeline item
+                      timeline time label
                       <div class="time-label">
                         <span class="bg-success">
                           3 Jan. 2014
                         </span>
                       </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
+                      /.timeline-label
+                      timeline item
                       <div>
                         <i class="fas fa-camera bg-purple"></i>
 
@@ -249,13 +259,13 @@
                           </div>
                         </div>
                       </div>
-                      <!-- END timeline item -->
+                      END timeline item
                       <div>
                         <i class="far fa-clock bg-gray"></i>
                       </div>
                     </div>
                   </div>
-                  <!-- /.tab-pane -->
+                  /.tab-pane
 
                   <div class="tab-pane active" id="settings">
                     <form class="form-horizontal">
@@ -305,13 +315,13 @@
                       </div>
                     </form>
                   </div>
-                  <!-- /.tab-pane -->
+                  /.tab-pane
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
+                /.tab-content
+              </div>/.card-body
             </div>
-            <!-- /.nav-tabs-custom -->
-          </div>    
+            /.nav-tabs-custom
+          </div>    --> 
       
     </div>
   </div>
