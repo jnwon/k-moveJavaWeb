@@ -51,7 +51,7 @@ public class EeaController_test extends HttpServlet {
 	{
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
-		eeaCrawler.crawlAndInsertArticles();
+		//eeaCrawler.crawlAndInsertArticles();
 		
 		String gson = new Gson().toJson("EEA articles crawled and added");
 	    response.getWriter().write(gson);		
